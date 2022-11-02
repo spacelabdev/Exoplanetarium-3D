@@ -1,0 +1,16 @@
+.App-header {
+    position: absolute;
+    top: 0;
+    z-index: 99;
+    background-color: #282c34;
+    height: 5vmin;
+    width: 100%;
+    display: flex;
+}
+
+.App-header p{
+    position: relative;
+    justify-content: center;
+    font-size: 3vmin;
+    color: white;
+}
