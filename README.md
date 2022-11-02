@@ -1,7 +1,6 @@
 # About The Exoplanetarium 3D
 
-About the role and current project:
-Goal: Develop a front-end web application based on a current design that allows a user to see a “map” of the sky above, or a “SpaceMap” (working titles exist).
+Goal: Develop a front-end web application based on a current design that allows a user to see a “map” of the sky above, or a “SpaceMap”.
 
 - This SpaceMap responds to a mouse on desktop or touch on a smartphone or tablet.
 - User can drill down into a spot on the map (like zooming in on google maps) and can investigate parts of the sky
