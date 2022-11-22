@@ -4,7 +4,8 @@ import { Stars, Stats } from '@react-three/drei';
 //import { PointerLockControls } from '@react-three/drei'   Leave this commented out for now, will use orbit controls for setting up scene
 import { OrbitControls } from "@react-three/drei";
 import Ground from './Ground';
-import Exoplanets from './Exoplanets';
+import Map from './Map';
+
 
 const data = new Array(1024).fill(0).map((d,id) => ({id}));
 
@@ -18,7 +19,7 @@ function Scene() {
           <OrbitControls />
           <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
           {/*<Ground />*/}
-          <Exoplanets data={data}/>
+          <Map data={data}/>
           <Stats />
         </Canvas>
     </div>

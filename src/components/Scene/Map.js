@@ -2,10 +2,13 @@ import {React, useEffect, useRef, useState} from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Instances } from '@react-three/drei';
 import * as THREE from 'three';
+import Planet from './Planet';
+
+/*https://codesandbox.io/s/floating-instanced-shoes-h8o2d*/
 
 const planetObject = new THREE.Object3D();
 
-function Exoplanets({ data }) {
+function Map({ data }) {
     const numPlanets = data.length;
     const ref = useRef()
     useEffect(() => {
@@ -29,10 +32,9 @@ function Exoplanets({ data }) {
     }, [])
     return (
       <instancedMesh ref={ref} args={[null, null, numPlanets]}>
-        <sphereGeometry args={[.1, 10, 10]} />
-        <meshLambertMaterial color="green"/>
+        <Planet />
       </instancedMesh>
     )
   }
 
-export default Exoplanets;
+export default Map;
