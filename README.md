@@ -31,7 +31,7 @@ $ npm install npm@latest -g
 2. Clone the repo.
 
 ```
-git clone https://github.com/spacelabdev/spacelab-react
+git clone https://github.com/spacelabdev/Exoplanetarium-3D
 ```
 
 3. Install npm packages.
