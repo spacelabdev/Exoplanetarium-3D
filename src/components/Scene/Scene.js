@@ -1,4 +1,4 @@
-import './Scene.css';
+import './Scene.scss';
 import { Canvas } from '@react-three/fiber';
 import { Stars, Stats } from '@react-three/drei';
 //import { PointerLockControls } from '@react-three/drei'   Leave this commented out for now, will use orbit controls for setting up scene
