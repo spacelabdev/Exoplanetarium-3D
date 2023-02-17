@@ -5,7 +5,7 @@ function Planet(props) {
     return (
         <>
             <sphereGeometry args={[.1, 10, 10]} {...props} />
-            <meshLambertMaterial color="green"/>
+            <meshLambertMaterial color="purple"/>
         </>
     )
   }
