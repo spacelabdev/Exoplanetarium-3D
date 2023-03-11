@@ -1,0 +1,24 @@
+.visualize-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: 70px 1fr auto;
+    overflow: hidden;
+
+    .area-header {
+        grid-area: header;
+    }
+
+    .area-content {
+        grid-area: content;
+        overflow: hidden;
+    }
+
+    .area-footer {
+        grid-area: footer;
+    }
+}

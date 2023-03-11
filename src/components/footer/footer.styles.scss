@@ -1,0 +1,13 @@
+.footer-container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0;
+
+  div {
+    width: 40%;
+  }
+}

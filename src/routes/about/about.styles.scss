@@ -1,0 +1,51 @@
+.about-container {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: 70px 1fr auto;
+    overflow-y: hidden;
+
+    .area-header {
+        grid-area: header;
+    }
+
+    .area-content {
+        grid-area: content;
+        overflow-y: auto;
+        padding: 2rem 2rem 6rem;
+
+        h1 {
+            width: 100%;
+            text-align: center;
+            font-size: 4rem;
+        }
+
+        p {
+            width: 100%;
+            text-indent: 1rem;
+            font-size: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        @media (min-width: 1024px) {
+            padding: 2rem 5rem 6rem;
+            h1 {
+                font-size: 5rem;
+                margin: 7rem 0 5rem;
+
+            }
+            p {
+                padding: 2rem 0;
+                text-indent: 2rem;
+            }
+        }
+    }
+
+    .area-footer {
+        grid-area: footer;
+    }
+}

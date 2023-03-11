@@ -1,16 +1,17 @@
-import './App.scss';
-import Header from './components/Header/Header';
-import Scene from './components/Scene/Scene';
-import Footer from './components/Footer/Footer';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import Home from "./routes/home/home.component";
+import Visualize from "./routes/visualize/visualize.component";
+import About from "./routes/about/about.component";
+
+const App = () => {
   return (
-    <div className="App">
-      <Header />
-      <Scene />
-      <Footer />
-    </div>
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="visualize" element={<Visualize />} />
+      <Route path="about" element={<About />} />
+    </Routes>
   );
-}
+};
 
 export default App;

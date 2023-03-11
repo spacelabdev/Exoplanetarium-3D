@@ -1,0 +1,85 @@
+.navigation-container {
+  height: 100%;
+}
+
+.hamburger-wrapper {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}
+
+nav {
+  height: 100%;
+  display: flex;
+  background-color: black;
+  color: white;
+  padding: 0.5rem 0;
+
+  a {
+    color: white;
+
+    &:hover {
+      color: #7000ff;
+    }
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+
+    .logo-link {
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 1rem;
+
+      @media (mix-width: 767px) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .nav-links {
+    flex: 1 0 auto;
+    display: none;
+    @media (min-width: 1024px) {
+      display: flex;
+      font-size: 1.5rem;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-menu-item {
+      margin: 0 4rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      text-align: center;
+    }
+
+    // .nav-dropdown {
+    // }
+
+    .nav-dropdown:hover .nav-dropdown__content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    // .nav-dropdown__name {
+    // }
+
+    .nav-dropdown__content {
+      display: none;
+      position: absolute;
+      right: 13rem;
+      background-color: black;
+      width: 12rem;
+      padding: 0.5rem;
+      z-index: 100;
+    }
+  }
+}
