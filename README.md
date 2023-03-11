@@ -6,6 +6,8 @@ Spacelab is a project with the goal to explore NASA/CallTech data from the TESS,
 
 Our short-term goal is to find objects on interest for professional Astronomers to explore, and to classify already-identified candidates that have not yet been classified as either exoplanets or false-positives by the astronomical community.
 
+You can check out the Exoplanetarium app here: https://spacelabdev.github.io/Exoplanetarium-3D/
+
 ### Built With
 
 - React.js
