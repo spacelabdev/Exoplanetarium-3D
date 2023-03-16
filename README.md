@@ -72,3 +72,25 @@ git push origin feature/AmazingFeature
 ```
 
 5. Open a Pull Request
+
+#Deploying to Github Pages
+
+1. Update the Hompage Property
+
+change the homepage property from
+
+```
+"homepage": "./public/index.html",
+```
+
+to
+
+```
+"homepage": "https://gitname.github.io/react-gh-pages",
+```
+
+2. Deploy
+
+```
+npm run deploy
+```
