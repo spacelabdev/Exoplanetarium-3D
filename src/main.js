@@ -1,4 +1,3 @@
-import "./App.scss";
 import { Route, Routes } from "react-router";
 import Visualize from "./pages/Visualize";
 
