@@ -6,7 +6,7 @@ export default function Main() {
   return (
     <>
       <Routes>
-        <Route index element={<Visualize />} />
+        <Route path="/" element={<Visualize />} />
       </Routes>
     </>
   );

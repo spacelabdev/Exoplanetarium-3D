@@ -86,7 +86,7 @@ Change the homepage property from
 to
 
 ```
-"homepage": "https://gitname.github.io/react-gh-pages",
+"homepage": "https://spacelabdev.github.io/Exoplanetarium-3D",
 ```
 
 2. Deploy to GitHub Pages

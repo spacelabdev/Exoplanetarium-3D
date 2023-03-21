@@ -2,7 +2,7 @@
   "name": "exoplanetarium-3d",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://gitname.github.io/react-gh-pages",
+  "homepage": "https://spacelabdev.github.io/Exoplanetarium-3D",
   "dependencies": {
     "@react-three/drei": "^9.56.25",
     "@react-three/fiber": "^8.11.2",
