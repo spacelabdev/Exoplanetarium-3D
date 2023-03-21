@@ -4,7 +4,7 @@ import Visualize from "./pages/Visualize";
 export default function Main() {
   return (
     <Routes>
-      <Route exact path="/" element={<Visualize />} />
+      <Route path="/" element={<Visualize />} />
     </Routes>
   );
 }
