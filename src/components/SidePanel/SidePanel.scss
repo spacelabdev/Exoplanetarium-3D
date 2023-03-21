@@ -1,0 +1,51 @@
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  text-align: left;
+  background-color: transparent;
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  &.open {
+    transform: translateX(0);
+  }
+  .side-panel__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+    .side-panel__close {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+  .side-panel__content {
+    padding: 1rem;
+  }
+
+  .info-wrap {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 0;
+  }
+
+  h5 {
+    color: white;
+    font-size: 20px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 10px 0;
+    color: white;
+  }
+}
