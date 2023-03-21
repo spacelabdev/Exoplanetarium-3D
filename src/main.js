@@ -3,10 +3,8 @@ import Visualize from "./pages/Visualize";
 
 export default function Main() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Visualize />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route exact path="/" element={<Visualize />} />
+    </Routes>
   );
 }
