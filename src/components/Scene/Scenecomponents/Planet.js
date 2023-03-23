@@ -26,7 +26,7 @@ function Planet({ data, numPlanets, planetSelected, ...props }) {
           onClick={() => planetSelected(props)}
           onPointerMissed={() => planetSelected(null)}
         >
-          <sphereGeometry args={[0.1, 10, 10]} />
+          <sphereGeometry args={[0.1, 25]} />
           <meshLambertMaterial color="purple" />
         </mesh>
       </Instance>
