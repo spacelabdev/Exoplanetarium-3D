@@ -1,12 +1,14 @@
-import { React, useRef } from "react";
+import { React } from "react";
+import { useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
+import SunImg from "../../../assets/textures/sun.jpg";
 
 function Sun({ position, ...props }) {
-  const ref = useRef();
-
+  const colorMap = useLoader(TextureLoader, SunImg);
   return (
     <mesh>
-      <sphereGeometry position={position} args={[0.3, 16, 16]} />
-      <meshLambertMaterial color="yellow" />
+      <sphereGeometry position={position} args={[0.3, 25]} />
+      <meshStandardMaterial map={colorMap} />
     </mesh>
   );
 }
