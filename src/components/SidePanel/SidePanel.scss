@@ -37,6 +37,21 @@
   h5 {
     color: white;
     font-size: 20px;
+    font-weight: bold;
+  }
+
+  .planetData-wrap {
+    margin-top: 0;
+  }
+
+  .stellarData-wrap {
+    margin-top: 2rem;
+  }
+
+  p {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
   }
 
   ul {
@@ -47,5 +62,12 @@
   li {
     margin: 10px 0;
     color: white;
+    font-size: 14px;
+    font-style: italic;
+  }
+
+  .styled-text {
+    font-size: 16px;
+    //font-weight: bold;
   }
 }

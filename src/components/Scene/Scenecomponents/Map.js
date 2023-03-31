@@ -3,6 +3,7 @@ import { extend } from "@react-three/fiber";
 import { Instances } from "@react-three/drei";
 import * as THREE from "three";
 import Planet from "./Planet";
+import Sun from "./Sun";
 import PlanetName from "./PlanetName";
 import helvetiker from "three/examples/fonts/helvetiker_regular.typeface.json";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
@@ -21,6 +22,7 @@ function Map({ planetSelected, data }) {
 
   return (
     <>
+      <Sun position={[0, 0, 0]} />
       <Instances limit={numPlanets} range={1000}>
         <sphereGeometry args={[0.1, 10, 10]} />
         <meshLambertMaterial color="purple" />
