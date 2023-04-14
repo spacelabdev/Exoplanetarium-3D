@@ -4,9 +4,27 @@ import { Stars, Stats } from "@react-three/drei";
 //import { PointerLockControls } from '@react-three/drei'   Leave this commented out for now, will use orbit controls for setting up scene
 import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
-import planetdata from "./ExoplanetHelper";
+import { convertAllSexagesimalToDec } from "./conversionsHelper";
+import defaultPlanetData from "./ExoplanetHelper";
+import { useQuery, gql } from '@apollo/client';
+
+
 
 function Scene(props) {
+  const GET_PLANETS = gql`
+  query GetPlanets {
+    planets {
+      name
+      disposition
+      rightAscension
+      declination
+      distance
+    }
+  }
+`;
+
+  const { loading, error, data } = useQuery(GET_PLANETS)
+
   return (
     <div id="canvas-wrap">
       <Canvas>
@@ -23,7 +41,15 @@ function Scene(props) {
           fade
           speed={1}
         />
-        <Map data={planetdata} planetSelected={props.planetSelected} />
+        {loading
+          ? <p>Loading...</p>
+          : error
+            ? <p>Error : {error.message}</p>
+            : <Map 
+                data={data 
+                  ? convertAllSexagesimalToDec(data) 
+                  : defaultPlanetData} 
+                planetSelected={props.planetSelected} />}
         {/*<Stats />*/}
       </Canvas>
     </div>
