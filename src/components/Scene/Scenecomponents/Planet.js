@@ -30,12 +30,11 @@ function Planet({ data, numPlanets, planetSelected, ...props }) {
 
   return (
     <group {...props}>
-      <Instance ref={ref}>
-        <mesh
+      <Instance ref={ref} >
+        <mesh 
           onClick={() => planetSelected(props)}
-          onPointerMissed={() => planetSelected(null)}
-        >
-          <sphereGeometry args={[0.1, 25]} />
+          onPointerMissed={() => planetSelected(null)}>
+          <sphereGeometry args={[0.1, 30, 30]} />
           <meshBasicMaterial 
             map={textureOptions[Math.floor(Math.random() * 3)]}
             vertexColors={false}
