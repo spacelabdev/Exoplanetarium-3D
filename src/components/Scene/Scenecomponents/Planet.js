@@ -1,17 +1,9 @@
 import { React, useRef, useEffect } from "react";
-import { useThree } from "@react-three/fiber"
 import { Instance } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
-import BlueGiantImg from "../../../assets/textures/blueGasGiant.png";
-import RockyWorldImg from "../../../assets/textures/rocky.png";
-import TanGiantImg from "../../../assets/textures/tanGasGiant.png";
 
-function Planet({ data, numPlanets, planetSelected, ...props }) {
+
+function Planet({ data, numPlanets, planetSelected, texture, ...props }) {
   const ref = useRef();
-
-  //Textures downloaded under CC0 from OpenGameArt.org
-  const textureOptions = [useLoader(TextureLoader, BlueGiantImg), useLoader(TextureLoader, RockyWorldImg), useLoader(TextureLoader, TanGiantImg)]
 
   useEffect(() => {
     for (let d = 0; d < numPlanets; ++d) {
@@ -28,6 +20,8 @@ function Planet({ data, numPlanets, planetSelected, ...props }) {
     }
   }, [data, numPlanets]);
 
+  
+
   return (
     <group {...props}>
       <Instance ref={ref} >
@@ -36,7 +30,7 @@ function Planet({ data, numPlanets, planetSelected, ...props }) {
           onPointerMissed={() => planetSelected(null)}>
           <sphereGeometry args={[0.1, 30, 30]} />
           <meshBasicMaterial 
-            map={textureOptions[Math.floor(Math.random() * 3)]}
+            map={texture}
             vertexColors={false}
             color="white"
             />
