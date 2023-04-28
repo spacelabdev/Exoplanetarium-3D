@@ -1,7 +1,6 @@
-import { React, useEffect, useRef } from "react";
+import { React } from "react";
 import { extend } from "@react-three/fiber";
 import { Instances } from "@react-three/drei";
-import * as THREE from "three";
 import Planet from "./Planet";
 import Sun from "./Sun";
 import PlanetName from "./PlanetName";
@@ -9,6 +8,7 @@ import helvetiker from "three/examples/fonts/helvetiker_regular.typeface.json";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 extend({ TextGeometry });
+
 
 /*https://codesandbox.io/s/floating-instanced-shoes-h8o2d*/
 //Converting from celestial coordinates to cartesian coordinates
@@ -26,22 +26,23 @@ function Map({ planetSelected, data }) {
       <Instances limit={numPlanets} range={1000}>
         <sphereGeometry args={[0.1, 10, 10]} />
         <meshLambertMaterial color="purple" />
-        {data.map((props, i) => (
+        {data.map((planet, i) => { return (
           <Planet
             key={i}
             data={data}
+            texture={planet.texture}
             numPlanets={numPlanets}
             planetSelected={planetSelected}
-            {...props}
+            {...planet}
           />
-        ))}
+        )})}
       </Instances>
 
       <Instances limit={numPlanets} range={1000}>
         <textGeometry args={["", { font, size: 0.06, height: 0.001 }]} />
         <meshLambertMaterial color={"white"} />
-        {data.map((props, i) => (
-          <PlanetName key={i} id={i} {...props} />
+        {data.map((planet, i) => (
+          <PlanetName key={i} id={i} {...planet} />
         ))}
       </Instances>
     </>

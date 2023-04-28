@@ -1,12 +1,18 @@
+import React, { useEffect } from 'react'
 import "./Scene.scss";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Stats } from "@react-three/drei";
 //import { PointerLockControls } from '@react-three/drei'   Leave this commented out for now, will use orbit controls for setting up scene
 import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
-import planetdata from "./ExoplanetHelper";
+import System from "./Scenecomponents/System";
 
-function Scene(props) {
+
+
+
+const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
+  
+
   return (
     <div id="canvas-wrap">
       <Canvas>
@@ -23,7 +29,10 @@ function Scene(props) {
           fade
           speed={1}
         />
-        <Map data={planetdata} planetSelected={props.planetSelected} />
+        { selectedPlanet
+          ? <System data={selectedPlanet} planetSelected={planetSelected} />
+          : <Map data={planetdata} planetSelected={planetSelected} />
+        }
         {/*<Stats />*/}
       </Canvas>
     </div>
