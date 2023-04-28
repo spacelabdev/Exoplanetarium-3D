@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react'
 import "./Scene.scss";
 import { Canvas } from "@react-three/fiber";
 import { Stars, Stats } from "@react-three/drei";
@@ -5,8 +6,31 @@ import { Stars, Stats } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
 import planetdata from "./ExoplanetHelper";
+import { useLoader } from "@react-three/fiber";
+import { TextureLoader } from "three/src/loaders/TextureLoader";
+import BlueGiantImg from "../../assets/textures/blueGasGiant.png";
+import RockyWorldImg from "../../assets/textures/rocky.png";
+import TanGiantImg from "../../assets/textures/tanGasGiant.png";
+
 
 function Scene(props) {
+
+  //Textures downloaded under CC0 from OpenGameArt.org
+  const textureOptions = useLoader(TextureLoader, [BlueGiantImg, RockyWorldImg, TanGiantImg])
+
+  const textureSelection = Array.from(Array(10), ()=> { return Math.floor(Math.random() * textureOptions.length)})
+
+  const applyTextures = (planetData) => {
+    planetData.forEach((planet, i) => {
+      planetdata[i] = {...planet, texture: textureOptions[textureSelection[i]]}
+    })
+  }
+
+  //Modify data here to include textures before passing down
+  useEffect(()=>{
+    applyTextures(planetdata)
+  }, [])
+
   return (
     <div id="canvas-wrap">
       <Canvas>

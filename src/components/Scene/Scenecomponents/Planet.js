@@ -20,8 +20,6 @@ function Planet({ data, numPlanets, planetSelected, texture, ...props }) {
     }
   }, [data, numPlanets]);
 
-  
-
   return (
     <group {...props}>
       <Instance ref={ref} >
