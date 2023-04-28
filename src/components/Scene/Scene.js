@@ -14,6 +14,7 @@ import TanGiantImg from "../../assets/textures/tanGasGiant.png";
 
 
 function Scene(props) {
+  // look into Suspense built-in component for async delay on texture load
 
   //Textures downloaded under CC0 from OpenGameArt.org
   const textureOptions = useLoader(TextureLoader, [BlueGiantImg, RockyWorldImg, TanGiantImg])
