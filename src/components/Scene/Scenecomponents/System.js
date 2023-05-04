@@ -19,7 +19,7 @@ const font = new FontLoader().parse(helvetiker);
 const System = ({ data, planetSelected }) => {
     
     let cameraMovePosition = new THREE.Vector3();
-    
+    let starPosition = new THREE.Vector3();
     let ref = useRef()
 
     useEffect(()=>{
@@ -33,12 +33,15 @@ const System = ({ data, planetSelected }) => {
             Math.sin(data.rightAscension);
         const z = data.distance * Math.sin(data.declination);
             ref.current.position.set(x, y, z);
+            ref.current.getWorldPosition(starPosition)
         }, [])
+
+    
 
     useFrame((state, delta) => {
         console.log("camera position: ", state.camera.position)
-        state.camera.position.lerp(cameraMovePosition.set(ref.current.position.x - .125, ref.current.position.y, ref.current.position.z - 1), .01)
-        state.camera.lookAt(ref.current.position.x - .125, ref.current.position.y, ref.current.position.z)
+        state.camera.position.lerp(cameraMovePosition.set(ref.current.position.getX - 1, ref.current.position.getY, ref.current.position.getZ - .125), .01)
+        state.camera.lookAt(ref.current.position.getX - .125, ref.current.position.getY, ref.current.position.getZ)
         state.camera.updateProjectionMatrix()
     })
 
@@ -60,7 +63,7 @@ const System = ({ data, planetSelected }) => {
             </mesh>
             <textGeometry args={[data.name, { font, size: 0.06, height: 0.001 }]} />
             <meshLambertMaterial color={"white"} />
-            <Sun position={[0,0,0]} />
+            <Sun position={[starPosition[0] - .25, starPosition[1], starPosition[2]]} />
         </>
     );
 }
