@@ -1,5 +1,6 @@
-import { React } from "react";
-import { extend } from "@react-three/fiber";
+import { React, useRef, useState } from "react";
+import { extend, useThree, useFrame } from "@react-three/fiber";
+import * as THREE from 'three'
 import { Instances } from "@react-three/drei";
 import Planet from "./Planet";
 import Sun from "./Sun";
@@ -19,6 +20,20 @@ const font = new FontLoader().parse(helvetiker);
 
 function Map({ planetSelected, data }) {
   const numPlanets = data.length;
+  const [camera, setCamera] = useState(useThree((state) => state.camera))
+  const [originCameraLocation, setOriginCameraLocation] = useState(new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z))
+
+  let ref = useRef(camera)
+
+  let cameraMovePosition = new THREE.Vector3();
+
+  useFrame((state, delta) => {
+    console.log("Origin camera position: ", originCameraLocation)
+    console.log("camera position: ", state.camera.position)
+    state.camera.position.lerp(cameraMovePosition.set(originCameraLocation.x, originCameraLocation.y, originCameraLocation.z), .01)
+    state.camera.lookAt(0, 0, 0)
+    state.camera.updateProjectionMatrix()
+})
 
   return (
     <>
