@@ -1,5 +1,6 @@
 import Scene from "../components/Scene/Scene";
 import SidePanel from "../components/SidePanel/SidePanel";
+import "./Visualize.scss";
 import { React, useState, useEffect } from "react";
 
 function Visualize() {
@@ -8,7 +9,7 @@ function Visualize() {
     setSelectedPlanet(planet);
   };
   return (
-    <div>
+    <div className="visualize-wrap">
       <Scene planetSelected={planetSelected} />
       <SidePanel planet={selectedPlanet} />
     </div>
