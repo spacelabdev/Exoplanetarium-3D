@@ -72,3 +72,31 @@ git push origin feature/AmazingFeature
 ```
 
 5. Open a Pull Request
+
+## Deploying to Github Pages
+
+1. Update the Hompage Property in package.json
+
+Change the homepage property from
+
+```
+"homepage": "./public/index.html",
+```
+
+to
+
+```
+"homepage": "https://spacelabdev.github.io/Exoplanetarium-3D",
+```
+
+2. Deploy to GitHub Pages
+
+```
+npm run deploy
+```
+
+Note: When developing, the homepage property will need to be switched back to
+
+```
+"homepage": "./public/index.html",
+```

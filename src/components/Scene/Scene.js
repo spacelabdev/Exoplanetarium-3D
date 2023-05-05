@@ -6,7 +6,7 @@ import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
 import planetdata from "./ExoplanetHelper";
 
-function Scene() {
+function Scene(props) {
   return (
     <div id="canvas-wrap">
       <Canvas>
@@ -23,7 +23,7 @@ function Scene() {
           fade
           speed={1}
         />
-        <Map data={planetdata} />
+        <Map data={planetdata} planetSelected={props.planetSelected} />
         {/*<Stats />*/}
       </Canvas>
     </div>

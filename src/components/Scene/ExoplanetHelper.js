@@ -4,77 +4,141 @@
 //Declination: dd = d + m/60 + s/3600
 //https://physics.stackexchange.com/questions/434569/convert-sexagesimal-to-decimal
 
-const planetdata = [
+import { convertAllSexagesimalToDec } from "./conversionsHelper";
+
+let planetdata = [
   {
     name: "TOI-1000.01",
     disposition: "FP",
-    rightAscension: 15 * 7 + 29 / 4 + 25.85 / 240, //07h29m25.85s
-    declination: -12 + 41 / 60 + 45.46 / 3600, //"-12d41m45.46s",
+    rightAscension: "07h29m25.85s",
+    declination: "-12d41m45.46s",
     distance: 4.85, //"485.735±11.9515",
+    starData: {
+      stellarDistance: "485.735±11.9515",
+      effectiveTemperature: "10249±264.7",
+      log: "4.19±0.07",
+      radius: "2.16986±0.0725729",
+    },
   },
   {
     name: "TOI-10001.01",
     disposition: "PC",
-    rightAscension: 15 * 8 + 10 / 4 + 19.31 / 240, //08h10m19.31s
-    declination: -5 + 30 / 60 + 49.87 / 3600, //-05d30m49.87s,
+    rightAscension: "08h10m19.31s",
+    declination: " -05d30m49.87s",
     distance: 2.95, //"295.862+5.91",
+    starData: {
+      stellarDistance: "295.862±5.91",
+      effectiveTemperature: "7070±126.4",
+      log: "4.03±0.09",
+      radius: "2.01±0.09",
+    },
   },
   {
     name: "TOI-1002.01",
     disposition: "FP",
-    rightAscension: 15 * 6 + 58 / 4 + 54.47 / 240, //06h58m54.47s
-    declination: -10 + 34 / 60 + 49.64 / 3600, //-10d34m49.64s,
+    rightAscension: "06h58m54.47s",
+    declination: "-10d34m49.64s",
     distance: 9.43, //"943.109+106.333",
+    starData: {
+      stellarDistance: "943.109±106.333",
+      effectiveTemperature: "8924±124",
+      log: "",
+      radius: "5.73",
+    },
   },
   {
     name: "TOI-1003.01",
     disposition: "FP",
-    rightAscension: 15 * 7 + 22 / 4 + 14.39 / 240, //07h22m14.39s
-    declination: -25 + 12 / 60 + 25.26 / 3600, //-25d12m25.26s,
+    rightAscension: "07h22m14.39s",
+    declination: "-25d12m25.26s",
     distance: 77.28, //7728.17+1899.57
+    starData: {
+      stellarDistance: "7728.17±1899.57",
+      effectiveTemperature: "5388.5±567",
+      log: "4.15±1.64",
+      radius: "",
+    },
   },
   {
     name: "TOI-1004.01",
     disposition: "FP",
-    rightAscension: 15 * 8 + 8 / 4 + 42.77 / 240, //08h08m42.77s
-    declination: -48 + 48 / 60 + 10.12 / 3600, //-48d48m10.12s,
+    rightAscension: "08h08m42.77s",
+    declination: "-48d48m10.12s",
     distance: 3.56, //356.437+4.6175
+    starData: {
+      stellarDistance: "356.437±4.6175",
+      effectiveTemperature: "9219±171.1",
+      log: "4.14±0.07",
+      radius: "2.15±0.06",
+    },
   },
   {
     name: "TOI-1005.01",
     disposition: "FP",
-    rightAscension: 15 * 8 + 2 / 4 + 49.15 / 240, //08h02m49.15s
-    declination: -11 + 6 / 60 + 5.48 / 3600, //-11d06m05.48s
+    rightAscension: "08h02m49.15s",
+    declination: "-11d06m05.48s",
     distance: 1.0, //100.711+14.121
+    starData: {
+      stellarDistance: "100.711±14.121",
+      effectiveTemperature: "5613±179.9",
+      log: "",
+      radius: "1.09±0.07",
+    },
   },
   {
     name: "TOI-1006.01",
     disposition: "FP",
-    rightAscension: 15 * 8 + 17 / 4 + 26.22 / 240, //08h17m26.22s
-    declination: -27 + 16 / 60 + 24.68 / 3600, //-27d16m24.68s,
-    distance: 9.43, //"943.109+106.333",
+    rightAscension: "08h17m26.22s",
+    declination: "-27d16m24.68s",
+    distance: 9.43, //"943.1"09+106.333",
+    starData: {
+      stellarDistance: "",
+      effectiveTemperature: "6616±200",
+      log: "",
+      radius: "1.53429±1.4887",
+    },
   },
   {
     name: "TOI-1007.01",
     disposition: "PC",
-    rightAscension: 15 * 7 + 31 / 4 + 0.57 / 240, //07h31m00.57s
-    declination: -4 + 27 / 60 + 48.09 / 3600, //-04d27m48.09s,
+    rightAscension: "07h31m00.57s",
+    declination: "-04d27m48.09s",
     distance: 2.83, //283.291+3.0025
+    starData: {
+      stellarDistance: "283.291±3.0025",
+      effectiveTemperature: "6596±139.2",
+      log: "3.71±0.09",
+      radius: "2.7±0.13",
+    },
   },
   {
     name: "TOI-1008.01",
     disposition: "FP",
-    rightAscension: 15 * 7 + 17 / 4 + 31.88 / 240, //07h17m31.88s
-    declination: 13 + 23 / 60 + 42.79 / 3600, //+13d23m42.79s,
+    rightAscension: "07h17m31.88s",
+    declination: "+13d23m42.79s",
     distance: 1.44, //144.297
+    starData: {
+      stellarDistance: "144.297",
+      effectiveTemperature: "6858.5±584.6",
+      log: "4.2±1.9",
+      radius: "0.99±0.18",
+    },
   },
   {
     name: "TOI-1009.01",
     disposition: "PC",
-    rightAscension: 15 * 7 + 26 / 4 + 40.28 / 240, //07h26m40.28s
-    declination: -24 + 27 / 60 + 43.6 / 3600, //-24d27m43.6s
+    rightAscension: "07h26m40.28s",
+    declination: " -24d27m43.6s",
     distance: 8.66, //866.147+172.097
+    starData: {
+      stellarDistance: "866.147±172.097",
+      effectiveTemperature: "8868.7±809.8",
+      log: "",
+      radius: "",
+    },
   },
 ];
+
+planetdata = convertAllSexagesimalToDec(planetdata);
 
 export default planetdata;
