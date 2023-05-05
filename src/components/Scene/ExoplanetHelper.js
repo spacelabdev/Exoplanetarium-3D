@@ -3,7 +3,6 @@
 //Right Ascension: decimal ra = 15 * h + m/4 + s/240
 //Declination: dd = d + m/60 + s/3600
 //https://physics.stackexchange.com/questions/434569/convert-sexagesimal-to-decimal
-
 import { convertAllSexagesimalToDec } from "./conversionsHelper";
 
 let planetdata = [
