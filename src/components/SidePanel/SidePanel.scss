@@ -2,14 +2,25 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 300px;
-  height: 100%;
+  width: 350px;
+  height: auto;
+  margin: 0.3rem;
   padding: 20px;
   text-align: left;
-  background-color: transparent;
   z-index: 100;
-  transform: translateX(100%);
+  transform: translateX(120%);
   transition: transform 0.3s ease-in-out;
+  font-family: var(--Orbitron);
+  letter-spacing: 1px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: rgba(112, 0, 255, 0.1);
+  background: linear-gradient(
+    180deg,
+    rgba(112, 0, 255, 0.1) 0%,
+    rgba(112, 0, 255, 0.25) 100%
+  );
+
   &.open {
     transform: translateX(0);
   }
@@ -38,6 +49,7 @@
     color: white;
     font-size: 20px;
     font-weight: bold;
+    letter-spacing: 2px;
   }
 
   .planetData-wrap {
@@ -63,11 +75,10 @@
     margin: 10px 0;
     color: white;
     font-size: 14px;
-    font-style: italic;
+    font-family: var(--Plex-Mono);
   }
 
   .styled-text {
-    font-size: 16px;
-    //font-weight: bold;
+    font-size: 14px;
   }
 }

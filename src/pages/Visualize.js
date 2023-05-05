@@ -8,6 +8,10 @@ import BlueGiantImg from "../assets/textures/blueGasGiant.png";
 import RockyWorldImg from "../assets/textures/rocky.png";
 import TanGiantImg from "../assets/textures/tanGasGiant.png";
 
+import "./Visualize.scss";
+
+
+
 function Visualize() {
   const [selectedPlanet, setSelectedPlanet] = useState();
   const planetSelected = (planet) => {
@@ -47,6 +51,7 @@ function Visualize() {
         planetSelected={planetSelected} 
         selectedPlanet={selectedPlanet} 
         planetdata={planetdata} />
+
       <SidePanel planet={selectedPlanet} />
     </div>
   );
