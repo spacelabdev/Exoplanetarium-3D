@@ -3,7 +3,6 @@ import "./Scene.scss";
 import { Canvas, useThree } from "@react-three/fiber";
 import * as THREE from 'three'
 import { Stars, Stats } from "@react-three/drei";
-//import { PointerLockControls } from '@react-three/drei'   Leave this commented out for now, will use orbit controls for setting up scene
 import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
 import System from "./Scenecomponents/System";
@@ -21,7 +20,7 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
   return (
     <div id="canvas-wrap">
       <Canvas>
-      <color attach="background" args={["#000000"]} />
+        <color attach="background" args={["#000000"]} />
         <hemisphereLight />
         <OrbitControls 
           ref={controlsRef} />
