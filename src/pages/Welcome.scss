@@ -1,0 +1,28 @@
+body {
+  background-image: url('../assets/welcome-bg.png');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  font-family: var(--Poppins);
+}
+
+.App-welcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 10px 0;
+  }
+}
+
+.App-container {
+  padding: 100px 0;
+  border: 1px solid #7000ff;
+  border-radius: 5px;
+  max-width: 600px;
+  background-color: black;
+}
