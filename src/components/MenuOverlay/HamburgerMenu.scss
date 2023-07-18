@@ -1,15 +1,33 @@
 .MenuOverlay {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  z-index: 99;
-  color: white;
-  background-color: transparent;
-    // display: flex;
-    // align-items: center;
+    position: relative;
 }
 
-.menu-items{
+.menu-button {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 99;
+    color: white;
+    background-color: transparent;
+}
+
+.menu-close-button {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 99;
+    color: black;
+    background-color: transparent;
+}
+
+.menu-box {
+    // make opaque?
+    background-color: white;
+    padding: 100px;
+    // padding: 550px 70px 0;
+}
+
+.menu-items {
     font-family: var(--Plex-Mono);
     display: flex;
     flex-direction: column;
