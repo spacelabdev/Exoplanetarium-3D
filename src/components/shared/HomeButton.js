@@ -1,3 +1,4 @@
+import './HomeButton.scss';
 import { AiOutlineHome } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 
