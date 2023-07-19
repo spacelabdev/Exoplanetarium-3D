@@ -1,0 +1,51 @@
+body {
+  height: 100vh;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.faq-container {
+  border: 1px solid #7000ff;
+  padding: 20px 100px;
+  background-color: black;
+  max-width: 700px;
+}
+
+h1 {
+  padding: 20px 0;
+}
+
+.faq-accordion {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.faq-accordion p {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.faq-answer {
+  animation-name: animation;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in-out;
+}
+
+span {
+  cursor: pointer;
+  color: #7000ff;
+  font-size: 35px;
+}
+
+@keyframes animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
