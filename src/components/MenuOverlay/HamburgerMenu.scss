@@ -22,8 +22,6 @@
 .menu-box {
     height: 100vh;
     background-color: rgba(255, 255, 255, .9);
-    padding: 5px;
-    font-size: 30px;
 }
 
 .menu-items {
@@ -37,4 +35,10 @@
     margin-top: 25px;
     color: black;
     font-size: 20px;
+}
+
+.menu-items p {
+    padding: 5px;
+    color: black;
+    font-size: 30px;
 }

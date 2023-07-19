@@ -22,12 +22,10 @@ function MenuOverlay() {
                 <div className="menu-box">
                     <div className="menu-items">
                         <p>Menu</p>
+                        <Link to="/welcome" style={{ textDecoration: "none" }}> Welcome</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Tutorial</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Settings</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Contact Us</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Menu Item</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Menu Item</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Menu Item</Link>
                     </div>
                 </div>
 
