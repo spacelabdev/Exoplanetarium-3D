@@ -17,19 +17,25 @@
     right: 20px;
     z-index: 99;
     color: black;
-    background-color: transparent;
+    // background-color: transparent;
 }
 
 .menu-box {
     // make opaque?
-    background-color: white;
-    padding: 100px;
-    // padding: 550px 70px 0;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 5px 0px 350px;
+    font-size: 30px;
 }
 
 .menu-items {
-    font-family: var(--Plex-Mono);
+    // font-family: var(--Plex-Mono);
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.menu-items a {
+    margin-top: 25px;
+    color: black;
+    font-size: 20px;
 }
