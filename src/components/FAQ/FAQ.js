@@ -1,5 +1,5 @@
 import HomeButton from '../../components/shared/HomeButton';
-import './FAQ.css';
+import './FAQ.scss';
 import { useState } from 'react';
 
 function FAQ() {
@@ -46,11 +46,11 @@ function FAQ() {
             onClick={() => toggle(index)}
             key={index}
           >
-            <div className="aq">
+            <div className="faq">
               <p>{item.question}</p>
 
               {clicked === index && (
-                <p className="App-faq-answer">
+                <p className="faq-answer">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
                   praesentium.
                 </p>
