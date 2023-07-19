@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function HomeButton() {
   return (
-    <NavLink to="/welcome" className="App-home-button">
+    <NavLink to="/welcome" className="home-button">
       <AiOutlineHome size={50} />
     </NavLink>
   );
