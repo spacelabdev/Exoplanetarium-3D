@@ -26,3 +26,36 @@ body {
   max-width: 600px;
   background-color: black;
 }
+
+//Walkthrough Hover Effect
+
+.rectangle {
+  border: gray 2px solid;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-rectangle {
+  background-color: purple;
+  width: 100px;
+  border-right: gray 1px solid;
+  transition: all 0.5s ease-in;
+}
+
+.right-rectangle {
+  background-color: purple;
+  width: 100px;
+  border-left: gray 1px solid;
+  transition: all 0.5s ease-in;
+}
+
+.rectangle:hover {
+  .left-rectangle {
+    transform: translateX(100px);
+  }
+
+  .right-rectangle {
+    transform: translateX(-100px);
+  }
+}
