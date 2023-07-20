@@ -8,34 +8,33 @@ function MenuOverlay() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="MenuOverlay">
-            <div className="menu-button" onClick={() => setIsOpen(!isOpen)}>
-                <IoMenuSharp size={35} />
-            </div>
+        <section className="MenuOverlay">
+            <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
+                <IoMenuSharp className="menu-icon"></IoMenuSharp>
+            </button>
 
             <Menu
                 right
                 isOpen={isOpen}
                 onStateChange={({ isOpen }) => setIsOpen(isOpen)}
-                width={"250px"}
             >
-                <div className="menu-box">
-                    <div className="menu-items">
+                <nav className="menu-box">
+                    <nav className="menu-items">
                         <p>Menu</p>
                         <Link to="/welcome" style={{ textDecoration: "none" }}> Welcome</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Tutorial</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Settings</Link>
                         <Link to="/" style={{ textDecoration: "none" }}> Contact Us</Link>
-                    </div>
-                </div>
+                    </nav>
+                </nav>
 
                 {isOpen && (
-                    <div className="menu-close-button" onClick={() => setIsOpen(false)}>
-                        <IoCloseSharp size={35} />
-                    </div>
+                    <button className="menu-close-button" onClick={() => setIsOpen(false)}>
+                        <IoCloseSharp className="menu-icon"></IoCloseSharp>
+                    </button>
                 )}
             </Menu>
-        </div>
+        </section>
     );
 }
 
