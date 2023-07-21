@@ -11,8 +11,7 @@ import Walkthrough from './components/Walkthrough/Walkthrough';
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Header />
+      {/* <Header /> */}
       <Routes>
         <Route path="/" element={<Visualize />} />
         <Route exact path="/welcome" element={<Welcome />} />
@@ -20,7 +19,7 @@ function App() {
         <Route exact path="/demovideo" element={<DemoVideo />} />
         <Route exact path="/walkthrough" element={<Walkthrough />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,0 +1,17 @@
+.home-button {
+  background-color: #7000ff;
+  opacity: 0.6;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  position: fixed;
+  right: 5px;
+  bottom: 5px;
+  cursor: pointer;
+  color: white;
+  transition: all 0.5s;
+}
+
+.home-button:hover {
+  opacity: 1;
+}
