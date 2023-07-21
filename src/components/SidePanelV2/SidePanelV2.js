@@ -1,5 +1,6 @@
-import "./SidePanel.scss";
+import "./SidePanelV2.scss";
 import { React, useState, useEffect } from "react";
+import exoplanet from '../../assets/exoplanet.png'
 const defaultValue = {
   name: "",
   disposition: "",
@@ -21,6 +22,10 @@ function SidePanel({ planet }) {
   return (
     <aside className={planet ? "side-panel open" : "side-panel"}>
       <h5>Candidate {name}</h5>
+      {/* <div className={planet ? "exo-img" : "hidden"}>
+        <img src={exoplanet} alt="exoplanet" />
+      </div> */}
+
       <div className={"info-wrap"}>
         <div className="planetData-wrap">
           <p>Exoplanet Data</p>
