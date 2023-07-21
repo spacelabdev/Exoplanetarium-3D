@@ -1,14 +1,20 @@
+// .exo-img {
+//   background-image: url('../../assets/exoplanet.png');
+// }
+
 .side-panel {
   position: fixed;
   top: 0;
-  right: 0;
+  left: 0;
+  // right: 0;
   width: 350px;
-  height: auto;
-  margin: 0.3rem;
+  // width: 100vw;
+  height: 100vh;
+  margin: 0;
   padding: 20px;
   text-align: left;
   z-index: 100;
-  transform: translateX(120%);
+  transform: translateX(-120%);
   transition: transform 0.3s ease-in-out;
   font-family: var(--Orbitron);
   letter-spacing: 1px;
