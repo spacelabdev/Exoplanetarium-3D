@@ -1,5 +1,6 @@
 import "./SidePanelV2.scss";
 import { React, useState, useEffect } from "react";
+import { IoCloseSharp } from "react-icons/io5"
 import exoplanet from '../../assets/exoplanet.png'
 const defaultValue = {
   name: "",
@@ -22,22 +23,29 @@ function SidePanel({ planet }) {
   const [linkClicked, setLinkClicked] = useState(false)
 
   const handleLinkClick = () => {
-    setLinkClicked(true) // !linkclicked
-    console.log("link clicked")
+    setLinkClicked(true)
   }
 
-  return (<>
+  const handleButtonClick = () => {
+    setLinkClicked(false)
+  }
 
-    <p className={`${planet ? "show-link" : "hide-link"}  
-    ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}><i>Exoplanet {name}</i></p>
-    <aside className={linkClicked ? "side-panel open" : "side-panel"}>
-      <h5>Exoplanet {name}</h5>
-      {/* <h5>Candidate {name}</h5> */}
-      {/* <div className={planet ? "exo-img" : "hidden"}>
+  return (
+    <>
+      <p className={`${planet ? "show-link" : "hide-link"} 
+      ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p>
+
+      <aside className={linkClicked ? "side-panel open" : "side-panel"}>
+        <section className={"info-wrap"}>
+          <p>Exoplanet {name}</p>
+          <button onClick={handleButtonClick}><IoCloseSharp></IoCloseSharp></button>
+        </section>
+
+        {/* <div className={planet ? "exo-img" : "hidden"}>
         <img src={exoplanet} alt="exoplanet" />
       </div> */}
 
-      <div className={"info-wrap"}>
+        {/* <div className={"info-wrap"}>
         <div className="planetData-wrap">
           <p>Exoplanet Data</p>
           <ul>
@@ -79,9 +87,9 @@ function SidePanel({ planet }) {
             </li>
           </ul>
         </div>
-      </div>
-    </aside>
-  </>
+      </div> */}
+      </aside>
+    </>
   );
 }
 
