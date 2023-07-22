@@ -2,6 +2,19 @@
 //   background-image: url('../../assets/exoplanet.png');
 // }
 
+.show-link {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 3vh;
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+.hide-link {
+
+}
+
 .side-panel {
   position: fixed;
   top: 0;
@@ -20,12 +33,12 @@
   letter-spacing: 1px;
   border: 1px solid white;
   border-radius: 5px;
-  background: rgba(112, 0, 255, 0.1);
-  background: linear-gradient(
-    180deg,
-    rgba(112, 0, 255, 0.1) 0%,
-    rgba(112, 0, 255, 0.25) 100%
-  );
+  background: rgba(0, 0, 0, 0.9);
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(112, 0, 255, 0.1) 0%,
+  //   rgba(112, 0, 255, 0.25) 100%
+  // );
 
   &.open {
     transform: translateX(0);

@@ -54,6 +54,7 @@ function Visualize() {
         planetdata={planetdata} />
 
       {/* <SidePanel planet={selectedPlanet} /> */}
+
       <SidePanelV2 planet={selectedPlanet}/>
     </div>
   );
