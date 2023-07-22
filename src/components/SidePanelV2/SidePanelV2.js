@@ -22,13 +22,14 @@ function SidePanel({ planet }) {
   const [linkClicked, setLinkClicked] = useState(false)
 
   const handleLinkClick = () => {
-    setLinkClicked(true)
+    setLinkClicked(true) // !linkclicked
     console.log("link clicked")
   }
 
   return (<>
-    <p className={planet ? "show-link" : "hide-link"} onClick={handleLinkClick}><i>Exoplanet {name}</i></p>
 
+    <p className={`${planet ? "show-link" : "hide-link"}  
+    ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}><i>Exoplanet {name}</i></p>
     <aside className={linkClicked ? "side-panel open" : "side-panel"}>
       <h5>Exoplanet {name}</h5>
       {/* <h5>Candidate {name}</h5> */}
