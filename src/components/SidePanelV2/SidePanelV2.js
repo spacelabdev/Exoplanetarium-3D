@@ -1,7 +1,10 @@
 import "./SidePanelV2.scss";
 import { React, useState, useEffect } from "react";
-import { IoCloseSharp } from "react-icons/io5"
+import { IoCloseSharp } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
 import exoplanet from '../../assets/exoplanet.png'
+import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
+
 const defaultValue = {
   name: "",
   disposition: "",
@@ -38,6 +41,9 @@ function SidePanel({ planet }) {
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
         <section className={"info-wrap"}>
           <p>Exoplanet {name}</p>
+          <NavLink className="return-button" to="/">
+            <img src={returnToSpace} alt="returnToSpace"  className="return-hover"/>
+          </NavLink>
           <button onClick={handleButtonClick}><IoCloseSharp></IoCloseSharp></button>
         </section>
 
