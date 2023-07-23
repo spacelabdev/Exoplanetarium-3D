@@ -57,8 +57,11 @@
     right: 10%;
   }
 
-  .return-hover:hover {
-    
+  .hover-text {
+    position: fixed;
+    top: 20%;
+    left: 80%;
+    font-size: 8px;
   }
 
   button {
