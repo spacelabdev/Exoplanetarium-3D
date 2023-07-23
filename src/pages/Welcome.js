@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
-    <div className="App-welcome">
+    <section className="App-welcome">
       <main className="App-container">
         <h1>Welcome to Exoplanetarium by SpaceLab</h1>
         <div className="rectangle">
@@ -20,7 +20,7 @@ function Welcome() {
 
         <Link to="/FAQ">FAQ</Link>
       </main>
-    </div>
+    </section>
   );
 }
 

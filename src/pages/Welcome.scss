@@ -1,12 +1,9 @@
-body {
+.App-welcome {
   background-image: url('../assets/welcome-bg.png');
   background-size: cover;
   background-position: center center;
   color: white;
   font-family: var(--Poppins);
-}
-
-.App-welcome {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +23,10 @@ body {
   border-radius: 5px;
   max-width: 600px;
   background-color: black;
+
+  h1 {
+    padding: 20px;
+  }
 }
 
 //Walkthrough Hover Effect
