@@ -1,7 +1,6 @@
 import "./SidePanelV2.scss";
-import { React, useState, useEffect } from "react";
+import { React, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import { Link, useNavigate } from "react-router-dom";
 import exoplanet from '../../assets/exoplanet.png'
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
 
@@ -24,8 +23,7 @@ function SidePanel({ planet }) {
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
 
   const [linkClicked, setLinkClicked] = useState(false)
-
-  const navigate = useNavigate()
+  const [hovering, setHovering] = useState(false)
 
   const handleLinkClick = () => {
     setLinkClicked(true)
@@ -41,6 +39,14 @@ function SidePanel({ planet }) {
     window.location.reload(false)
   }
 
+  const handleHover = () => {
+    setHovering(true)
+  }
+
+  const handleHoverLeave = () => {
+    setHovering(false)
+  }
+
   return (
     <>
       <p className={`${planet ? "show-link" : "hide-link"} 
@@ -49,9 +55,14 @@ function SidePanel({ planet }) {
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
         <section className={"info-wrap"}>
           <p>Exoplanet {name}</p>
-          <button onClick={handleReturnClick} className="return-button" >
+
+          <button className="return-button"
+            onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
             <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
           </button>
+
+          {hovering && <p className="hover-text">Return to space </p>}
+          
           <button onClick={handleCloseClick}><IoCloseSharp></IoCloseSharp></button>
         </section>
 
