@@ -37,7 +37,7 @@ function FAQ() {
 
   return (
     <section className="faq-container">
-      <div className="faq-content">
+      <section className="faq-content">
         <h1>Questions? Look Here.</h1>
         <p>Still can't find an answer? Email us at fakeemail@gmail.com</p>
         {data.map((item, index) => (
@@ -59,7 +59,7 @@ function FAQ() {
             <span>{clicked === index ? '-' : '+'}</span>
           </section>
         ))}
-      </div>
+      </section>
 
       <HomeButton />
     </section>
