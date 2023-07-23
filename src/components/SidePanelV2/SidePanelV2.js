@@ -1,7 +1,7 @@
 import "./SidePanelV2.scss";
 import { React, useState, useEffect } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import exoplanet from '../../assets/exoplanet.png'
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
 
@@ -25,12 +25,20 @@ function SidePanel({ planet }) {
 
   const [linkClicked, setLinkClicked] = useState(false)
 
+  const navigate = useNavigate()
+
   const handleLinkClick = () => {
     setLinkClicked(true)
   }
 
-  const handleButtonClick = () => {
+  const handleCloseClick = () => {
+    console.log("close clicked")
     setLinkClicked(false)
+  }
+
+  const handleReturnClick = () => {
+    console.log("return clicked")
+    window.location.reload(false)
   }
 
   return (
@@ -41,10 +49,10 @@ function SidePanel({ planet }) {
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
         <section className={"info-wrap"}>
           <p>Exoplanet {name}</p>
-          <NavLink className="return-button" to="/">
-            <img src={returnToSpace} alt="returnToSpace"  className="return-hover"/>
-          </NavLink>
-          <button onClick={handleButtonClick}><IoCloseSharp></IoCloseSharp></button>
+          <button onClick={handleReturnClick} className="return-button" >
+            <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
+          </button>
+          <button onClick={handleCloseClick}><IoCloseSharp></IoCloseSharp></button>
         </section>
 
         {/* <div className={planet ? "exo-img" : "hidden"}>
