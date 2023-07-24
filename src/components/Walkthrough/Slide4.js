@@ -3,11 +3,10 @@ import './Walkthrough.scss';
 import PlanetGroup from '../../assets/planet-group.png';
 import Arrow from '../../assets/arrow.png';
 
-function Slide4() {
-  const handleNextClick = ({ onNextClick }) => {
+function Slide4({ onNextClick }) {
+  const handleNextClick = () => {
     onNextClick();
   };
-
   return (
     <section className="slide4">
       <p>Click on any star or planet to view more information</p>

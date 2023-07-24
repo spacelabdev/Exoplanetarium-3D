@@ -6,8 +6,6 @@ import Slide4 from './Slide4';
 import Slide5 from './Slide5';
 import { useMultiStepForm } from './useMultiStepForm';
 import './Walkthrough.scss';
-import Arrow from '../../assets/arrow.png';
-import PlanetGroup from '../../assets/planet-group.png';
 
 function Walkthrough() {
   const handleNextSlide = () => {
