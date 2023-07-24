@@ -1,3 +1,15 @@
+.walkthrough-container {
+  background-image: url('../../assets/welcome-bg.png');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+  font-family: var(--Poppins);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
 .walkthrough-form {
   border: 1px solid #7000ff;
   border-radius: 5px;

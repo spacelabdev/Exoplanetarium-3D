@@ -26,22 +26,17 @@ function Walkthrough() {
     <Slide5 />,
   ]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <section>
+    <section className="walkthrough-container">
       <form className="walkthrough-form" onSubmit={handleSubmit}>
         <div className="progressbar">
           <div
             style={{
-              width:
-                currentSlideIndex === 0
-                  ? '20%'
-                  : currentSlideIndex === 1
-                  ? '40%'
-                  : currentSlideIndex === 2
-                  ? '60%'
-                  : currentSlideIndex === 3
-                  ? '80%'
-                  : '100%',
+              width: `${(currentSlideIndex + 1) * 20}%`,
             }}
           ></div>
         </div>
