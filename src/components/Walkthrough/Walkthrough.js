@@ -28,7 +28,60 @@ function Walkthrough() {
 
   return (
     <section>
-      <h1> Walkthrough</h1>
+      <form className="walkthrough-form" onSubmit={handleSubmit}>
+        <div className="progressbar">
+          <div
+            style={{
+              width:
+                currentSlideIndex === 0
+                  ? '20%'
+                  : currentSlideIndex === 1
+                  ? '40%'
+                  : currentSlideIndex === 2
+                  ? '60%'
+                  : currentSlideIndex === 3
+                  ? '80%'
+                  : '100%',
+            }}
+          ></div>
+        </div>
+        {slide}
+        {isFirstSlide && (
+          <button className="walkthrough-button" onClick={nextSlide}>
+            Get Started
+          </button>
+        )}
+        {isLastSlide && (
+          <button className="walkthrough-button" onClick={previousSlide}>
+            Previous
+          </button>
+        )}
+        {currentSlideIndex === 3 && (
+          <div className="planet-images">
+            <img
+              src={PlanetGroup}
+              alt="group of planets"
+              className="planet-group"
+            />
+            <img
+              src={Arrow}
+              alt="arrow pointing upwards"
+              className="arrow"
+              onClick={nextSlide}
+            />
+          </div>
+        )}
+        {!isFirstSlide && !isLastSlide && (
+          <div className="buttons">
+            <button className="walkthrough-button" onClick={previousSlide}>
+              Previous
+            </button>
+            <button className="walkthrough-button" onClick={nextSlide}>
+              Continue
+            </button>
+          </div>
+        )}
+      </form>
       <HomeButton />
     </section>
   );
