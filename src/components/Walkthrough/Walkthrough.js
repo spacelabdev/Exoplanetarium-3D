@@ -10,6 +10,10 @@ import Arrow from '../../assets/arrow.png';
 import PlanetGroup from '../../assets/planet-group.png';
 
 function Walkthrough() {
+  const handleNextSlide = () => {
+    nextSlide();
+  };
+
   const {
     currentSlideIndex,
     isFirstSlide,
@@ -22,7 +26,7 @@ function Walkthrough() {
     <Slide1 />,
     <Slide2 />,
     <Slide3 />,
-    <Slide4 />,
+    <Slide4 onNextClick={handleNextSlide} />,
     <Slide5 />,
   ]);
 
