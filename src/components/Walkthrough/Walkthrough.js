@@ -55,21 +55,7 @@ function Walkthrough() {
             Previous
           </button>
         )}
-        {currentSlideIndex === 3 && (
-          <div className="planet-images">
-            <img
-              src={PlanetGroup}
-              alt="group of planets"
-              className="planet-group"
-            />
-            <img
-              src={Arrow}
-              alt="arrow pointing upwards"
-              className="arrow"
-              onClick={nextSlide}
-            />
-          </div>
-        )}
+
         {!isFirstSlide && !isLastSlide && (
           <div className="buttons">
             <button className="walkthrough-button" onClick={previousSlide}>
