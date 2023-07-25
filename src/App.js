@@ -7,6 +7,7 @@ import Welcome from './pages/Welcome';
 import FAQ from './components/FAQ/FAQ';
 import DemoVideo from './components/DemoVideo/DemoVideo';
 import Walkthrough from './components/Walkthrough/Walkthrough';
+import Database from './components/Database/Database';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path="/FAQ" element={<FAQ />} />
         <Route exact path="/demovideo" element={<DemoVideo />} />
         <Route exact path="/walkthrough" element={<Walkthrough />} />
+        <Route exact path="/database" element={<Database />} />
       </Routes>
       <Footer />
     </div>
