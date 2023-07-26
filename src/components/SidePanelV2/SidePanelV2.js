@@ -1,6 +1,8 @@
 import "./SidePanelV2.scss";
 import { React, useState } from "react";
+import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
@@ -55,7 +57,7 @@ function SidePanel({ planet }) {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 3
+      items: 1
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
@@ -66,6 +68,34 @@ function SidePanel({ planet }) {
       items: 1
     }
   }
+
+  const planetsSliderArray = [
+    { name: "planet1" },
+    { name: "planet2" },
+    { name: "planet3" },
+    { name: "planet4" },
+    { name: "planet5" },
+    { name: "planet6" },
+  ]
+
+  // const CustomLeftArrow = ({ onClick }) => (
+  //   <i onClick={() => onClick()} className="custom-left-arrow" />
+  // );
+  // const CustomRightArrow = ({ onClick }) => {
+  //   return <i className="custom-right-arrow" onClick={() => onClick()} />;
+  // };
+  
+  const CustomButtonGroupAsArrows = ({ next, previous }) => {
+    return (<>
+        <div className="left-arrow">
+          <button onClick={previous}><MdKeyboardArrowLeft/></button>
+        </div>
+        <div className="right-arrow">
+          <button onClick={next}><MdKeyboardArrowRight/></button>
+        </div>
+      </>
+    );
+  };
 
   return (
     <>
@@ -98,14 +128,22 @@ function SidePanel({ planet }) {
 
         <nav className="carousel">
           {/* <h1>Carousel</h1> */}
-          <Carousel responsive={responsive}
-          containerClass="carousel-container"
-          draggable={false}
+          <Carousel 
+            responsive={responsive}
+            containerClass="carousel-container"
+            draggable={false}
+            arrows={false} 
+            customButtonGroup={<CustomButtonGroupAsArrows/>}
+            renderButtonGroupOutside={true}
+            // additionalTransfrom={-10 * 5}
+            focusOnSelect={true}
+            centerMode={true}
           >
-            <div>Item 1</div>
-            <div>Item 2</div>
-            <div>Item 3</div>
-            <div>Item 4</div>
+              {planetsSliderArray.map((planet) => {
+                return <Link to="#" className="planet-icon">
+                    <img src={returnToSpace}/>
+                </Link>
+              })}
           </Carousel>
         </nav>
 

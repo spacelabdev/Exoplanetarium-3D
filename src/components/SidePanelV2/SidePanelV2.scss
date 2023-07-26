@@ -96,11 +96,39 @@
     }
   }
 
-  .carousel-container {
-    height: 75px;
-    width: inherit;
-    border: 1px solid blue;
+  .carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .carousel-container {
+      height: 75px;
+      // width: inherit;
+      width: 80%;
+      border: 1px solid blue;
+
+      .planet-icon {
+        background-color: blue;
+        border: 1px solid red;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        margin: auto center;
+      }
+    }
+
+    .left-arrow {
+      position: absolute;
+      transform: translate(-550%, 60%);
+    }
+  
+    .right-arrow {
+      position: absolute;
+      transform: translate(550%, 60%);
+    }
   }
+
+  
 
   // .side-panel__header {
   //   display: flex;
