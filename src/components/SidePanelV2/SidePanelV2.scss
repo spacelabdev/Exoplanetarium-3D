@@ -17,19 +17,22 @@
 }
 
 .side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   position: fixed;
   top: 0;
   left: 0;
   width: 370px; // change to vw?
   height: 100vh;
   margin: 0;
-  padding: 20px;
+  padding: 27px;
   text-align: left;
   z-index: 100;
   transform: translateX(-120%);
   transition: transform 0.3s ease-in-out;
-  font-family: var(--Orbitron);
-  // font-family: inherit;
+  // font-family: var(--Orbitron);
+  font-family: inherit;
   letter-spacing: 1px;
   // border: 0;
   border: 1px solid white;
@@ -45,33 +48,51 @@
     transform: translateX(0);
   }
 
-  p {
-    position: fixed;
-    top: 15.5%;
-    left: 2%;
+  .section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-wrap {
+      display: flex;
+      position: relative;
+      
+      button {
+        display: flex;
+        align-items: center;
+      }
+
+      .hover-text {
+        position: absolute;
+        top: 30px;
+        white-space: nowrap;
+        font-size: 8.5px;
+      }
+    }
   }
 
-  .return-button {
-    position: fixed;
-    top: 15%;
-    right: 10%;
-  }
-
-  .hover-text {
-    position: fixed;
-    top: 20%;
-    left: 80%;
-    font-size: 8px;
-  }
+  
 
   button {
-    position: fixed;
-    top: 15%;
-    right: 2%;
+    // position: fixed;
+    // top: 15%;
+    // right: 2%;
     font-size: 30px;
     color: white;
     border: 0;
     background-color: transparent;
+  }
+
+  .content {
+    border: 1px solid red;
+    // height: fit-content;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+
+    .content-text {
+      font-size: 15px;
+    }
   }
 
   // .side-panel__header {
