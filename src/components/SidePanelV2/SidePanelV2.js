@@ -53,18 +53,32 @@ function SidePanel({ planet }) {
       ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p>
 
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
-        <section className={"info-wrap"}>
+        <p>NAME System</p>
+
+        <section className="section-title">
           <p>Exoplanet {name}</p>
 
-          <button className="return-button"
-            onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
-            <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
-          </button>
+          <nav className="nav-wrap">
+            <button className="return-button"
+              onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
+              <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
+            </button>
 
-          {hovering && <p className="hover-text">Return to space </p>}
-          
-          <button onClick={handleCloseClick}><IoCloseSharp></IoCloseSharp></button>
+            {hovering && <p className="hover-text">Return to space </p>}
+
+            <button className="close-button" onClick={handleCloseClick}><IoCloseSharp></IoCloseSharp></button>
+          </nav>
         </section>
+
+        <section className="content">
+          <p className="content-text">
+            Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
+          </p>
+        </section>
+
+        <nav className="carousel">
+          <h1>Carousel</h1>
+        </nav>
 
         {/* <div className={planet ? "exo-img" : "hidden"}>
         <img src={exoplanet} alt="exoplanet" />
