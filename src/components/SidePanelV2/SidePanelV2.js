@@ -1,9 +1,9 @@
 import "./SidePanelV2.scss";
 import { React, useState } from "react";
 import { IoCloseSharp } from "react-icons/io5";
-import exoplanet from '../../assets/exoplanet.png'
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
-
+import Carousel from 'react-multi-carousel'
+import 'react-multi-carousel/lib/styles.css'
 const defaultValue = {
   name: "",
   disposition: "",
@@ -47,13 +47,33 @@ function SidePanel({ planet }) {
     setHovering(false)
   }
 
+  const responsive = { // make spacelab friendly
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  }
+
   return (
     <>
       <p className={`${planet ? "show-link" : "hide-link"} 
       ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p>
 
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
-        <p>NAME System</p>
+        <p className="sys-name">NAME System</p>
 
         <section className="section-title">
           <p>Exoplanet {name}</p>
@@ -66,7 +86,7 @@ function SidePanel({ planet }) {
 
             {hovering && <p className="hover-text">Return to space </p>}
 
-            <button className="close-button" onClick={handleCloseClick}><IoCloseSharp></IoCloseSharp></button>
+            <button className="close-button" onClick={handleCloseClick}><IoCloseSharp /></button>
           </nav>
         </section>
 
@@ -77,7 +97,16 @@ function SidePanel({ planet }) {
         </section>
 
         <nav className="carousel">
-          <h1>Carousel</h1>
+          {/* <h1>Carousel</h1> */}
+          <Carousel responsive={responsive}
+          containerClass="carousel-container"
+          draggable={false}
+          >
+            <div>Item 1</div>
+            <div>Item 2</div>
+            <div>Item 3</div>
+            <div>Item 4</div>
+          </Carousel>
         </nav>
 
         {/* <div className={planet ? "exo-img" : "hidden"}>
