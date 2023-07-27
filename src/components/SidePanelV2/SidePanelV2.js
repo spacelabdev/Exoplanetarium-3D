@@ -57,15 +57,15 @@ function SidePanel({ planet }) {
     },
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1
+      items: 5
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 2
+      items: 5
     },
     mobile: {
       breakpoint: { max: 464, min: 0 },
-      items: 1
+      items: 5
     }
   }
 
@@ -76,24 +76,29 @@ function SidePanel({ planet }) {
     { name: "planet4" },
     { name: "planet5" },
     { name: "planet6" },
+    // { name: "planet1" },
+    // { name: "planet2" },
+    // { name: "planet3" },
+    // { name: "planet4" },
+    // { name: "planet5" },
+    // { name: "planet6" },
+    // { name: "planet1" },
+    // { name: "planet2" },
+    // { name: "planet3" },
+    // { name: "planet4" },
+    // { name: "planet5" },
+    // { name: "planet6" },
   ]
 
-  // const CustomLeftArrow = ({ onClick }) => (
-  //   <i onClick={() => onClick()} className="custom-left-arrow" />
-  // );
-  // const CustomRightArrow = ({ onClick }) => {
-  //   return <i className="custom-right-arrow" onClick={() => onClick()} />;
-  // };
-  
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
     return (<>
-        <div className="left-arrow">
-          <button onClick={previous}><MdKeyboardArrowLeft/></button>
-        </div>
-        <div className="right-arrow">
-          <button onClick={next}><MdKeyboardArrowRight/></button>
-        </div>
-      </>
+      <div className="left-arrow">
+        <button onClick={previous}><MdKeyboardArrowLeft /></button>
+      </div>
+      <div className="right-arrow">
+        <button onClick={next}><MdKeyboardArrowRight /></button>
+      </div>
+    </>
     );
   };
 
@@ -105,51 +110,44 @@ function SidePanel({ planet }) {
       <aside className={linkClicked ? "side-panel open" : "side-panel"}>
         <p className="sys-name">NAME System</p>
 
-        <section className="section-title">
+        <section className="panel-title">
           <p>Exoplanet {name}</p>
 
           <nav className="nav-wrap">
-            <button className="return-button"
-              onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
+            <button className="return-n-close" onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
               <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
             </button>
 
             {hovering && <p className="hover-text">Return to space </p>}
 
-            <button className="close-button" onClick={handleCloseClick}><IoCloseSharp /></button>
+            <button className="return-n-close" onClick={handleCloseClick}>
+              <IoCloseSharp />
+            </button>
           </nav>
         </section>
 
-        <section className="content">
+        <section className="panel-content">
           <p className="content-text">
             Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
           </p>
         </section>
 
         <nav className="carousel">
-          {/* <h1>Carousel</h1> */}
-          <Carousel 
+          <Carousel
             responsive={responsive}
             containerClass="carousel-container"
             draggable={false}
-            arrows={false} 
-            customButtonGroup={<CustomButtonGroupAsArrows/>}
+            arrows={false}
+            customButtonGroup={<CustomButtonGroupAsArrows />}
             renderButtonGroupOutside={true}
-            // additionalTransfrom={-10 * 5}
             focusOnSelect={true}
-            centerMode={true}
+            // centerMode={true}
           >
-              {planetsSliderArray.map((planet) => {
-                return <Link to="#" className="planet-icon">
-                    <img src={returnToSpace}/>
-                </Link>
-              })}
+            {planetsSliderArray.map((planet) => {
+              return <div className="planet-icon"></div>
+            })}
           </Carousel>
         </nav>
-
-        {/* <div className={planet ? "exo-img" : "hidden"}>
-        <img src={exoplanet} alt="exoplanet" />
-      </div> */}
 
         {/* <div className={"info-wrap"}>
         <div className="planetData-wrap">

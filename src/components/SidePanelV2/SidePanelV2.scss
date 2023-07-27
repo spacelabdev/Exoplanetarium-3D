@@ -15,10 +15,8 @@
 .side-panel {
   display: flex;
   flex-direction: column;
-  // gap: 2rem;
   justify-content: space-between;
   position: fixed;
-  top: 0;
   left: 0;
   width: 370px;
   height: 100vh;
@@ -29,7 +27,6 @@
   transform: translateX(-120%);
   transition: transform 0.3s ease-in-out;
   font-family: inherit;
-  letter-spacing: 1px;
   border: 1px solid white;
   border-radius: 5px;
   background: rgba(0, 0, 0, 0.9);
@@ -43,7 +40,7 @@
     font-weight: 100;
   }
 
-  .section-title {
+  .panel-title {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,9 +54,14 @@
       display: flex;
       position: relative;
 
-      button {
+      .return-n-close {
         display: flex;
         align-items: center;
+        transform: translateX(50%);
+        font-size: 30px;
+        color: white;
+        border: 0;
+        background-color: transparent;
       }
 
       .hover-text {
@@ -71,21 +73,8 @@
     }
   }
 
-
-
-  button {
-    // close button
-    // position: fixed;
-    // top: 15%;
-    // right: 2%;
-    font-size: 30px;
-    color: white;
-    border: 0;
-    background-color: transparent;
-  }
-
-  .content {
-    border: 1px solid red;
+  .panel-content {
+    // border: 1px solid red;
     height: 70%;
     display: flex;
     flex-direction: column;
@@ -96,6 +85,13 @@
     }
   }
 
+  button {
+    font-size: 30px;
+    color: white;
+    border: 0;
+    background-color: transparent;
+  }
+
   .carousel {
     position: relative;
     display: flex;
@@ -103,9 +99,8 @@
 
     .carousel-container {
       height: 75px;
-      // width: inherit;
       width: 80%;
-      border: 1px solid blue;
+      // border: 1px solid blue;
 
       .planet-icon {
         background-color: blue;
@@ -113,7 +108,6 @@
         width: 25px;
         height: 25px;
         border-radius: 50%;
-        margin: auto center;
       }
     }
 
@@ -121,72 +115,98 @@
       position: absolute;
       transform: translate(-550%, 60%);
     }
-  
+
     .right-arrow {
       position: absolute;
       transform: translate(550%, 60%);
     }
   }
-
-  
-
-  // .side-panel__header {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   align-items: center;
-  //   padding: 1rem;
-  //   border-bottom: 1px solid #ccc;
-
-  //   .side-panel__close {
-  //     font-size: 1.5rem;
-  //     cursor: pointer;
-  //   }
-  // }
-
-  // .side-panel__content {
-  //   padding: 1rem;
-  // }
-
-  // .info-wrap {
-  //   display: flex;
-  //   flex-direction: column;
-  //   margin: 20px 0 0 0;
-  // }
-
-  // h5 {
-  //   color: white;
-  //   font-size: 20px;
-  //   font-weight: bold;
-  //   letter-spacing: 2px;
-  // }
-
-  // .planetData-wrap {
-  //   margin-top: 0;
-  // }
-
-  // .stellarData-wrap {
-  //   margin-top: 2rem;
-  // }
-
-  // p {
-  //   color: white;
-  //   font-size: 18px;
-  //   font-weight: bold;
-  // }
-
-  // ul {
-  //   list-style: none;
-  //   padding: 0;
-  // }
-
-  // li {
-  //   margin: 10px 0;
-  //   color: white;
-  //   font-size: 14px;
-  //   font-family: var(--Plex-Mono);
-  // }
-
-  // .styled-text {
-  //   font-size: 14px;
-  // }
 }
+
+@media screen and (max-width: 578px) {
+  .show-link {
+    font-size: 20px;
+  }
+
+  .sys-name {
+    font-size: 10px;
+  }
+
+  .side-panel {
+    width: 50%;
+
+    .panel-title p {
+      font-size: 10px;
+    }
+
+    .panel-content {
+      display: flex;
+      // height: 50%;
+
+      .content-text {
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+// .side-panel__header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   padding: 1rem;
+//   border-bottom: 1px solid #ccc;
+
+//   .side-panel__close {
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//   }
+// }
+
+// .side-panel__content {
+//   padding: 1rem;
+// }
+
+// .info-wrap {
+//   display: flex;
+//   flex-direction: column;
+//   margin: 20px 0 0 0;
+// }
+
+// h5 {
+//   color: white;
+//   font-size: 20px;
+//   font-weight: bold;
+//   letter-spacing: 2px;
+// }
+
+// .planetData-wrap {
+//   margin-top: 0;
+// }
+
+// .stellarData-wrap {
+//   margin-top: 2rem;
+// }
+
+// p {
+//   color: white;
+//   font-size: 18px;
+//   font-weight: bold;
+// }
+
+// ul {
+//   list-style: none;
+//   padding: 0;
+// }
+
+// li {
+//   margin: 10px 0;
+//   color: white;
+//   font-size: 14px;
+//   font-family: var(--Plex-Mono);
+// }
+
+// .styled-text {
+//   font-size: 14px;
+// }
+// }
