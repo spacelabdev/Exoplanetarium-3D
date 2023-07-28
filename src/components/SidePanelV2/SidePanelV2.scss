@@ -18,10 +18,10 @@
   justify-content: space-between;
   position: fixed;
   left: 0;
-  width: 370px;
+  width: 30%;
   height: 100vh;
   margin: 0;
-  padding: 27px;
+  padding: 35px;
   text-align: left;
   z-index: 100;
   transform: translateX(-120%);
@@ -38,16 +38,20 @@
   .sys-name {
     font-size: 15px;
     font-weight: 100;
+    font-style: italic;
   }
 
-  .panel-title {
+  .panel-title-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    p {
-      font-size: 20px;
+    .panel-title {
+      font-size: 25px;
       font-weight: 100;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 5px;
     }
 
     .nav-wrap {
@@ -62,6 +66,12 @@
         color: white;
         border: 0;
         background-color: transparent;
+        opacity: 0.8;
+
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+        }
       }
 
       .hover-text {
@@ -75,7 +85,8 @@
 
   .panel-content {
     // border: 1px solid red;
-    height: 70%;
+    height: 60%;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
 
@@ -103,10 +114,11 @@
       // border: 1px solid blue;
 
       .planet-icon {
-        background-color: blue;
-        border: 1px solid red;
-        width: 25px;
-        height: 25px;
+        // background-color: blue;
+        background-color: #d9d9d9;
+        // border: 1px solid red;
+        width: 50px;
+        height: 50px;
         border-radius: 50%;
       }
     }
@@ -120,6 +132,12 @@
       position: absolute;
       transform: translate(550%, 60%);
     }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .side-panel {
+    width: 40%;
   }
 }
 

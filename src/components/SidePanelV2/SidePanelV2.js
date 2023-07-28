@@ -52,20 +52,24 @@ function SidePanel({ planet }) {
   const responsive = { // make spacelab friendly
     superLargeDesktop: {
       // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
+      breakpoint: { max: 1200, min: 992 },
+      // items: 5
+      items: 3
     },
     desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 5
+      breakpoint: { max: 992, min: 0 },
+      // items: 5
+      items: 4
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 5
+      breakpoint: { max: 768, min: 576 },
+      // items: 5
+      items: 3
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 5
+      breakpoint: { max: 576, min: 0 },
+      // items: 5
+      items: 2
     }
   }
 
@@ -107,11 +111,11 @@ function SidePanel({ planet }) {
       <p className={`${planet ? "show-link" : "hide-link"} 
       ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p>
 
-      <aside className={linkClicked ? "side-panel open" : "side-panel"}>
+      <aside className={planet && linkClicked ? "side-panel open" : "side-panel"}>
         <p className="sys-name">NAME System</p>
 
-        <section className="panel-title">
-          <p>Exoplanet {name}</p>
+        <section className="panel-title-container">
+          <p className="panel-title">Exoplanet {name}</p>
 
           <nav className="nav-wrap">
             <button className="return-n-close" onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
