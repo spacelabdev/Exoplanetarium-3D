@@ -1,0 +1,42 @@
+.demo-video {
+    padding: 10px;
+    margin: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+.video-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    padding-bottom: 56.25%;
+    background-color: black;
+    border: #7000ff 2px solid;
+    border-radius: 5px;
+}
+
+.video {
+    /* Follow edges of rectangle*/
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+#close-button {
+    color: white;
+    font-weight: bold;
+    background-color: black;
+    opacity: 0.6;
+    border: white 2px solid;
+    border-radius: 50%;
+    padding: 3px 6px;
+    position: fixed;
+    top: 75px;
+    right: 25px;
+    transition: all 0.5s;
+}
+
+#close-button:hover {
+    opacity: 1;
+}
