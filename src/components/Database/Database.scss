@@ -5,28 +5,44 @@
   width: 50px;
   height: 50px;
   cursor: pointer;
+  position: fixed;
+  top: 50px;
+  left: 5px; // Move the database icon to the top right of the site
+  z-index: 999; // Ensure the icon appears on top of other elements
 }
 
 .exoplanet-database {
   position: fixed;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  left: 14%;
+  transform: translate(-65%, -50%);
   padding: 20px;
-  background-color: #fff;
+  background-color: #FAFAFA;
+  border: 1px solid white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 999;
   max-width: 400px;
+
+  color: black;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px; // Add spacing between the button and header
+
+  // Change header text color to black
+  h2 {
+    color: black;
+  }
 }
 
 .close-button {
   cursor: pointer;
+  border: black;
+  background-color: transparent;
+  font-size: 12px; // Make the close button smaller
 }
 
 .search-bar {
@@ -34,14 +50,14 @@
 }
 
 .exoplanet-item {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   padding: 10px;
   margin-top: 10px;
 }
 
 .search-input {
   padding: 5px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
   width: 100%;
   max-width: 300px;

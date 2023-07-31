@@ -14,13 +14,13 @@ function App() {
     <div className="App">
       <Header />
       <Header />
+      <Database />
       <Routes>
         <Route path="/" element={<Visualize />} />
         <Route exact path="/welcome" element={<Welcome />} />
         <Route exact path="/FAQ" element={<FAQ />} />
         <Route exact path="/demovideo" element={<DemoVideo />} />
         <Route exact path="/walkthrough" element={<Walkthrough />} />
-        <Route exact path="/database" element={<Database />} />
       </Routes>
       <Footer />
     </div>

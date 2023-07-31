@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
+import "./Database.scss";
+import databaseIcon from "../../assets/database.png";
 
-// Replace with your actual database icon image
-import databaseIcon from "../../assets//database.png";
-
-const Database = () => {
+const Database = () => {    
   const [showDatabase, setShowDatabase] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -29,12 +28,7 @@ const Database = () => {
 
   return (
     <div>
-      <img
-        src={databaseIcon}
-        alt="Database Icon"
-        className="database-icon"
-        onClick={handleIconClick}
-      />
+
 
       {showDatabase && (
         <div className="exoplanet-database">
@@ -63,6 +57,14 @@ const Database = () => {
           </div>
         </div>
       )}
+
+      <img
+        src={databaseIcon}
+        alt="Database Icon"
+        className="database-icon"
+        onClick={handleIconClick}
+      />
+
     </div>
   );
 };
