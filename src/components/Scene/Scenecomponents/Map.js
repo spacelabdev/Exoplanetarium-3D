@@ -18,11 +18,10 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-const Map = ({ planetSelected, data, cameraPosition, setCameraPosition, controlsRef, controlsActive, setControlsActive }) => {
+const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
   const numPlanets = data.length;
   const camera = useThree((state)=>state.camera)
   let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
-  let destinationCameraPosition = new THREE.Vector3()
 
   let cameraMovePosition = new THREE.Vector3();
   let controls = controlsRef.current
@@ -30,7 +29,6 @@ const Map = ({ planetSelected, data, cameraPosition, setCameraPosition, controls
   
   useEffect(()=>{
     cameraTarget.set(0,0,0)
-    setCameraPosition(new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z))
   }, [])
 
   useEffect(()=>{
@@ -43,10 +41,9 @@ const Map = ({ planetSelected, data, cameraPosition, setCameraPosition, controls
     controls.addEventListener('end', () => {
       setControlsActive(false)
       destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
-      setCameraPosition(new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z))
     })
 
-  }, [controlsRef.current])
+  }, [])
 
   useFrame((state, delta) => {
     if (controlsActive){
@@ -66,7 +63,11 @@ const Map = ({ planetSelected, data, cameraPosition, setCameraPosition, controls
     }
     
     if (state.camera.position !== originCameraLocation && !controlsActive){
-      state.camera.position.lerp(cameraMovePosition.set(originCameraLocation.x, originCameraLocation.y, originCameraLocation.z), .01)
+      moveCameraTo(state, 
+        originCameraLocation.x, 
+        originCameraLocation.y, 
+        originCameraLocation.z
+      )
       state.camera.updateProjectionMatrix()
     }
 })

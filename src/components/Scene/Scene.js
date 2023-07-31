@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./Scene.scss";
-import { Canvas, useThree } from "@react-three/fiber";
+import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import * as THREE from 'three'
 import { Stars, Stats } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
@@ -12,9 +12,32 @@ import System from "./Scenecomponents/System";
 
 const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
   let controlsRef = useRef();
-  let [cameraPosition, setCameraPosition] = useState(new THREE.Vector3(25, 0, 25))
   let [controlsActive, setControlsActive] = useState(false)
+  let destinationCameraPosition = new THREE.Vector3()
 
+  const moveCameraTo = (context, x, y, z) => {
+    context.camera.position.lerp(
+      destinationCameraPosition.set(
+        x, 
+        y, 
+        z
+      ), 
+      .01
+    );
+  }
+
+  // useEffect(()=>{
+  //   if (selectedPlanet){
+  //     console.log(controlsRef.current)
+  //     destinationCameraPosition.set(
+  //       controlsRef.current.target.x + .25, 
+  //       controlsRef.current.target.y, 
+  //       controlsRef.current.target.z + .25
+  //     )
+  //   } else{
+  //     destinationCameraPosition.set(0, 0, 0)
+  //   }
+  // }, [selectedPlanet])
 
   
   return (
@@ -37,19 +60,19 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
           ? <System 
               data={selectedPlanet} 
               planetSelected={planetSelected} 
-              cameraPosition={cameraPosition} 
-              setCameraPosition={setCameraPosition} 
               controlsRef={controlsRef} 
               controlsActive={controlsActive} 
-              setControlsActive={setControlsActive} />
+              setControlsActive={setControlsActive}
+              destinationCameraPosition={destinationCameraPosition}
+              moveCameraTo={moveCameraTo} />
           : <Map 
               data={planetdata} 
-              planetSelected={planetSelected} 
-              cameraPosition={cameraPosition} 
-              setCameraPosition={setCameraPosition} 
+              planetSelected={planetSelected}  
               controlsRef={controlsRef} 
               controlsActive={controlsActive} 
-              setControlsActive={setControlsActive} />
+              setControlsActive={setControlsActive}
+              destinationCameraPosition={destinationCameraPosition}
+              moveCameraTo={moveCameraTo} />
         }
         {/*<Stats />*/}
       </Canvas>
