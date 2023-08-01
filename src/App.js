@@ -8,6 +8,7 @@ import FAQ from './components/FAQ/FAQ';
 import DemoVideo from './components/DemoVideo/DemoVideo';
 import Walkthrough from './components/Walkthrough/Walkthrough';
 import Database from './components/Database/Database';
+import MenuOverlay from './components/MenuOverlay/HamburgerMenu';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       <Header />
       <Header />
       <Database />
+      {/* <Header /> */}
+      <MenuOverlay />
       <Routes>
         <Route path="/" element={<Visualize />} />
         <Route exact path="/welcome" element={<Welcome />} />
@@ -22,7 +25,7 @@ function App() {
         <Route exact path="/demovideo" element={<DemoVideo />} />
         <Route exact path="/walkthrough" element={<Walkthrough />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
