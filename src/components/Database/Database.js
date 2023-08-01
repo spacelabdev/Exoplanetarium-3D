@@ -26,17 +26,17 @@ const Database = () => {
     planet.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  const totalResults = filteredExoplanets.length;
+
   return (
     <div>
-
-
       {showDatabase && (
         <div className="exoplanet-database">
           <div className="header">
+          <h2>Exoplanetarium Database</h2>
             <div className="close-button" onClick={() => setShowDatabase(false)}>
               X
             </div>
-            <h2>Exoplanetarium Database</h2>
           </div>
           <div className="search-bar">
             <input
@@ -47,6 +47,10 @@ const Database = () => {
               onChange={handleSearchChange}
             />
           </div>
+          <p className="result-count">
+            Displaying 1 to {filteredExoplanets.length} of {totalResults} results
+          </p>
+          
           <div className="exoplanets">
             {filteredExoplanets.map((planet) => (
               <div className="exoplanet-item" key={planet.name}>
