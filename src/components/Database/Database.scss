@@ -1,6 +1,6 @@
 // styles.scss
 
-// Main.js styles
+
 .database-icon {
   width: 40px;
   height: 30px;
@@ -14,15 +14,27 @@
 
 .exoplanet-database {
   position: fixed;
-  top: 40%;
-  left: 14%;
+  top: 41%;
+  left: 13%;
   transform: translate(-65%, -50%);
   padding: 20px;
   background-color: #FAFAFA;
-  border: 1px solid white;
+  border: 3px solid white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 998;
-  max-width: 400px;
+  width: 400px;
+  max-height: 60vh;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+
+
+  @media (max-width: 768px) {
+    top: 5%; /* Adjust the top position to prevent the component from being cut off */
+    left: 10%; /* Adjust the left position to prevent the component from being cut off */
+    max-height: 80vh;
+    transform: none; /* Remove the translation to reset the positioning */
+    
+  }
 
   color: black;
 }

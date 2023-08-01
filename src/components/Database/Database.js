@@ -5,12 +5,18 @@ import databaseIcon from "../../assets/database.png";
 const Database = () => {    
   const [showDatabase, setShowDatabase] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  
 
   // Static array
   const staticExoplanets = [
     { name: 'Exoplanet 1', distance: '100 light-years' },
     { name: 'Exoplanet 2', distance: '200 light-years' },
     { name: 'Exoplanet 3', distance: '150 light-years' },
+    { name: 'Exoplanet 4', distance: '250 light-years' },
+    { name: 'Exoplanet 5', distance: '350 light-years' },
+    { name: 'Exoplanet 6', distance: '300 light-years' },
+    { name: 'Exoplanet 7', distance: '400 light-years' },
+
     // Add more exoplanets as needed
   ];
 
@@ -67,6 +73,7 @@ const Database = () => {
         alt="Database Icon"
         className="database-icon"
         onClick={handleIconClick}
+        title="Database"
       />
 
     </div>
