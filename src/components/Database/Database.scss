@@ -4,19 +4,19 @@
   cursor: pointer;
   position: fixed;
   top: 50px;
-  left: 5px; 
+  left: 5px;
   z-index: 999;
-  opacity: 1; /* Set the default opacity when the database is not open */
+  opacity: 1;
 }
 
 .database-icon.transparent {
-  opacity: 0; /* Adjust the opacity for the transparent state */
+  opacity: 0.5;
 }
 
 .exoplanet-database {
   position: fixed;
-  top: 50px;
-  left: 5px; /* Keep the database on the left side */
+  top: 7%;
+  left: -400px; /* Initial position outside the left edge of the screen */
   padding: 20px;
   background-color: #FAFAFA;
   border: 3px solid white;
@@ -26,60 +26,75 @@
   max-height: 60vh;
   overflow-y: auto;
   color: black;
+  transition: left 0.3s ease; 
+
+  &.open {
+    left: 0; 
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+
+    h2 {
+      color: black;
+    }
+  }
+
+  .close-button {
+    cursor: pointer;
+    border: black;
+    background-color: transparent;
+    font-size: 20px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  .search-bar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    align-items: flex-start;
+  }
+
+  .result-count {
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .exoplanets {
+    .exoplanet-item {
+      border: 1px solid black;
+      padding: 10px;
+      margin-top: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+      h3 {
+        margin-bottom: 5px;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .search-input {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+  }
 
   @media (max-width: 768px) {
-    top: 5%; /* Adjust the top position to prevent the component from being cut off */
-    left: 10%; /* Adjust the left position to prevent the component from being cut off */
+    top: 5%;
+    left: 10%;
     max-height: 80vh;
+    transform: none;
   }
-}
-
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px; 
-  margin-top: 10px;
-
-  h2 {
-    color: black;
-  }
-}
-
-.close-button {
-  cursor: pointer;
-  border: black;
-  background-color: transparent;
-  font-size: 20px;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.search-bar {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  align-items: flex-start;
-}
-
-.result-count {
-  font-size: 14px; 
-  margin-top: 5px;
-}
-
-.exoplanet-item {
-  border: 1px solid black;
-  padding: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.search-input {
-  padding: 5px 10px;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 100%;
-  max-width: 300px;
 }

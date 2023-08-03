@@ -36,14 +36,14 @@ const Database = () => {
 
   return (
     <div>
-      {showDatabase && (
-        <div className="exoplanet-database">
-          <div className="header">
+      <div
+        className={`exoplanet-database ${showDatabase ? 'open' : ''}`}>
+        <div className="header">
           <h2>Exoplanetarium Database</h2>
-            <div className="close-button" onClick={() => setShowDatabase(false)}>
+          <div className="close-button" onClick={() => setShowDatabase(false)}>
             <FaTimes />
-            </div>
           </div>
+        </div>
           <div className="search-bar">
             <input
               type="text"
@@ -66,7 +66,7 @@ const Database = () => {
             ))}
           </div>
         </div>
-      )}
+      )
 
 
       {!showDatabase && (
