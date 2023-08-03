@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import { FaTimes, FaDatabase } from 'react-icons/fa';
 import "./Database.scss";
-import databaseIcon from "../../assets/database.png";
 
 const Database = () => {    
   const [showDatabase, setShowDatabase] = useState(false);
@@ -21,7 +21,7 @@ const Database = () => {
   ];
 
   const handleIconClick = () => {
-    setShowDatabase(true);
+    setShowDatabase(!showDatabase);
   };
 
   const handleSearchChange = (event) => {
@@ -41,7 +41,7 @@ const Database = () => {
           <div className="header">
           <h2>Exoplanetarium Database</h2>
             <div className="close-button" onClick={() => setShowDatabase(false)}>
-              X
+            <FaTimes />
             </div>
           </div>
           <div className="search-bar">
@@ -68,13 +68,12 @@ const Database = () => {
         </div>
       )}
 
-      <img
-        src={databaseIcon}
-        alt="Database Icon"
-        className="database-icon"
-        onClick={handleIconClick}
-        title="Database"
-      />
+
+      {!showDatabase && (
+        <div className={`database-icon ${showDatabase ? 'transparent' : ''}`} onClick={handleIconClick}>
+          <FaDatabase size={30} />
+        </div>
+      )}
 
     </div>
   );
