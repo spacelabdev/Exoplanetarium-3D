@@ -1,11 +1,13 @@
 import "./SidePanelV2.scss";
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
+import planetIcon from '../../assets/HighlightedPlanet.svg'
+import starIcon from '../../assets/Star.svg'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+
 const defaultValue = {
   name: "",
   disposition: "",
@@ -49,15 +51,14 @@ function SidePanel({ planet }) {
     setHovering(false)
   }
 
-  const responsive = { // make spacelab friendly
+  const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 1200, min: 992 },
+      breakpoint: { max: 2000, min: 992 },
       // items: 5
-      items: 3
+      items: 4
     },
     desktop: {
-      breakpoint: { max: 992, min: 0 },
+      breakpoint: { max: 992, min: 768 },
       // items: 5
       items: 4
     },
@@ -73,26 +74,14 @@ function SidePanel({ planet }) {
     }
   }
 
-  const planetsSliderArray = [
-    { name: "planet1" },
-    { name: "planet2" },
-    { name: "planet3" },
-    { name: "planet4" },
-    { name: "planet5" },
-    { name: "planet6" },
-    // { name: "planet1" },
-    // { name: "planet2" },
-    // { name: "planet3" },
-    // { name: "planet4" },
-    // { name: "planet5" },
-    // { name: "planet6" },
-    // { name: "planet1" },
-    // { name: "planet2" },
-    // { name: "planet3" },
-    // { name: "planet4" },
-    // { name: "planet5" },
-    // { name: "planet6" },
-  ]
+  const planetSliderArray = [
+    { name: "planet1", image: planetIcon, size: "30%" },
+    { name: "planet2", image: planetIcon, size: "70%" },
+    { name: "planet3", image: planetIcon, size: "80%" },
+    { name: "planet4", image: planetIcon, size: "50%" },
+    { name: "planet5", image: planetIcon, size: "70%" },
+    { name: "planet6", image: starIcon, size: "100%" },
+  ];
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
     return (<>
@@ -136,22 +125,29 @@ function SidePanel({ planet }) {
           </p>
         </section>
 
-        <nav className="carousel">
+        <section className="planet-slider">
           <Carousel
             responsive={responsive}
-            containerClass="carousel-container"
             draggable={false}
+            // showDots={true}
+            containerClass="cont"
+            infinite={true}
             arrows={false}
             customButtonGroup={<CustomButtonGroupAsArrows />}
             renderButtonGroupOutside={true}
-            focusOnSelect={true}
-            // centerMode={true}
           >
-            {planetsSliderArray.map((planet) => {
-              return <div className="planet-icon"></div>
-            })}
+            {planetSliderArray.map((planetItem) => (
+              <div key={planetItem.name}>
+                <img
+                  src={planetItem.image}
+                  alt={`Image of ${planetItem.name}`}
+                  style={{ width: planetItem.size }}
+                // style={{ width: 70 }}
+                />
+              </div>
+            ))}
           </Carousel>
-        </nav>
+        </section>
 
         {/* <div className={"info-wrap"}>
         <div className="planetData-wrap">

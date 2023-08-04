@@ -84,7 +84,7 @@
   }
 
   .panel-content {
-    // border: 1px solid red;
+    border: 1px solid red;
     height: 60%;
     overflow: scroll;
     display: flex;
@@ -94,43 +94,45 @@
       font-size: 15px;
       font-weight: 100;
     }
-  }
 
-  button {
-    font-size: 30px;
-    color: white;
-    border: 0;
-    background-color: transparent;
-  }
-
-  .carousel {
-    position: relative;
-    display: flex;
-    justify-content: center;
-
-    .carousel-container {
-      height: 75px;
-      width: 80%;
-      // border: 1px solid blue;
-
-      .planet-icon {
-        // background-color: blue;
-        background-color: #d9d9d9;
-        // border: 1px solid red;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-      }
+    &::-webkit-scrollbar {
+      display: none;
     }
+  }
+
+  // planet slider
+  .planet-slider {
+    border: 1px solid blue;
+    height: 15%;
+    width: auto;
+
+    img {
+      // height: auto;
+      // width: auto;
+      // width: 70%;
+      border: 1px solid blue;
+      // margin: 0 10px;
+    }
+
+    button {
+      font-size: 20px;
+      color: white;
+      border: 0;
+      background-color: transparent;
+      // border: 1px solid red;
+    }
+
 
     .left-arrow {
       position: absolute;
-      transform: translate(-550%, 60%);
+      transform: translate(-150%, -320%)
+      // transform: translate(-550%, -160%);
     }
 
     .right-arrow {
       position: absolute;
-      transform: translate(550%, 60%);
+      transform: translate(2000%, -320%)
+      // transform: translate(550%, 60%);
     }
   }
 }
@@ -147,24 +149,30 @@
   }
 
   .sys-name {
-    font-size: 10px;
+    font-size: 10px !important;
   }
 
   .side-panel {
-    width: 50%;
+    width: 100%;
+    height: 50%;
 
-    .panel-title p {
-      font-size: 10px;
+    .panel-title {
+      font-size: 20px !important;
     }
 
-    .panel-content {
-      display: flex;
-      // height: 50%;
+    // .panel-content {
+    //   display: flex;
+    //   // height: 50%;
 
-      .content-text {
-        font-size: 10px;
-      }
-    }
+    //   .content-text {
+    //     font-size: 10px;
+    //   }
+    // }
+
+    // .return-n-close {
+    //   font-size: 20px !important;
+    //   border: 1px solid red !important;
+    // }
   }
 }
 
