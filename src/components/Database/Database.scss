@@ -143,6 +143,25 @@
     }
   }
 
+  .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .database-icon:hover .tooltip {
+    opacity: 1;
+  }
+
   .search-input {
     padding: 5px 10px;
     border: 1px solid black;

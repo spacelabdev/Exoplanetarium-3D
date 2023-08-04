@@ -8,6 +8,7 @@ import "./Database.scss";
 const Database = () => {    
   const [showDatabase, setShowDatabase] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showTooltip, setShowTooltip] = useState(false);
   
 
   // Static array
@@ -73,10 +74,17 @@ const Database = () => {
             ))}
           </div>
         </div>
-      )
+      
 
-      <div className={`database-icon ${showDatabase ? 'transparent' : ''}`} onClick={handleIconClick}>
+      {/* Database Icon with Transparency */}
+      <div
+        className={`database-icon ${showDatabase ? 'transparent' : ''}`}
+        onClick={handleIconClick}
+        onMouseEnter={() => setShowTooltip(true)} // Show tooltip when mouse enters the icon
+        onMouseLeave={() => setShowTooltip(false)} // Hide tooltip when mouse leaves the icon
+      >
         <PiDatabaseBold size={40} />
+        {showTooltip && <div className="tooltip">Database</div>}
       </div>
     </div>
   );
