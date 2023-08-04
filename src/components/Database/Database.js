@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { FaTimes, FaDatabase, FaSearch } from 'react-icons/fa';
+import { BsSearch } from 'react-icons/bs';
+import { IoCloseSharp } from "react-icons/io5";
+import { PiDatabaseBold } from 'react-icons/pi';
 import placeholderPhoto from "../../assets/textures/tanGasGiant.png";
 import "./Database.scss";
 
@@ -40,13 +42,13 @@ const Database = () => {
         <div className="header">
         <h2>Exoplanetarium Database</h2>
             <div className="close-button" onClick={() => setShowDatabase(false)}>
-              <FaTimes />
+              <IoCloseSharp />
             </div>
           </div>
           <div className="search-bar">
             <div className="search-box">
               <div className="search-icon">
-                <FaSearch />
+                <BsSearch />
               </div>
               <input
                 type="text"
@@ -74,7 +76,7 @@ const Database = () => {
       )
 
       <div className={`database-icon ${showDatabase ? 'transparent' : ''}`} onClick={handleIconClick}>
-        <FaDatabase size={40} />
+        <PiDatabaseBold size={40} />
       </div>
     </div>
   );
