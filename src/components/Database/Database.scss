@@ -44,7 +44,7 @@
   left: -400px; /* Initial position outside the left edge of the screen */
   padding: 20px;
   background-color: #FAFAFA;
-  border: 3px solid white;
+  border: 3px solid black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 998;
   width: 400px;
@@ -117,16 +117,20 @@
 
   .result-count-left {
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 10px;
     text-align: left; /* Align the text to the left */
   }
 
   .exoplanets {
+
+    border: 1px solid black; /* Add a border around the exoplanets */
+    padding: 10px;
+    margin-top: 10px;
     
     .exoplanet-item {
       border: 1px solid black;
       padding: 10px;
-      margin-top: 10px;
+      margin-top: 5px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 
       h3 {
