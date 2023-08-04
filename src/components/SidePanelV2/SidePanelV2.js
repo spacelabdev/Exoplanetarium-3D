@@ -54,22 +54,18 @@ function SidePanel({ planet }) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 2000, min: 992 },
-      // items: 5
-      items: 4
+      items: 6
     },
     desktop: {
       breakpoint: { max: 992, min: 768 },
-      // items: 5
       items: 4
     },
     tablet: {
       breakpoint: { max: 768, min: 576 },
-      // items: 5
       items: 3
     },
     mobile: {
       breakpoint: { max: 576, min: 0 },
-      // items: 5
       items: 2
     }
   }
@@ -80,7 +76,7 @@ function SidePanel({ planet }) {
     { name: "planet3", image: planetIcon, size: "80%" },
     { name: "planet4", image: planetIcon, size: "50%" },
     { name: "planet5", image: planetIcon, size: "70%" },
-    { name: "planet6", image: starIcon, size: "100%" },
+    { name: "planet6", image: starIcon, size: "70%" },
   ];
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
@@ -129,7 +125,6 @@ function SidePanel({ planet }) {
           <Carousel
             responsive={responsive}
             draggable={false}
-            // showDots={true}
             containerClass="cont"
             infinite={true}
             arrows={false}

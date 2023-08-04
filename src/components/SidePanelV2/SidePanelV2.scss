@@ -84,7 +84,7 @@
   }
 
   .panel-content {
-    border: 1px solid red;
+    // border: 1px solid red;
     height: 60%;
     overflow: scroll;
     display: flex;
@@ -102,16 +102,15 @@
 
   // planet slider
   .planet-slider {
-    border: 1px solid blue;
+    // border: 1px solid blue;
     height: 15%;
     width: auto;
+    display: flex;
+    align-items: center;
 
     img {
-      // height: auto;
-      // width: auto;
-      // width: 70%;
-      border: 1px solid blue;
-      // margin: 0 10px;
+      display: flex;
+      // border: 1px solid blue;
     }
 
     button {
@@ -122,17 +121,14 @@
       // border: 1px solid red;
     }
 
-
     .left-arrow {
       position: absolute;
-      transform: translate(-150%, -320%)
-      // transform: translate(-550%, -160%);
+      transform: translate(-100%);
     }
 
     .right-arrow {
-      position: absolute;
-      transform: translate(2000%, -320%)
-      // transform: translate(550%, 60%);
+      position: relative;
+      transform: translate(100%);
     }
   }
 }
@@ -153,8 +149,8 @@
   }
 
   .side-panel {
-    width: 100%;
-    height: 50%;
+    height: 100%;
+    width: 50%;
 
     .panel-title {
       font-size: 20px !important;
