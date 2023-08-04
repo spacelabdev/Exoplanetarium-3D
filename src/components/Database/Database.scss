@@ -10,8 +10,35 @@
 }
 
 .database-icon.transparent {
-  opacity: 0.5;
+  opacity: 0.0;
 }
+
+.exoplanet-item {
+  display: flex; /* Use flexbox to align items */
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  .photo {
+    width: 60px;
+    height: 60px;
+    margin-right: 10px;
+  }
+
+  .exoplanet-info {
+    h3 {
+      margin-bottom: 5px;
+      font-weight: normal;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+}
+
+
 
 .exoplanet-database {
   position: fixed;
@@ -41,6 +68,7 @@
 
     h2 {
       color: black;
+      font-weight: normal;
     }
   }
 
@@ -59,14 +87,44 @@
     display: flex;
     align-items: center;
     align-items: flex-start;
+    background-color: #FAFAFA;
+  
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 5px;
+      padding: 5px;
+  
+      .search-input {
+        padding: 5px 10px;
+        border: none;
+        outline: none;
+        flex: 1;
+        width: 300px;
+        background-color: #FAFAFA;
+      }
+  
+      .search-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px; /* Add margin to separate the icon from the input */
+      }
+    }
   }
 
-  .result-count {
+  .result-count-left {
     font-size: 14px;
     margin-top: 5px;
+    text-align: left; /* Align the text to the left */
   }
 
   .exoplanets {
+    
     .exoplanet-item {
       border: 1px solid black;
       padding: 10px;

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaTimes, FaDatabase } from 'react-icons/fa';
+import { FaTimes, FaDatabase, FaSearch } from 'react-icons/fa';
+import placeholderPhoto from "../../assets/textures/tanGasGiant.png";
 import "./Database.scss";
 
 const Database = () => {    
@@ -9,13 +10,11 @@ const Database = () => {
 
   // Static array
   const staticExoplanets = [
-    { name: 'Exoplanet 1', distance: '100 light-years' },
-    { name: 'Exoplanet 2', distance: '200 light-years' },
-    { name: 'Exoplanet 3', distance: '150 light-years' },
-    { name: 'Exoplanet 4', distance: '250 light-years' },
-    { name: 'Exoplanet 5', distance: '350 light-years' },
-    { name: 'Exoplanet 6', distance: '300 light-years' },
-    { name: 'Exoplanet 7', distance: '400 light-years' },
+    { name: 'Exoplanet 1', photo: placeholderPhoto },
+    { name: 'Exoplanet 2', photo: placeholderPhoto },
+    { name: 'Exoplanet 3', photo: placeholderPhoto },
+    { name: 'Exoplanet 4', photo: placeholderPhoto },
+    { name: 'Exoplanet 5', photo: placeholderPhoto },
 
     // Add more exoplanets as needed
   ];
@@ -39,42 +38,44 @@ const Database = () => {
       <div
         className={`exoplanet-database ${showDatabase ? 'open' : ''}`}>
         <div className="header">
-          <h2>Exoplanetarium Database</h2>
-          <div className="close-button" onClick={() => setShowDatabase(false)}>
-            <FaTimes />
+        <h2>Exoplanetarium Database</h2>
+            <div className="close-button" onClick={() => setShowDatabase(false)}>
+              <FaTimes />
+            </div>
           </div>
-        </div>
           <div className="search-bar">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search..."
-              value={searchTerm}
-              onChange={handleSearchChange}
-            />
+            <div className="search-box">
+              <div className="search-icon">
+                <FaSearch />
+              </div>
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search..."
+                value={searchTerm}
+                onChange={handleSearchChange}
+              />
+            </div>
           </div>
-          <p className="result-count">
+          <p className="result-count-left">
             Displaying 1 to {filteredExoplanets.length} of {totalResults} results
           </p>
-          
           <div className="exoplanets">
             {filteredExoplanets.map((planet) => (
               <div className="exoplanet-item" key={planet.name}>
-                <h3>{planet.name}</h3>
-                <p>Distance: {planet.distance}</p>
+                <img src={planet.photo || placeholderPhoto} alt={planet.name} className="photo" />
+                <div className="exoplanet-info">
+                  <h3>{planet.name}</h3>
+                </div>
               </div>
             ))}
           </div>
         </div>
       )
 
-
-      {!showDatabase && (
-        <div className={`database-icon ${showDatabase ? 'transparent' : ''}`} onClick={handleIconClick}>
-          <FaDatabase size={30} />
-        </div>
-      )}
-
+      <div className={`database-icon ${showDatabase ? 'transparent' : ''}`} onClick={handleIconClick}>
+        <FaDatabase size={40} />
+      </div>
     </div>
   );
 };
