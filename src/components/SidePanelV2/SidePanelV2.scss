@@ -101,34 +101,57 @@
   }
 
   // planet slider
-  .planet-slider {
-    // border: 1px solid blue;
-    height: 15%;
-    width: auto;
-    display: flex;
-    align-items: center;
+  .planet-slider-container {
+    position: relative;
+    border: 1px solid pink;
+    width: 100%;
 
-    img {
-      display: flex;
-      // border: 1px solid blue;
-    }
+    .planet-slider {
+      border: 1px solid blue;
+      margin: 0 auto;
+      width: 100%;
 
-    button {
-      font-size: 20px;
-      color: white;
-      border: 0;
-      background-color: transparent;
-      // border: 1px solid red;
-    }
+      .cont {
+        border: 1px solid red;
+        width: 85%;
+        top: 50%;
+        margin: 0 auto;
+      }
 
-    .left-arrow {
-      position: absolute;
-      transform: translate(-100%);
-    }
+      .planet-item {
+        border: 1px solid green;
+        display: flex;
+        justify-content: center;
+        height: 100%;
+      }
 
-    .right-arrow {
-      position: relative;
-      transform: translate(100%);
+      img {
+        // height: auto;
+        // width: auto;
+        // width: 70%;
+        border: 1px solid blue;
+        // margin: 0 10px;
+      }
+
+      button {
+        font-size: 20px;
+        color: white;
+        border: 0;
+        background-color: transparent;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        width: fit-content;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+      }
+
+      .carousel-arrow.right-arrow {
+        right: 0;
+      }
     }
   }
 }

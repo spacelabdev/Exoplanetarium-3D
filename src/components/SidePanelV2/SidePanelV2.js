@@ -81,11 +81,11 @@ function SidePanel({ planet }) {
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
     return (<>
-      <div className="left-arrow">
-        <button onClick={previous}><MdKeyboardArrowLeft /></button>
+      <div>
+        <button onClick={previous} className="carousel-arrow left-arrow"><MdKeyboardArrowLeft /></button>
       </div>
-      <div className="right-arrow">
-        <button onClick={next}><MdKeyboardArrowRight /></button>
+      <div>
+        <button onClick={next} className="carousel-arrow right-arrow"><MdKeyboardArrowRight /></button>
       </div>
     </>
     );
@@ -121,27 +121,30 @@ function SidePanel({ planet }) {
           </p>
         </section>
 
-        <section className="planet-slider">
-          <Carousel
-            responsive={responsive}
-            draggable={false}
-            containerClass="cont"
-            infinite={true}
-            arrows={false}
-            customButtonGroup={<CustomButtonGroupAsArrows />}
-            renderButtonGroupOutside={true}
-          >
-            {planetSliderArray.map((planetItem) => (
-              <div key={planetItem.name}>
-                <img
-                  src={planetItem.image}
-                  alt={`Image of ${planetItem.name}`}
-                  style={{ width: planetItem.size }}
-                // style={{ width: 70 }}
-                />
-              </div>
-            ))}
-          </Carousel>
+        <section className="planet-slider-container">
+          {/* hi */}
+          <section className="planet-slider">
+            <Carousel
+              responsive={responsive}
+              draggable={false}
+              containerClass="cont"
+              infinite={true}
+              arrows={false}
+              customButtonGroup={<CustomButtonGroupAsArrows />}
+              renderButtonGroupOutside={true}
+            >
+              {planetSliderArray.map((planetItem) => (
+                <div key={planetItem.name} class="planet-item">
+                  <img
+                    src={planetItem.image}
+                    alt={`Image of ${planetItem.name}`}
+                    style={{ width: planetItem.size }}
+                  // style={{ width: 70 }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </section>
         </section>
 
         {/* <div className={"info-wrap"}>
