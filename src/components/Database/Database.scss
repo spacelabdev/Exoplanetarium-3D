@@ -47,8 +47,8 @@
   border: 3px solid black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 998;
-  width: 400px;
-  max-height: 60vh;
+  width: 500px;
+  max-height: 80vh;
   overflow-y: auto;
   color: black;
   transition: left 0.3s ease; 
@@ -85,6 +85,7 @@
     display: flex;
     align-items: center;
     align-items: flex-start;
+    width: 100%;
     background-color: #FAFAFA;
   
     .search-box {
@@ -93,6 +94,8 @@
       align-items: center;
       border: 1px solid black;
       border-radius: 5px;
+      width: 100%;
+      max-width: 500px;
       padding: 5px;
   
       .search-input {
@@ -100,7 +103,8 @@
         border: none;
         outline: none;
         flex: 1;
-        width: 300px;
+        width: 100%;
+        max-width: 500px;
         background-color: #FAFAFA;
       }
   
