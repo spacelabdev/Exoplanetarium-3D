@@ -7,11 +7,15 @@ import Welcome from './pages/Welcome';
 import FAQ from './components/FAQ/FAQ';
 import DemoVideo from './components/DemoVideo/DemoVideo';
 import Walkthrough from './components/Walkthrough/Walkthrough';
+import Database from './components/Database/Database';
 import MenuOverlay from './components/MenuOverlay/HamburgerMenu';
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Header />
+      <Database />
       {/* <Header /> */}
       <MenuOverlay />
       <Routes>
