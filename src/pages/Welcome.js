@@ -3,8 +3,19 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
+<<<<<<< HEAD
     <div className="app-welcome">
       <main className="app-container">
+=======
+    <section className="App-welcome">
+      <main className="App-container">
+        <h1>Welcome to Exoplanetarium by SpaceLab</h1>
+        <div className="rectangle">
+          <div className="left-rectangle"></div>
+          <Link to="/walkthrough">Walkthrough</Link>
+          <div className="right-rectangle"></div>
+        </div>
+>>>>>>> feature/walkthrough
 
         <div className="app-title">
           <h1>Welcome to Exoplanetarium</h1>
@@ -40,7 +51,7 @@ function Welcome() {
         </div>
         
       </main>
-    </div>
+    </section>
   );
 }
 

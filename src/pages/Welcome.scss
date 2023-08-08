@@ -1,12 +1,15 @@
-body {
+.App-welcome {
   background-image: url('../assets/welcome-bg.png');
   background-size: cover;
   background-position: center center;
   color: white;
   font-family: var(--Poppins);
+<<<<<<< HEAD
 }
 
 .app-welcome {
+=======
+>>>>>>> feature/walkthrough
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +32,10 @@ body {
   border-radius: 5px;
   width: 700px;
   background-color: black;
+
+  h1 {
+    padding: 20px;
+  }
 }
 
 .app-title {
