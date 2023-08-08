@@ -103,34 +103,22 @@
   // planet slider
   .planet-slider-container {
     position: relative;
-    border: 1px solid pink;
     width: 100%;
 
     .planet-slider {
-      border: 1px solid blue;
       margin: 0 auto;
       width: 100%;
 
-      .cont {
-        border: 1px solid red;
+      .carousel-container {
         width: 85%;
         top: 50%;
         margin: 0 auto;
       }
 
       .planet-item {
-        border: 1px solid green;
         display: flex;
         justify-content: center;
         height: 100%;
-      }
-
-      img {
-        // height: auto;
-        // width: auto;
-        // width: 70%;
-        border: 1px solid blue;
-        // margin: 0 10px;
       }
 
       button {
@@ -153,47 +141,81 @@
         right: 0;
       }
     }
-  }
-}
 
-@media screen and (max-width: 992px) {
-  .side-panel {
-    width: 40%;
-  }
-}
-
-@media screen and (max-width: 578px) {
-  .show-link {
-    font-size: 20px;
-  }
-
-  .sys-name {
-    font-size: 10px !important;
-  }
-
-  .side-panel {
-    height: 100%;
-    width: 50%;
-
-    .panel-title {
-      font-size: 20px !important;
+    p {
+      font-size: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #CCB975;
     }
-
-    // .panel-content {
-    //   display: flex;
-    //   // height: 50%;
-
-    //   .content-text {
-    //     font-size: 10px;
-    //   }
-    // }
-
-    // .return-n-close {
-    //   font-size: 20px !important;
-    //   border: 1px solid red !important;
-    // }
   }
 }
+
+// mobile
+// @media screen and (max-width: 576px) {
+//   .show-link {
+//     font-size: 20px;
+//   }
+
+//   .side-panel {
+//     width: 45%;
+
+//     .sys-name {
+//       font-size: 10px;
+//     }
+
+//     .panel-title-container {
+//       .panel-title {
+//         font-size: 15px;
+//       }
+//     }
+
+//     .nav-wrap {
+//       .return-n-close {
+//         font-size: 10px !important;
+//       }
+//   }
+// }
+// }
+
+// @media screen and (max-width: 992px) {
+//   .side-panel {
+//     width: 40%;
+//   }
+// }
+
+// @media screen and (max-width: 576px) {
+//   .show-link {
+//     font-size: 20px;
+//   }
+
+//   .sys-name {
+//     font-size: 10px !important;
+//   }
+
+//   .side-panel {
+//     height: 100%;
+//     width: 50%;
+
+//     .panel-title {
+//       font-size: 20px !important;
+//     }
+
+// .panel-content {
+//   display: flex;
+//   // height: 50%;
+
+//   .content-text {
+//     font-size: 10px;
+//   }
+// }
+
+// .return-n-close {
+//   font-size: 20px !important;
+//   border: 1px solid red !important;
+// }
+//   }
+// }
 
 // .side-panel__header {
 //   display: flex;

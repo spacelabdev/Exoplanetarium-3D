@@ -122,7 +122,6 @@ function SidePanel({ planet }) {
         </section>
 
         <section className="planet-slider-container">
-          {/* hi */}
           <section className="planet-slider">
             <Carousel
               responsive={responsive}
@@ -139,12 +138,12 @@ function SidePanel({ planet }) {
                     src={planetItem.image}
                     alt={`Image of ${planetItem.name}`}
                     style={{ width: planetItem.size }}
-                  // style={{ width: 70 }}
                   />
                 </div>
               ))}
             </Carousel>
           </section>
+          <p>Exoplanet {name}</p>
         </section>
 
         {/* <div className={"info-wrap"}>
