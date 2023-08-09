@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
-<<<<<<< HEAD
+
     <div className="app-welcome">
       <main className="app-container">
-=======
+
     <section className="App-welcome">
       <main className="App-container">
         <h1>Welcome to Exoplanetarium by SpaceLab</h1>
@@ -15,7 +15,6 @@ function Welcome() {
           <Link to="/walkthrough">Walkthrough</Link>
           <div className="right-rectangle"></div>
         </div>
->>>>>>> feature/walkthrough
 
         <div className="app-title">
           <h1>Welcome to Exoplanetarium</h1>
@@ -47,11 +46,18 @@ function Welcome() {
               <div className="right-rectangle faq"></div>
             </div>
           </Link>
-          
-        </div>
+          </main>
+          </div>
+          </section>  
+          </main>
+          </div>
+       
+       
+         
+      
         
-      </main>
-    </section>
+   
+         
   );
 }
 
