@@ -1,3 +1,4 @@
+/* The actual database icon itself (database) */
 .database-icon {
   width: 40px;
   height: 30px;
@@ -7,24 +8,56 @@
   left: 5px;
   z-index: 999;
   opacity: 1;
+
+  /* Database label logistics */
+
+  .tooltip {
+    position: absolute;
+    top: 120%;
+    left: 100%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .database-icon:hover .tooltip {
+    opacity: 1;
+  }
 }
+
+/* Makes icon unclickable when open */
+
+.unclickable {
+  pointer-events: none;
+}
+
+/* Transparency of the icon */
 
 .database-icon.transparent {
   opacity: 0.0;
 }
 
+/* Each exoplanet item */
+
 .exoplanet-item {
-  display: flex; /* Use flexbox to align items */
-  border: 1px solid black;
+  display: flex; 
   padding: 10px;
   margin-top: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+  /* Photos for the exoplanets */
 
   .photo {
     width: 60px;
     height: 60px;
     margin-right: 10px;
   }
+  
+  /* Data about each exoplanet */
 
   .exoplanet-info {
     h3 {
@@ -38,9 +71,12 @@
   }
 }
 
+/* The actual database itself */
+
 .exoplanet-database {
   position: fixed;
   top: 7%;
+  bottom: 0;
   left: -500px; 
   padding: 20px;
   background-color: #FAFAFA;
@@ -48,14 +84,18 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 998;
   width: 500px;
-  max-height: 80vh;
+  max-height: 92vh;
   overflow-y: auto;
   color: black;
   transition: left 0.3s ease; 
 
+  /*  Moves to be shown when database is opened */
+
   &.open {
     left: 0; 
   }
+
+  /* Header of database */
 
   .header {
     display: flex;
@@ -70,6 +110,8 @@
     }
   }
 
+  /* Close button icon (X) */
+
   .close-button {
     cursor: pointer;
     border: black;
@@ -80,6 +122,8 @@
     right: 10px;
   }
 
+  /* Search bar */
+
   .search-bar {
     margin-top: 10px;
     display: flex;
@@ -87,6 +131,8 @@
     align-items: flex-start;
     width: 100%;
     background-color: #FAFAFA;
+
+    /* Search box */
   
     .search-box {
       position: relative;
@@ -97,6 +143,8 @@
       width: 100%;
       max-width: 500px;
       padding: 5px;
+
+      /* Search input */
   
       .search-input {
         padding: 5px 10px;
@@ -108,29 +156,37 @@
         background-color: #FAFAFA;
       }
   
+      /* Search icon (magnifying glass) */
+
       .search-icon {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 30px;
         height: 30px;
-        margin-right: 5px; /* Add margin to separate the icon from the input */
+        margin-right: 5px; 
       }
     }
   }
 
+  /* Displays x to x of x results */
+
   .result-count-left {
     font-size: 14px;
     margin-top: 10px;
-    text-align: left; /* Align the text to the left */
+    text-align: left;
   }
+
+  /* Exoplanet shelves */
 
   .exoplanets {
 
-    border: 1px solid black; /* Add a border around the exoplanets */
+    /* Border for the box around items */
+    border: 1px solid black; 
     padding: 10px;
     margin-top: 10px;
     
+    /* Border for the boxes of items */
     .exoplanet-item {
       border: 1px solid black;
       padding: 10px;
@@ -147,25 +203,7 @@
     }
   }
 
-  .tooltip {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .database-icon:hover .tooltip {
-    opacity: 1;
-  }
-
+  /* Search input box */
   .search-input {
     padding: 5px 10px;
     border: 1px solid black;
@@ -173,6 +211,8 @@
     width: 100%;
     max-width: 300px;
   }
+
+  /* Screen fitting */
 
   @media (max-width: 768px) {
     top: 5%;
