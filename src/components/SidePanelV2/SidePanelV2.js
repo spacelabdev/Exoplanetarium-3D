@@ -26,7 +26,7 @@ function SidePanel({ planet }) {
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
 
-  const [closeClicked, setCloseClicked] = useState(true)
+  const [panelStatus, setPanelStatus] = useState(true)
   const [hovering, setHovering] = useState(false)
 
   // const handleLinkClick = () => {
@@ -34,11 +34,12 @@ function SidePanel({ planet }) {
   // }
 
   const handleCloseClick = () => {
-    setCloseClicked(false)
+    setPanelStatus(false)
   }
 
   const handleReturnClick = () => {
     window.location.reload(false)
+    // setPanelStatus(true)
   }
 
   const handleHover = () => {
@@ -94,13 +95,13 @@ function SidePanel({ planet }) {
       {/* <p className={`${planet ? "show-link" : "hide-link"} 
       ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p> */}
 
-      <aside className={planet && closeClicked ? "side-panel open" : "side-panel"}>
+      <aside className={planet && panelStatus ? "side-panel open" : "side-panel"}>
 
         {/* <aside className={planet && linkClicked ? "side-panel open" : "side-panel"}> */}
         <p className="sys-name">NAME System</p>
 
         <section className="panel-title-container">
-          <p className="panel-title">Exoplanet {name}</p>
+          <p className="panel-title"> {name}</p>
 
           <div className="button-wrap">
             <button className="return-n-close" onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
