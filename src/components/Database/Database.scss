@@ -1,7 +1,7 @@
 /* The actual database icon itself (database) */
 .database-icon {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 40px;
   cursor: pointer;
   position: fixed;
   top: 50px;
@@ -13,8 +13,8 @@
 
   .tooltip {
     position: absolute;
-    top: 120%;
-    left: 100%;
+    top: 100%;
+    left: 120%;
     transform: translateX(-50%);
     color: white;
     padding: 5px 10px;

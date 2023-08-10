@@ -8,6 +8,8 @@ import { PiDatabaseBold } from 'react-icons/pi';
 import placeholderPhoto from "../../assets/textures/tanGasGiant.png";
 //Import corresponding scss
 import "./Database.scss";
+//Import array from ExoplanetHelper
+import planetdata from '../Scene/ExoplanetHelper';
 
 //Set everything to defaults
 const Database = () => {    
@@ -17,19 +19,10 @@ const Database = () => {
   
 
   // Static array
-  const staticExoplanets = [
-    { name: 'Exoplanet 1', photo: placeholderPhoto },
-    { name: 'Exoplanet 2', photo: placeholderPhoto },
-    { name: 'Exoplanet 3', photo: placeholderPhoto },
-    { name: 'Exoplanet 4', photo: placeholderPhoto },
-    { name: 'Exoplanet 5', photo: placeholderPhoto },
-    { name: 'Exoplanet 6', photo: placeholderPhoto },
-    { name: 'Exoplanet 7', photo: placeholderPhoto },
-    { name: 'Exoplanet 8', photo: placeholderPhoto },
-    { name: 'Exoplanet 9', photo: placeholderPhoto },
-
-    // Add more exoplanets as needed
-  ];
+  const staticExoplanets = planetdata.map((planet) => ({
+    name: planet.name,
+    photo: placeholderPhoto,
+  }));
 
   //Shows database
   const handleIconClick = () => {
@@ -85,15 +78,14 @@ const Database = () => {
           <div className="exoplanets">
             {/* Filtering planets */}
             {filteredExoplanets.map((planet) => (
-              <div className="exoplanet-item" key={planet.name}>
-                {/* Displaying photo */}
-                <img src={planet.photo || placeholderPhoto} alt={planet.name} className="photo" />
-                {/* Where data would go */}
-                <div className="exoplanet-info">
-                  <h3>{planet.name}</h3>
-                </div>
+            <div className="exoplanet-item" key={planet.name}>
+              <img src={planet.photo || placeholderPhoto} alt={planet.name} className="photo" />
+              <div className="exoplanet-info">
+                <h3>{planet.name}</h3>
+                {/* Render additional starData properties as needed */}
               </div>
-            ))}
+            </div>
+          ))}
           </div>
         </div>
       
