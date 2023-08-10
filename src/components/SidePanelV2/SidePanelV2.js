@@ -26,15 +26,15 @@ function SidePanel({ planet }) {
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
 
-  const [linkClicked, setLinkClicked] = useState(false)
+  const [closeClicked, setCloseClicked] = useState(true)
   const [hovering, setHovering] = useState(false)
 
-  const handleLinkClick = () => {
-    setLinkClicked(true)
-  }
+  // const handleLinkClick = () => {
+  //   setLinkClicked(true)
+  // }
 
   const handleCloseClick = () => {
-    setLinkClicked(false)
+    setCloseClicked(false)
   }
 
   const handleReturnClick = () => {
@@ -91,10 +91,12 @@ function SidePanel({ planet }) {
 
   return (
     <>
-      <p className={`${planet ? "show-link" : "hide-link"} 
-      ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p>
+      {/* <p className={`${planet ? "show-link" : "hide-link"} 
+      ${linkClicked ? "hide-link" : "show-link"}`} onClick={handleLinkClick}> Exoplanet {name}</p> */}
 
-      <aside className={planet && linkClicked ? "side-panel open" : "side-panel"}>
+      <aside className={planet && closeClicked ? "side-panel open" : "side-panel"}>
+
+        {/* <aside className={planet && linkClicked ? "side-panel open" : "side-panel"}> */}
         <p className="sys-name">NAME System</p>
 
         <section className="panel-title-container">
