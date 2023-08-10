@@ -18,7 +18,7 @@
   justify-content: space-between;
   position: fixed;
   left: 0;
-  width: 30%;
+  width: 30vw;
   height: 100vh;
   margin: 0;
   padding: 35px;
@@ -36,7 +36,7 @@
   }
 
   .sys-name {
-    font-size: 15px;
+    font-size: 17px;
     font-weight: 100;
     font-style: italic;
   }
@@ -47,14 +47,14 @@
     align-items: center;
 
     .panel-title {
-      font-size: 25px;
+      font-size: 35px;
       font-weight: 100;
       text-decoration: underline;
       text-decoration-thickness: 1.5px;
       text-underline-offset: 5px;
     }
 
-    .nav-wrap {
+    .button-wrap {
       display: flex;
       position: relative;
 
@@ -62,11 +62,16 @@
         display: flex;
         align-items: center;
         transform: translateX(50%);
-        font-size: 30px;
+        font-size: 45px;
         color: white;
         border: 0;
         background-color: transparent;
         opacity: 0.8;
+
+        .return-hover {
+          width: 3rem;
+          height: 3rem;
+        }
 
         &:hover {
           cursor: pointer;
@@ -76,9 +81,9 @@
 
       .hover-text {
         position: absolute;
-        top: 30px;
+        top: 5.5vh;
         white-space: nowrap;
-        font-size: 8.5px;
+        font-size: .7em;
       }
     }
   }
@@ -90,7 +95,7 @@
     flex-direction: column;
 
     .content-text {
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 100;
     }
 
@@ -99,7 +104,6 @@
     }
   }
 
-  // planet slider
   .planet-slider-container {
     position: relative;
     width: 100%;
@@ -121,7 +125,7 @@
       }
 
       button {
-        font-size: 20px;
+        font-size: 30px;
         color: white;
         border: 0;
         background-color: transparent;
@@ -130,19 +134,21 @@
       .carousel-arrow {
         position: absolute;
         width: fit-content;
-        top: 50%;
-        transform: translateY(-50%);
+        top: 30%;
+        transform: translateX(-15px);
         display: flex;
         align-items: center;
       }
 
       .carousel-arrow.right-arrow {
         right: 0;
+        top: 30%;
+        transform: translateX(15px);
       }
     }
 
     p {
-      font-size: 10px;
+      font-size: 15px;
       text-align: center;
       text-transform: uppercase;
       color: #CCB975;
@@ -157,7 +163,7 @@
   }
 
   .side-panel {
-    width: 45%;
+    width: 45vw;
 
     .sys-name {
       font-size: 10px;
@@ -165,19 +171,31 @@
 
     .panel-title-container {
       .panel-title {
-        font-size: 20px;
+        font-size: 15px;
       }
-    }
 
-    .nav-wrap {
-      .return-n-close {
-        // need to seperate?
-        font-size: 20px !important;
-        border: 1px solid red !important;
+      .button-wrap {
+        .return-n-close {
+          transform: translateY(100%);
+          font-size: 20px !important;
+        }
+
+        .return-hover {
+          width: 1.5rem !important;
+          height: 1.5rem !important;
+        }
+      }
+
+      .hover-text {
+        top: 7.5vh !important;
+        right: .5vw !important;
+        font-size: 5px !important;
       }
     }
 
     .panel-content {
+      height: 55%;
+
       .content-text {
         font-size: 10px;
       }
@@ -185,58 +203,38 @@
 
     .planet-slider-container {
       .planet-slider {
-        .carousel-arrow {
-          transform: translateY(-120%) !important;
-          // transform: translateX(-10%) !important;
+        button {
+          font-size: 20px !important;
         }
       }
 
       p {
-        font-size: 8px !important;
+        font-size: 7px !important;
       }
     }
   }
 }
 
-// @media screen and (max-width: 992px) {
-//   .side-panel {
-//     width: 40%;
-//   }
-// }
+@media screen and (max-width: 768px) {
+  .side-panel {
+    width: 50vw;
+  }
+}
 
-// @media screen and (max-width: 576px) {
-//   .show-link {
-//     font-size: 20px;
-//   }
+@media screen and (max-width: 992px) {
+  .side-panel {
+    width: 50vw;
+  }
+}
 
-//   .sys-name {
-//     font-size: 10px !important;
-//   }
+@media screen and (max-width: 1200px) {
+  .side-panel {
+    width: 45vw;
+  }
+}
 
-//   .side-panel {
-//     height: 100%;
-//     width: 50%;
 
-//     .panel-title {
-//       font-size: 20px !important;
-//     }
-
-// .panel-content {
-//   display: flex;
-//   // height: 50%;
-
-//   .content-text {
-//     font-size: 10px;
-//   }
-// }
-
-// .return-n-close {
-//   font-size: 20px !important;
-//   border: 1px solid red !important;
-// }
-//   }
-// }
-
+// old side panel
 // .side-panel__header {
 //   display: flex;
 //   justify-content: space-between;

@@ -54,11 +54,11 @@ function SidePanel({ planet }) {
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 2000, min: 992 },
-      items: 6
+      items: 5
     },
     desktop: {
       breakpoint: { max: 992, min: 768 },
-      items: 4
+      items: 5
     },
     tablet: {
       breakpoint: { max: 768, min: 576 },
@@ -66,7 +66,7 @@ function SidePanel({ planet }) {
     },
     mobile: {
       breakpoint: { max: 576, min: 0 },
-      items: 3
+      items: 1
     }
   }
 
@@ -75,8 +75,8 @@ function SidePanel({ planet }) {
     { name: "planet2", image: planetIcon, size: "70%" },
     { name: "planet3", image: planetIcon, size: "80%" },
     { name: "planet4", image: planetIcon, size: "50%" },
-    { name: "planet5", image: planetIcon, size: "70%" },
     { name: "planet6", image: starIcon, size: "70%" },
+    { name: "planet5", image: planetIcon, size: "70%" },
   ];
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
@@ -102,9 +102,9 @@ function SidePanel({ planet }) {
         <section className="panel-title-container">
           <p className="panel-title">Exoplanet {name}</p>
 
-          <nav className="nav-wrap">
+          <div className="button-wrap">
             <button className="return-n-close" onClick={handleReturnClick} onMouseEnter={handleHover} onMouseLeave={handleHoverLeave}>
-              <img src={returnToSpace} alt="returnToSpace" className="return-hover" />
+              <img src={returnToSpace} alt=" returnToSpace" className="return-hover" />
             </button>
 
             {hovering && <p className="hover-text">Return to space </p>}
@@ -112,11 +112,12 @@ function SidePanel({ planet }) {
             <button className="return-n-close" onClick={handleCloseClick}>
               <IoCloseSharp />
             </button>
-          </nav>
+          </div>
         </section>
 
         <section className="panel-content">
           <p className="content-text">
+            Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
             Vorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.
           </p>
         </section>
