@@ -34,12 +34,10 @@ function SidePanel({ planet }) {
   }
 
   const handleCloseClick = () => {
-    console.log("close clicked")
     setLinkClicked(false)
   }
 
   const handleReturnClick = () => {
-    console.log("return clicked")
     window.location.reload(false)
   }
 
