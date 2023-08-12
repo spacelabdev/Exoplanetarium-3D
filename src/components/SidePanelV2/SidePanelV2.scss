@@ -82,13 +82,17 @@
       margin-top: 0;
     }
 
-    stellarData-wrap {
+    .stellarData-wrap {
       margin-top: 2rem;
     }
 
     p {
       font-size: 25px;
       font-weight: 100;
+    }
+
+    .styled-text {
+      font-size: 17px;
     }
 
     &::-webkit-scrollbar {
@@ -168,27 +172,30 @@
 
       .button-wrap {
         .return {
-          // transform: translateY(100%);
-
           .return-hover {
             width: 1.5rem !important;
             height: 1.5rem !important;
           }
         }
-      }
 
-      .hover-text {
-        top: 7.5vh !important;
-        right: .5vw !important;
-        font-size: 5px !important;
+        .hover-text {
+          top: 7.5vh !important;
+          right: .5vw !important;
+          font-size: 5px !important;
+        }
       }
     }
 
     .panel-content {
       height: 55%;
 
-      .content-text {
+      p {
         font-size: 10px;
+        font-weight: 100;
+      }
+
+      .styled-text {
+        font-size: 7px;
       }
     }
 
@@ -223,66 +230,3 @@
     width: 45vw;
   }
 }
-
-
-// old side panel
-// .side-panel__header {
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   padding: 1rem;
-//   border-bottom: 1px solid #ccc;
-
-//   .side-panel__close {
-//     font-size: 1.5rem;
-//     cursor: pointer;
-//   }
-// }
-
-// .side-panel__content {
-//   padding: 1rem;
-// }
-
-// .info-wrap {
-//   display: flex;
-//   flex-direction: column;
-//   margin: 20px 0 0 0;
-// }
-
-// h5 {
-//   color: white;
-//   font-size: 20px;
-//   font-weight: bold;
-//   letter-spacing: 2px;
-// }
-
-// .planetData-wrap {
-//   margin-top: 0;
-// }
-
-// .stellarData-wrap {
-//   margin-top: 2rem;
-// }
-
-// p {
-//   color: white;
-//   font-size: 18px;
-//   font-weight: bold;
-// }
-
-// ul {
-//   list-style: none;
-//   padding: 0;
-// }
-
-// li {
-//   margin: 10px 0;
-//   color: white;
-//   font-size: 14px;
-//   font-family: var(--Plex-Mono);
-// }
-
-// .styled-text {
-//   font-size: 14px;
-// }
-// }
