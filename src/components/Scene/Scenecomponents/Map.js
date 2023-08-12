@@ -1,4 +1,4 @@
-import { React, useRef, useState } from "react";
+import { React, useRef, useState, useEffect } from "react";
 import { extend, useThree, useFrame } from "@react-three/fiber";
 import * as THREE from 'three'
 import { Instances } from "@react-three/drei";
@@ -18,21 +18,58 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-function Map({ planetSelected, data }) {
+const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
   const numPlanets = data.length;
-  const [camera, setCamera] = useState(useThree((state) => state.camera))
-  const [originCameraLocation, setOriginCameraLocation] = useState(new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z))
-
-  let ref = useRef(camera)
+  const camera = useThree((state)=>state.camera)
+  let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
 
   let cameraMovePosition = new THREE.Vector3();
+  let controls = controlsRef.current
+  let cameraTarget = new THREE.Vector3();
+  
+  useEffect(()=>{
+    cameraTarget.set(0,0,0)
+  }, [])
+
+  useEffect(()=>{
+    controls = controlsRef.current
+    console.log("Controls: ", controls)
+    controls.addEventListener('start', () => {
+      setControlsActive(true)
+    })
+
+    controls.addEventListener('end', () => {
+      setControlsActive(false)
+      destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
+    })
+
+  }, [])
 
   useFrame((state, delta) => {
-    console.log("Origin camera position: ", originCameraLocation)
-    console.log("camera position: ", state.camera.position)
-    state.camera.position.lerp(cameraMovePosition.set(originCameraLocation.x, originCameraLocation.y, originCameraLocation.z), .01)
-    state.camera.lookAt(0, 0, 0)
-    state.camera.updateProjectionMatrix()
+    if (controlsActive){
+      originCameraLocation.set(camera.position.x, camera.position.y, camera.position.z)
+      cameraTarget.set(controls.target.x, controls.target.y, controls.target.z)
+    }
+    if (controls.target.x < 0.01 && controls.target.y < 0.01 && controls.target.z < 0.01 ){
+      controls.target.set(0,0,0)
+    }
+    if (cameraTarget.x !== controls.target.x && cameraTarget.y !== controls.target.y && cameraTarget.z !== controls.target.z){
+      console.log("Lerp to target, setTarget: ", cameraTarget, " Controls target: ", controls.target)
+      controls.target.set(
+        THREE.MathUtils.lerp(controls.target.x, cameraTarget.x , .01),
+        THREE.MathUtils.lerp(controls.target.y, cameraTarget.y , .01),
+        THREE.MathUtils.lerp(controls.target.z, cameraTarget.z , .01)
+      )
+    }
+    
+    if (state.camera.position !== originCameraLocation && !controlsActive){
+      moveCameraTo(state, 
+        originCameraLocation.x, 
+        originCameraLocation.y, 
+        originCameraLocation.z
+      )
+      state.camera.updateProjectionMatrix()
+    }
 })
 
   return (

@@ -1,5 +1,6 @@
 import { React, useRef, useEffect } from "react";
 import { Instance } from "@react-three/drei";
+import { useFrame } from '@react-three/fiber'
 
 
 function Planet({ data, numPlanets, planetSelected, texture, ...planet }) {
@@ -19,6 +20,10 @@ function Planet({ data, numPlanets, planetSelected, texture, ...planet }) {
       ref.current.position.set(x, y, z);
     }
   }, [data, numPlanets]);
+
+  useFrame(()=> {
+    ref.current.rotation.y = ref.current.rotation.y + .01
+  })
 
   return (
     <group {...planet}>
