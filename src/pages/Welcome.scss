@@ -1,4 +1,4 @@
-.App-welcome {
+body {
   background-image: url('../assets/welcome-bg.png');
   background-size: cover;
   background-position: center center;
@@ -29,10 +29,11 @@
   border-radius: 5px;
   width: 700px;
   background-color: black;
+}
 
-  h1 {
-    padding: 20px;
-  }
+.app-title {
+  display: flex;
+  flex-direction: column;
 }
 
 .app-title {
