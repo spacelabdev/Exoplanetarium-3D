@@ -6,6 +6,7 @@ import planetIcon from '../../assets/HighlightedPlanet.svg'
 import starIcon from '../../assets/Star.svg'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
+import planetdata from '../../components/Scene/ExoplanetHelper.js'
 
 const defaultValue = {
   name: "",
@@ -20,6 +21,7 @@ const defaultValue = {
     radius: "",
   },
 };
+
 function SidePanel({ planet }) {
   const { name, disposition, rightAscension, declination, distance, starData } =
     planet ? planet : defaultValue;
@@ -38,6 +40,28 @@ function SidePanel({ planet }) {
   const handleHoverLeave = () => {
     setHovering(false)
   }
+
+  const [carouselPlanet, setCarouselPlanet] = useState(planet || {})
+
+  const handleCarouselPlanetClick = (e) => {
+    // setCarouselPlanet(e.target.innerText)
+    const clickedPlanet = e.target.innerText
+    console.log("clickedPlanet:", clickedPlanet)
+
+    // now find that planet in planetdata array
+    const newPlanet = planetdata.find((planet) => planet.name === clickedPlanet)
+
+    // set state
+    // *** state always lags one click behind
+    setCarouselPlanet(newPlanet)
+
+    // reassign planet?
+    planet = newPlanet
+
+    console.log(newPlanet)
+    console.log("new clicked planet is:", carouselPlanet)
+  }
+
 
   const responsive = {
     superLargeDesktop: {
@@ -58,14 +82,14 @@ function SidePanel({ planet }) {
     }
   }
 
-  const planetSliderArray = [
-    { name: "planet1", image: planetIcon, size: "30%" },
-    { name: "planet2", image: planetIcon, size: "70%" },
-    { name: "planet3", image: planetIcon, size: "80%" },
-    { name: "planet4", image: planetIcon, size: "50%" },
-    { name: "planet6", image: starIcon, size: "70%" },
-    { name: "planet5", image: planetIcon, size: "70%" },
-  ];
+  // const planetSliderArray = [
+  //   { name: "planet1", image: planetIcon, size: "30%" },
+  //   { name: "planet2", image: planetIcon, size: "70%" },
+  //   { name: "planet3", image: planetIcon, size: "80%" },
+  //   { name: "planet4", image: planetIcon, size: "50%" },
+  //   { name: "planet6", image: starIcon, size: "70%" },
+  //   { name: "planet5", image: planetIcon, size: "70%" },
+  // ];
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
     return (<>
@@ -151,14 +175,25 @@ function SidePanel({ planet }) {
               customButtonGroup={<CustomButtonGroupAsArrows />}
               renderButtonGroupOutside={true}
             >
-              {planetSliderArray.map((planetItem) => (
-                <div key={planetItem.name} class="planet-item">
-                  <img
-                    src={planetItem.image}
-                    alt={`Image of ${planetItem.name}`}
-                    style={{ width: planetItem.size }}
-                  />
-                </div>
+              {planetdata.map((planetItem) => (
+                <div 
+                key={planetItem.name}
+                class="planet-item"
+                onClick={handleCarouselPlanetClick}>
+                <p style={{ fontSize: '8px'}}>{planetItem.name}</p>
+                <img
+                  src={starIcon}
+                  alt={`Image of ${planetItem.name}`}
+                  style={{ width: '3rem'}}
+                />
+              </div>
+                // <div key={planetItem.name} class="planet-item">
+                //   <img
+                //     src={planetItem.image}
+                //     alt={`Image of ${planetItem.name}`}
+                //     style={{ width: planetItem.size }}
+                //   />
+                // </div>
               ))}
             </Carousel>
           </section>
