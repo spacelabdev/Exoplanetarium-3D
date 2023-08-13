@@ -142,13 +142,13 @@
         transform: translateX(15px);
       }
     }
-
-    p {
-      font-size: 15px;
-      text-align: center;
-      text-transform: uppercase;
-      color: #CCB975;
-    }
+  }
+  
+  #selected-planet-name {
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CCB975;
   }
 }
 

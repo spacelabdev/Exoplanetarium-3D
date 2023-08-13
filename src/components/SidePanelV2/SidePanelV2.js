@@ -197,8 +197,8 @@ function SidePanel({ planet }) {
               ))}
             </Carousel>
           </section>
-          <p>Exoplanet {name}</p>
         </section>
+        <p id="selected-planet-name">Exoplanet {name}</p>
       </aside>
     </>
   );
