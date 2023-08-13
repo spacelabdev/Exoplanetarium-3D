@@ -3,26 +3,14 @@ import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
-
     <div className="app-welcome">
       <main className="app-container">
-
-    <section className="App-welcome">
-      <main className="App-container">
-        <h1>Welcome to Exoplanetarium by SpaceLab</h1>
-        <div className="rectangle">
-          <div className="left-rectangle"></div>
-          <Link to="/walkthrough">Walkthrough</Link>
-          <div className="right-rectangle"></div>
-        </div>
-
         <div className="app-title">
           <h1>Welcome to Exoplanetarium</h1>
           <h1>by SpaceLab</h1>
         </div>
 
         <div className="options">
-
           <Link to="/walkthrough">
             <div className="rectangle">
               <div className="left-rectangle walkthrough"></div>
@@ -46,18 +34,9 @@ function Welcome() {
               <div className="right-rectangle faq"></div>
             </div>
           </Link>
-          </main>
-          </div>
-          </section>  
-          </main>
-          </div>
-       
-       
-         
-      
-        
-   
-         
+        </div>
+      </main>
+    </div>
   );
 }
 
