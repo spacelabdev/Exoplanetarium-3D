@@ -1,5 +1,5 @@
 .planet-scroll {
-  animation-name: example;
+  animation-name: animation;
   animation-duration: 4s;
   animation-fill-mode: forwards;
   position: relative;
@@ -27,8 +27,8 @@
   width: 250px;
 }
 
-@media screen and (max-width: 730px) {
-  @keyframes example {
+@media screen and (min-width: 730px) {
+  @keyframes animation {
     0% {
       left: 0px;
     }
