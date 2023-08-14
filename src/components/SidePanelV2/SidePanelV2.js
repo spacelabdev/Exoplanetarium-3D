@@ -22,7 +22,7 @@ const defaultValue = {
   },
 };
 
-function SidePanel({ planet }) {
+function SidePanel({ planet, planetSelected, selectedPlanet }) {
   const { name, disposition, rightAscension, declination, distance, starData } =
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
@@ -41,25 +41,12 @@ function SidePanel({ planet }) {
     setHovering(false)
   }
 
-  const [carouselPlanet, setCarouselPlanet] = useState(planet || {})
-
   const handleCarouselPlanetClick = (e) => {
-    // setCarouselPlanet(e.target.innerText)
     const clickedPlanet = e.target.innerText
-    console.log("clickedPlanet:", clickedPlanet)
 
-    // now find that planet in planetdata array
     const newPlanet = planetdata.find((planet) => planet.name === clickedPlanet)
 
-    // set state
-    // *** state always lags one click behind
-    setCarouselPlanet(newPlanet)
-
-    // reassign planet?
-    planet = newPlanet
-
-    console.log(newPlanet)
-    console.log("new clicked planet is:", carouselPlanet)
+    planetSelected(newPlanet)
   }
 
 
@@ -176,17 +163,17 @@ function SidePanel({ planet }) {
               renderButtonGroupOutside={true}
             >
               {planetdata.map((planetItem) => (
-                <div 
-                key={planetItem.name}
-                class="planet-item"
-                onClick={handleCarouselPlanetClick}>
-                <p style={{ fontSize: '8px'}}>{planetItem.name}</p>
-                <img
-                  src={starIcon}
-                  alt={`Image of ${planetItem.name}`}
-                  style={{ width: '3rem'}}
-                />
-              </div>
+                <div
+                  key={planetItem.name}
+                  class="planet-item"
+                  onClick={handleCarouselPlanetClick}>
+                  <p className="planet-item-name">{planetItem.name}</p>
+                  <img
+                    src={starIcon}
+                    alt={`Image of ${planetItem.name}`}
+                    style={{ width: '3rem' }}
+                  />
+                </div>
                 // <div key={planetItem.name} class="planet-item">
                 //   <img
                 //     src={planetItem.image}

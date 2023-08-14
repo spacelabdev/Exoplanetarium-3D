@@ -118,6 +118,11 @@
         display: flex;
         justify-content: center;
         height: 100%;
+
+        .planet-item-name {
+          font-size: 8px;
+          // opacity: 0;
+        }
       }
 
       button {
@@ -143,7 +148,7 @@
       }
     }
   }
-  
+
   #selected-planet-name {
     font-size: 15px;
     text-align: center;
