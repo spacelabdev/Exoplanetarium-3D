@@ -1,42 +1,50 @@
 .demo-video {
-    padding: 10px;
-    margin: 60px 0;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding: 5rem;
+}
+.demo-title {
+  margin-bottom: 1rem;
 }
 .video-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 99%;
-    padding-bottom: 56.25%;
-    background-color: black;
-    border: #7000ff 2px solid;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: auto;
+  padding: 2rem 3rem 5rem 3rem;
+  background-color: black;
+  border: #7000ff 2px solid;
+  border-radius: 5px;
+  position: relative;
 }
-
 .video {
-    /* Follow edges of rectangle*/
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  width: 50rem;
+  height: 20rem;
+  border-radius: 5px;
+  background: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #close-button {
-    color: white;
-    font-weight: bold;
-    background-color: black;
-    opacity: 0.6;
-    border: white 2px solid;
-    border-radius: 50%;
-    padding: 3px 6px;
-    position: fixed;
-    top: 75px;
-    right: 25px;
-    transition: all 0.5s;
+  color: white;
+  font-weight: bold;
+  background-color: black;
+  opacity: 0.6;
+  border: white 2px solid;
+  border-radius: 50%;
+  padding: 3px 6px;
+  position: absolute;
+  margin: 1rem;
+  top: 0px;
+  right: 0px;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 
 #close-button:hover {
-    opacity: 1;
+  opacity: 1;
 }
