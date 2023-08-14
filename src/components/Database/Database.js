@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { IoCloseSharp } from "react-icons/io5";
 import { PiDatabaseBold } from 'react-icons/pi';
-//Placeholder photo for exoplanets
+//Placeholder photo for exoplanets without photos
 import placeholderPhoto from "../../assets/textures/tanGasGiant.png";
 //Import corresponding scss
 import "./Database.scss";
@@ -21,7 +21,8 @@ const Database = () => {
   // Static array
   const staticExoplanets = planetdata.map((planet) => ({
     name: planet.name,
-    photo: placeholderPhoto,
+    //photo: placeholderPhoto,
+    photo: planet.photo
   }));
 
   //Shows database
@@ -44,8 +45,7 @@ const Database = () => {
 
   return (
     <div>
-      <div
-        className={`exoplanet-database ${showDatabase ? 'open' : ''}`}>
+      <div className={`exoplanet-database ${showDatabase ? 'open' : ''}`}>
         {/* Sets header */}
         <div className="header">
         <h2>Exoplanetarium Database</h2>
@@ -82,7 +82,7 @@ const Database = () => {
               <img src={planet.photo || placeholderPhoto} alt={planet.name} className="photo" />
               <div className="exoplanet-info">
                 <h3>{planet.name}</h3>
-                {/* Render additional starData properties as needed */}
+                {/* put more data here if needed */}
               </div>
             </div>
           ))}
@@ -101,7 +101,7 @@ const Database = () => {
         {/* Tooltip for Database label */}
         {showTooltip && <div className="tooltip">Database</div>}
          {/* Database icon size */}
-        <PiDatabaseBold size={40} />
+        <PiDatabaseBold size={30} />
       </div>
     </div>
   );
