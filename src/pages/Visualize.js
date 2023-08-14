@@ -1,4 +1,4 @@
-import Scene from "../components/Scene/Scene";
+import CanvasWrapper from "../components/Scene/CanvasWrapper";
 import SidePanel from "../components/SidePanel/SidePanel";
 import { React, useState, useEffect, useRef } from "react";
 import planetdata from "../components/Scene/ExoplanetHelper";
@@ -47,11 +47,10 @@ function Visualize() {
 
   return (
     <div>
-      <Scene 
+      <CanvasWrapper 
         planetSelected={planetSelected} 
         selectedPlanet={selectedPlanet} 
         planetdata={planetdata} />
-
       <SidePanel planet={selectedPlanet} />
     </div>
   );

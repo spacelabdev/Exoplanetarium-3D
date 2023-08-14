@@ -20,57 +20,57 @@ const font = new FontLoader().parse(helvetiker);
 
 const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
   const numPlanets = data.length;
-  const camera = useThree((state)=>state.camera)
-  let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
+//   const camera = useThree((state)=>state.camera)
+//   let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
 
-  let cameraMovePosition = new THREE.Vector3();
-  let controls = controlsRef.current
-  let cameraTarget = new THREE.Vector3();
+//   let cameraMovePosition = new THREE.Vector3();
+//   let controls = controlsRef.current
+//   let cameraTarget = new THREE.Vector3();
   
-  useEffect(()=>{
-    cameraTarget.set(0,0,0)
-  }, [])
+//   useEffect(()=>{
+//     cameraTarget.set(0,0,0)
+//   }, [])
 
-  useEffect(()=>{
-    controls = controlsRef.current
-    console.log("Controls: ", controls)
-    controls.addEventListener('start', () => {
-      setControlsActive(true)
-    })
+//   useEffect(()=>{
+//     controls = controlsRef.current
+//     console.log("Controls: ", controls)
+//     controls.addEventListener('start', () => {
+//       setControlsActive(true)
+//     })
 
-    controls.addEventListener('end', () => {
-      setControlsActive(false)
-      destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
-    })
+//     controls.addEventListener('end', () => {
+//       setControlsActive(false)
+//       destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
+//     })
 
-  }, [])
+//   }, [])
 
-  useFrame((state, delta) => {
-    if (controlsActive){
-      originCameraLocation.set(camera.position.x, camera.position.y, camera.position.z)
-      cameraTarget.set(controls.target.x, controls.target.y, controls.target.z)
-    }
-    if (controls.target.x < 0.01 && controls.target.y < 0.01 && controls.target.z < 0.01 ){
-      controls.target.set(0,0,0)
-    }
-    if (cameraTarget.x !== controls.target.x && cameraTarget.y !== controls.target.y && cameraTarget.z !== controls.target.z){
-      console.log("Lerp to target, setTarget: ", cameraTarget, " Controls target: ", controls.target)
-      controls.target.set(
-        THREE.MathUtils.lerp(controls.target.x, cameraTarget.x , .01),
-        THREE.MathUtils.lerp(controls.target.y, cameraTarget.y , .01),
-        THREE.MathUtils.lerp(controls.target.z, cameraTarget.z , .01)
-      )
-    }
+//   useFrame((state, delta) => {
+//     if (controlsActive){
+//       originCameraLocation.set(camera.position.x, camera.position.y, camera.position.z)
+//       cameraTarget.set(controls.target.x, controls.target.y, controls.target.z)
+//     }
+//     if (controls.target.x < 0.01 && controls.target.y < 0.01 && controls.target.z < 0.01 ){
+//       controls.target.set(0,0,0)
+//     }
+//     if (cameraTarget.x !== controls.target.x && cameraTarget.y !== controls.target.y && cameraTarget.z !== controls.target.z){
+//       console.log("Lerp to target, setTarget: ", cameraTarget, " Controls target: ", controls.target)
+//       controls.target.set(
+//         THREE.MathUtils.lerp(controls.target.x, cameraTarget.x , .01),
+//         THREE.MathUtils.lerp(controls.target.y, cameraTarget.y , .01),
+//         THREE.MathUtils.lerp(controls.target.z, cameraTarget.z , .01)
+//       )
+//     }
     
-    if (state.camera.position !== originCameraLocation && !controlsActive){
-      moveCameraTo(state, 
-        originCameraLocation.x, 
-        originCameraLocation.y, 
-        originCameraLocation.z
-      )
-      state.camera.updateProjectionMatrix()
-    }
-})
+//     if (state.camera.position !== originCameraLocation && !controlsActive){
+//       moveCameraTo(state, 
+//         originCameraLocation.x, 
+//         originCameraLocation.y, 
+//         originCameraLocation.z
+//       )
+//       state.camera.updateProjectionMatrix()
+//     }
+// })
 
   return (
     <>
