@@ -1,5 +1,6 @@
 import Scene from "../components/Scene/Scene";
 import SidePanel from "../components/SidePanel/SidePanel";
+import SidePanelV2 from "../components/SidePanelV2/SidePanelV2"
 import { React, useState, useEffect, useRef } from "react";
 import planetdata from "../components/Scene/ExoplanetHelper";
 import { useLoader } from "@react-three/fiber";
@@ -52,7 +53,12 @@ function Visualize() {
         selectedPlanet={selectedPlanet} 
         planetdata={planetdata} />
 
-      <SidePanel planet={selectedPlanet} />
+      {/* <SidePanel planet={selectedPlanet} /> */}
+
+      <SidePanelV2 
+        planet={selectedPlanet}
+        planetSelected={planetSelected} 
+        selectedPlanet={selectedPlanet}  />
     </div>
   );
 }

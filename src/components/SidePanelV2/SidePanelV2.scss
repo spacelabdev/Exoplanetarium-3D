@@ -1,0 +1,225 @@
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  left: 0;
+  width: 30vw;
+  height: 100vh;
+  margin: 0;
+  padding: 35px;
+  text-align: left;
+  z-index: 1000;
+  transform: translateX(-120%);
+  transition: transform 0.3s ease-in-out;
+  font-family: inherit;
+  border: 1px solid white;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.9);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .sys-name {
+    font-size: 17px;
+    font-weight: 100;
+    font-style: italic;
+  }
+
+  .panel-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .panel-title {
+      font-size: 35px;
+      font-weight: 100;
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 5px;
+    }
+
+    .button-wrap {
+      display: flex;
+      position: relative;
+
+      .return {
+        display: flex;
+        align-items: center;
+        border: 0;
+        background-color: transparent;
+        opacity: 0.8;
+
+        .return-hover {
+          width: 3rem;
+          height: 3rem;
+        }
+
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+        }
+      }
+
+      .hover-text {
+        position: absolute;
+        top: 5.5vh;
+        transform: translateX(-30%);
+        white-space: nowrap;
+        font-size: 10px;
+      }
+    }
+  }
+
+  .panel-content {
+    height: 60%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+
+    .planetData-wrap {
+      margin-top: 0;
+    }
+
+    .stellarData-wrap {
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 25px;
+      font-weight: 100;
+    }
+
+    .styled-text {
+      font-size: 17px;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .planet-slider-container {
+    position: relative;
+    width: 100%;
+
+    .planet-slider {
+      margin: 0 auto;
+      width: 100%;
+
+      .carousel-container {
+        width: 85%;
+        top: 50%;
+        margin: 0 auto;
+      }
+
+      .planet-item {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+
+        .planet-item-name {
+          font-size: 9px;
+          position: absolute;
+          top: 40%;
+        }
+      }
+
+      button {
+        font-size: 30px;
+        color: white;
+        border: 0;
+        background-color: transparent;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        width: fit-content;
+        top: 30%;
+        transform: translateX(-15px);
+        display: flex;
+        align-items: center;
+      }
+
+      .carousel-arrow.right-arrow {
+        right: 0;
+        top: 30%;
+        transform: translateX(15px);
+      }
+    }
+  }
+
+  #selected-planet-name {
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #CCB975;
+  }
+}
+
+// mobile
+@media screen and (max-width: 576px) {
+  .side-panel {
+    width: 45vw;
+
+    .sys-name {
+      font-size: 10px;
+    }
+
+    .panel-title-container {
+      .panel-title {
+        font-size: 17px;
+      }
+
+      .button-wrap {
+        .return {
+          .return-hover {
+            width: 1.5rem !important;
+            height: 1.5rem !important;
+          }
+        }
+
+        .hover-text {
+          top: 4.5vh !important;
+          font-size: 5px !important;
+        }
+      }
+    }
+
+    .panel-content {
+      height: 55%;
+
+      p {
+        font-size: 13px;
+        font-weight: 100;
+      }
+
+      .styled-text {
+        font-size: 10px;
+      }
+    }
+
+    #selected-planet-name {
+      font-size: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .side-panel {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .side-panel {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .side-panel {
+    width: 45vw;
+  }
+}
