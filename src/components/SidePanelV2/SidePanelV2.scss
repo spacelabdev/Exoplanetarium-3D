@@ -120,8 +120,9 @@
         height: 100%;
 
         .planet-item-name {
-          font-size: 8px;
-          // opacity: 0;
+          font-size: 9px;
+          position: absolute;
+          top: 40%;
         }
       }
 
@@ -159,10 +160,6 @@
 
 // mobile
 @media screen and (max-width: 576px) {
-  .show-link {
-    font-size: 20px;
-  }
-
   .side-panel {
     width: 45vw;
 
@@ -172,7 +169,7 @@
 
     .panel-title-container {
       .panel-title {
-        font-size: 15px;
+        font-size: 17px;
       }
 
       .button-wrap {
@@ -184,8 +181,7 @@
         }
 
         .hover-text {
-          top: 7.5vh !important;
-          right: .5vw !important;
+          top: 4.5vh !important;
           font-size: 5px !important;
         }
       }
@@ -195,25 +191,17 @@
       height: 55%;
 
       p {
-        font-size: 10px;
+        font-size: 13px;
         font-weight: 100;
       }
 
       .styled-text {
-        font-size: 7px;
+        font-size: 10px;
       }
     }
 
-    .planet-slider-container {
-      .planet-slider {
-        button {
-          font-size: 20px !important;
-        }
-      }
-
-      p {
-        font-size: 7px !important;
-      }
+    #selected-planet-name {
+      font-size: 10px;
     }
   }
 }

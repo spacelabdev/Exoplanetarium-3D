@@ -4,9 +4,9 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import returnToSpace from '../../assets/emojione-v1_milky-way.svg'
 import planetIcon from '../../assets/HighlightedPlanet.svg'
 import starIcon from '../../assets/Star.svg'
+import planetdata from '../../components/Scene/ExoplanetHelper.js'
 import Carousel from 'react-multi-carousel'
 import 'react-multi-carousel/lib/styles.css'
-import planetdata from '../../components/Scene/ExoplanetHelper.js'
 
 const defaultValue = {
   name: "",
@@ -41,15 +41,6 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
     setHovering(false)
   }
 
-  const handleCarouselPlanetClick = (e) => {
-    const clickedPlanet = e.target.innerText
-
-    const newPlanet = planetdata.find((planet) => planet.name === clickedPlanet)
-
-    planetSelected(newPlanet)
-  }
-
-
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 2000, min: 992 },
@@ -57,7 +48,7 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
     },
     desktop: {
       breakpoint: { max: 992, min: 768 },
-      items: 5
+      items: 4
     },
     tablet: {
       breakpoint: { max: 768, min: 576 },
@@ -68,15 +59,6 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
       items: 1
     }
   }
-
-  // const planetSliderArray = [
-  //   { name: "planet1", image: planetIcon, size: "30%" },
-  //   { name: "planet2", image: planetIcon, size: "70%" },
-  //   { name: "planet3", image: planetIcon, size: "80%" },
-  //   { name: "planet4", image: planetIcon, size: "50%" },
-  //   { name: "planet6", image: starIcon, size: "70%" },
-  //   { name: "planet5", image: planetIcon, size: "70%" },
-  // ];
 
   const CustomButtonGroupAsArrows = ({ next, previous }) => {
     return (<>
@@ -111,20 +93,18 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
             <p>Exoplanet Data</p>
             <ul>
               <li>
-                <span className="styled-text">{"Disposition: "}</span>
-                {disposition}
+                <span className="styled-text">{"Disposition: "} {disposition}</span>
               </li>
               <li>
-                <span className="styled-text">{"Right Ascension: "}</span>
-                {rightAscension}
+                <span className="styled-text">{"Right Ascension: "} {rightAscension}</span>
+
               </li>
               <li>
-                <span className="styled-text">{"Declination: "}</span>
-                {declination}
+                <span className="styled-text">{"Declination: "} {declination} </span>
+
               </li>
               <li>
-                <span className="styled-text">{"Distance: "}</span>{" "}
-                {distance + " Parsecs"}
+                <span className="styled-text">{"Distance: "} {distance + " Parsecs"}</span>
               </li>
             </ul>
           </div>
@@ -133,19 +113,16 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
             <p>Stellar Data</p>
             <ul>
               <li>
-                <span className="styled-text">{"Stellar Distance: "}</span>{" "}
-                {stellarDistance + " Parsecs"}
+                <span className="styled-text">{"Stellar Distance: "} {stellarDistance + " Parsecs"}</span>
               </li>
               <li>
-                <span className="styled-text">{"Effectve Temperature: "}</span>{" "}
-                {effectiveTemperature + " K"}
+                <span className="styled-text">{"Effectve Temperature: "}{effectiveTemperature + " K"}</span>
               </li>
               <li>
-                <span className="styled-text">{"Log: "}</span> {log + " cm/s**2"}
+                <span className="styled-text">{"Log: "}{log + " cm/s**2"}</span>
               </li>
               <li>
-                <span className="styled-text">{"Radius: "}</span>{" "}
-                {radius + " R_Sun"}
+                <span className="styled-text">{"Radius: "}{radius + " R_Sun"}</span>
               </li>
             </ul>
           </div>
@@ -166,7 +143,7 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
                 <div
                   key={planetItem.name}
                   class="planet-item"
-                  onClick={handleCarouselPlanetClick}>
+                  onClick={() => planetSelected(planetItem)}>
                   <p className="planet-item-name">{planetItem.name}</p>
                   <img
                     src={starIcon}
@@ -174,19 +151,12 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
                     style={{ width: '3rem' }}
                   />
                 </div>
-                // <div key={planetItem.name} class="planet-item">
-                //   <img
-                //     src={planetItem.image}
-                //     alt={`Image of ${planetItem.name}`}
-                //     style={{ width: planetItem.size }}
-                //   />
-                // </div>
               ))}
             </Carousel>
           </section>
         </section>
         <p id="selected-planet-name">Exoplanet {name}</p>
-      </aside>
+      </aside >
     </>
   );
 }
