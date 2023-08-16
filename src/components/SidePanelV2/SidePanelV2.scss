@@ -4,6 +4,7 @@
   justify-content: space-between;
   position: fixed;
   left: 0;
+  top: 0;
   width: 30vw;
   height: 100vh;
   margin: 0;
@@ -13,9 +14,10 @@
   transform: translateX(-120%);
   transition: transform 0.3s ease-in-out;
   font-family: inherit;
-  border: 1px solid white;
-  border-radius: 5px;
-  background: rgba(0, 0, 0, 0.9);
+  // border: 1px solid white;
+  // border-radius: 5px;
+  // background: rgba(0, 0, 0, 0.9);
+  background: rgba(30, 30, 30, 0.9);
 
   &.open {
     transform: translateX(0);
@@ -31,11 +33,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1px solid white;
+    padding-bottom: 0.5rem;
 
     .panel-title {
-      font-size: 35px;
+      font-size: 30px;
       font-weight: 100;
-      text-decoration: underline;
+      // text-decoration: underline;
       text-decoration-thickness: 1.5px;
       text-underline-offset: 5px;
     }
@@ -118,12 +122,61 @@
         display: flex;
         justify-content: center;
         height: 100%;
+        position: relative;
+        border-color: transparent;
+        transition: border-color 0.3s ease; /* Smooth transition for the border color change */
+        overflow: hidden; /* Hide overflowing carrots */
+        cursor: pointer;
 
         .planet-item-name {
           font-size: 9px;
           position: absolute;
           top: 40%;
+          color: white;
         }
+        .planet-sphere {
+          border-radius: 100%;
+          width: 3rem;
+          height: 3rem;
+          background-color: #5f5e5f;
+        }
+      }
+
+      /* Carrot styling */
+      .planet-item::before,
+      .planet-item::after {
+        content: "";
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: transparent;
+        display: none;
+      }
+
+      /* Carrot shapes */
+      .planet-item::before {
+        border-top: 2px solid white;
+        border-right: 2px solid white;
+        top: 0px;
+        right: 5px;
+      }
+      .planet-item:hover::before {
+        display: block;
+      }
+
+      .planet-item::after {
+        border-bottom: 2px solid white;
+        border-left: 2px solid white;
+        bottom: 0px;
+        left: 5px;
+      }
+      .planet-item:hover::after {
+        display: block;
+      }
+
+      /* Apply the framed effect on hover */
+      .planet-item:hover {
+        border-color: white; /* Change the border color to create a framed effect */
       }
 
       button {
@@ -131,6 +184,7 @@
         color: white;
         border: 0;
         background-color: transparent;
+        cursor: pointer;
       }
 
       .carousel-arrow {
@@ -140,6 +194,7 @@
         transform: translateX(-15px);
         display: flex;
         align-items: center;
+        cursor: pointer;
       }
 
       .carousel-arrow.right-arrow {
@@ -150,11 +205,11 @@
     }
   }
 
-  #selected-planet-name {
+  .selected-planet-name {
     font-size: 15px;
     text-align: center;
     text-transform: uppercase;
-    color: #CCB975;
+    color: white;
   }
 }
 
