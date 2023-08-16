@@ -33,11 +33,19 @@ function MenuOverlay() {
               {" "}
               Tutorial
             </Link>
-            <Link to="/" className="menu-link" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/settings"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
               {" "}
               Settings
             </Link>
-            <Link to="/" className="menu-link" onClick={() => setIsOpen(false)}>
+            <Link
+              to="/contact"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
               {" "}
               Contact Us
             </Link>

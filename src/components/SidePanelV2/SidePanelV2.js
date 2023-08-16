@@ -22,7 +22,7 @@ const defaultValue = {
   },
 };
 
-function SidePanel({ planet, planetSelected, selectedPlanet }) {
+const SidePanel = ({ planet, planetSelected, selectedPlanet }) => {
   const { name, disposition, rightAscension, declination, distance, starData } =
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
@@ -192,6 +192,6 @@ function SidePanel({ planet, planetSelected, selectedPlanet }) {
       </aside>
     </>
   );
-}
+};
 
 export default SidePanel;
