@@ -12,6 +12,7 @@ let planetdata = [
     rightAscension: "07h29m25.85s",
     declination: "-12d41m45.46s",
     distance: 4.85, //"485.735±11.9515",
+    photo: require("../../assets/exoplanetPictures/TOI-1000.01.jpg"),
     starData: {
       stellarDistance: "485.735±11.9515",
       effectiveTemperature: "10249±264.7",
@@ -25,6 +26,7 @@ let planetdata = [
     rightAscension: "08h10m19.31s",
     declination: " -05d30m49.87s",
     distance: 2.95, //"295.862+5.91",
+    photo: require("../../assets/exoplanetPictures/TOI-10001.01.jpg"),
     starData: {
       stellarDistance: "295.862±5.91",
       effectiveTemperature: "7070±126.4",
@@ -38,6 +40,7 @@ let planetdata = [
     rightAscension: "06h58m54.47s",
     declination: "-10d34m49.64s",
     distance: 9.43, //"943.109+106.333",
+    photo: require("../../assets/exoplanetPictures/TOI-1002.01.jpg"),
     starData: {
       stellarDistance: "943.109±106.333",
       effectiveTemperature: "8924±124",
@@ -51,6 +54,7 @@ let planetdata = [
     rightAscension: "07h22m14.39s",
     declination: "-25d12m25.26s",
     distance: 77.28, //7728.17+1899.57
+    photo: require("../../assets/exoplanetPictures/TOI-1003.01.jpg"),
     starData: {
       stellarDistance: "7728.17±1899.57",
       effectiveTemperature: "5388.5±567",
@@ -64,6 +68,7 @@ let planetdata = [
     rightAscension: "08h08m42.77s",
     declination: "-48d48m10.12s",
     distance: 3.56, //356.437+4.6175
+    photo: require("../../assets/exoplanetPictures/TOI-1004.01.jpg"),
     starData: {
       stellarDistance: "356.437±4.6175",
       effectiveTemperature: "9219±171.1",
@@ -77,6 +82,7 @@ let planetdata = [
     rightAscension: "08h02m49.15s",
     declination: "-11d06m05.48s",
     distance: 1.0, //100.711+14.121
+    photo: require("../../assets/exoplanetPictures/TOI-1005.01.jpg"),
     starData: {
       stellarDistance: "100.711±14.121",
       effectiveTemperature: "5613±179.9",
@@ -90,6 +96,7 @@ let planetdata = [
     rightAscension: "08h17m26.22s",
     declination: "-27d16m24.68s",
     distance: 9.43, //"943.1"09+106.333",
+    photo: require("../../assets/exoplanetPictures/TOI-1006.01.jpg"),
     starData: {
       stellarDistance: "",
       effectiveTemperature: "6616±200",
@@ -103,6 +110,7 @@ let planetdata = [
     rightAscension: "07h31m00.57s",
     declination: "-04d27m48.09s",
     distance: 2.83, //283.291+3.0025
+    photo: require("../../assets/exoplanetPictures/TOI-1007.01.jpg"),
     starData: {
       stellarDistance: "283.291±3.0025",
       effectiveTemperature: "6596±139.2",
@@ -116,6 +124,7 @@ let planetdata = [
     rightAscension: "07h17m31.88s",
     declination: "+13d23m42.79s",
     distance: 1.44, //144.297
+    photo: require("../../assets/exoplanetPictures/TOI-1008.01.jpg"),
     starData: {
       stellarDistance: "144.297",
       effectiveTemperature: "6858.5±584.6",
@@ -129,6 +138,7 @@ let planetdata = [
     rightAscension: "07h26m40.28s",
     declination: " -24d27m43.6s",
     distance: 8.66, //866.147+172.097
+    photo: require("../../assets/exoplanetPictures/TOI-1009.01.jpg"),
     starData: {
       stellarDistance: "866.147±172.097",
       effectiveTemperature: "8868.7±809.8",

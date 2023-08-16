@@ -21,19 +21,31 @@ function MenuOverlay() {
         <nav className="menu-box">
           <nav className="menu-items">
             <p>Menu</p>
-            <Link to="/welcome" style={{ textDecoration: 'none' }}>
+            <Link
+              to="/welcome"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
               {' '}
               Welcome
             </Link>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link to="/" className="menu-link" onClick={() => setIsOpen(false)}>
               {' '}
               Tutorial
             </Link>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link
+              to="/settings"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
               {' '}
               Settings
             </Link>
-            <Link to="/" style={{ textDecoration: 'none' }}>
+            <Link
+              to="/contact"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
               {' '}
               Contact Us
             </Link>
