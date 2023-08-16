@@ -6,6 +6,7 @@ function Welcome() {
     <div className="app-welcome">
       <main className="app-container">
         <div className="app-title">
+          {/*Testing */}
           <h1>Welcome to Exoplanetarium</h1>
           <h1>by SpaceLab</h1>
         </div>
