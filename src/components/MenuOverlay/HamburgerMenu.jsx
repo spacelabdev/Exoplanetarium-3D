@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { IoMenuSharp, IoCloseSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
-import { slide as Menu } from "react-burger-menu";
-import "./HamburgerMenu.scss";
+import React, { useState } from 'react';
+import { IoMenuSharp, IoCloseSharp } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
+import { slide as Menu } from 'react-burger-menu';
+import './HamburgerMenu.scss';
 
 function MenuOverlay() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +26,11 @@ function MenuOverlay() {
               className="menu-link"
               onClick={() => setIsOpen(false)}
             >
-              {" "}
+              {' '}
               Welcome
             </Link>
             <Link to="/" className="menu-link" onClick={() => setIsOpen(false)}>
-              {" "}
+              {' '}
               Tutorial
             </Link>
             <Link
@@ -38,7 +38,7 @@ function MenuOverlay() {
               className="menu-link"
               onClick={() => setIsOpen(false)}
             >
-              {" "}
+              {' '}
               Settings
             </Link>
             <Link
@@ -46,7 +46,7 @@ function MenuOverlay() {
               className="menu-link"
               onClick={() => setIsOpen(false)}
             >
-              {" "}
+              {' '}
               Contact Us
             </Link>
           </nav>
