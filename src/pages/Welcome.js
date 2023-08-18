@@ -1,5 +1,6 @@
-import './Welcome.scss';
-import { Link } from 'react-router-dom';
+import "./Welcome.scss";
+import { Link } from "react-router-dom";
+import ReturnToSpaceButton from "../components/shared/ReturnToSpaceButton/ReturnToSpaceButton";
 
 function Welcome() {
   return (
@@ -37,6 +38,9 @@ function Welcome() {
           </Link>
         </div>
       </main>
+      <div className="button-container">
+        <ReturnToSpaceButton />
+      </div>
     </div>
   );
 }

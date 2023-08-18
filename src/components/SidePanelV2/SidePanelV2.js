@@ -2,8 +2,8 @@ import "./SidePanelV2.scss";
 import { React, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import returnToSpace from "../../assets/emojione-v1_milky-way.svg";
-import planetIcon from "../../assets/HighlightedPlanet.svg";
-import starIcon from "../../assets/Star.svg";
+// import planetIcon from "../../assets/HighlightedPlanet.svg";
+// import starIcon from "../../assets/Star.svg";
 import planetdata from "../../components/Scene/ExoplanetHelper.js";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -84,7 +84,6 @@ const SidePanel = ({ planet, planetSelected, selectedPlanet }) => {
 
         <section className="panel-title-container">
           <p className="panel-title"> {name}</p>
-
           <div className="button-wrap">
             <button
               className="return"
