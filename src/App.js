@@ -16,8 +16,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Header />
-      <Database />
+      {/* <Database /> */}
       {/* <Header /> */}
       <MenuOverlay />
       <Routes>

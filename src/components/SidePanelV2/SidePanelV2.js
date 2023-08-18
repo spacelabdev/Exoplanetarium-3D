@@ -172,7 +172,7 @@ const SidePanel = ({ planet, planetSelected, selectedPlanet }) => {
               {planetdata.map((planetItem, index) => (
                 <div
                   key={planetItem.name}
-                  class="planet-item"
+                  className="planet-item"
                   onClick={() => planetSelected(planetItem)}
                 >
                   <p className="planet-item-name">{planetItem.name}</p>

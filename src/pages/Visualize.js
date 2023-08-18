@@ -7,6 +7,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import BlueGiantImg from "../assets/textures/blueGasGiant.png";
 import RockyWorldImg from "../assets/textures/rocky.png";
 import TanGiantImg from "../assets/textures/tanGasGiant.png";
+import Database from "../components/Database/Database";
 
 import "./Visualize.scss";
 
@@ -59,7 +60,7 @@ function Visualize() {
         selectedPlanet={selectedPlanet}
         planetdata={planetdata}
       />
-
+      <Database planetSelected={planetSelected} />
       <SidePanelV2
         planet={selectedPlanet}
         planetSelected={planetSelected}
