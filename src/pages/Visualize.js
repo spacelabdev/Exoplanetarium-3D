@@ -13,6 +13,7 @@ import "./Visualize.scss";
 
 function Visualize() {
   const [selectedPlanet, setSelectedPlanet] = useState();
+  const [showDatabase, setShowDatabase] = useState(false);
   const planetSelected = (planet) => {
     // if planet
     // record camera position in some variable, galacticCameraPosition
@@ -60,11 +61,17 @@ function Visualize() {
         selectedPlanet={selectedPlanet}
         planetdata={planetdata}
       />
-      <Database planetSelected={planetSelected} />
+      <Database
+        planetSelected={planetSelected}
+        showDatabase={showDatabase}
+        setShowDatabase={setShowDatabase}
+      />
       <SidePanelV2
         planet={selectedPlanet}
         planetSelected={planetSelected}
         selectedPlanet={selectedPlanet}
+        showDatabase={showDatabase}
+        setShowDatabase={setShowDatabase}
       />
     </div>
   );

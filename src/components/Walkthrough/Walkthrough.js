@@ -1,11 +1,12 @@
-import HomeButton from '../shared/HomeButton';
-import Slide1 from './Slide1';
-import Slide2 from './Slide2';
-import Slide3 from './Slide3';
-import Slide4 from './Slide4';
-import Slide5 from './Slide5';
-import { useMultiStepForm } from './useMultiStepForm';
-import './Walkthrough.scss';
+import HomeButton from "../shared/HomeButton";
+import Slide1 from "./Slide1";
+import Slide2 from "./Slide2";
+import Slide3 from "./Slide3";
+import Slide4 from "./Slide4";
+import Slide5 from "./Slide5";
+import { useMultiStepForm } from "./useMultiStepForm";
+import "./Walkthrough.scss";
+import ReturnToSpaceButton from "../shared/ReturnToSpaceButton/ReturnToSpaceButton";
 
 function Walkthrough() {
   const handleNextSlide = () => {
@@ -49,9 +50,12 @@ function Walkthrough() {
           </button>
         )}
         {isLastSlide && (
-          <button className="walkthrough-button" onClick={previousSlide}>
-            Previous
-          </button>
+          <div className="buttons">
+            <button className="walkthrough-button" onClick={previousSlide}>
+              Previous
+            </button>
+            <ReturnToSpaceButton />
+          </div>
         )}
 
         {!isFirstSlide && !isLastSlide && (

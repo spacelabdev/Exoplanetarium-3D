@@ -12,8 +12,8 @@ import "./Database.scss";
 import planetdata from "../Scene/ExoplanetHelper";
 
 //Set everything to defaults
-const Database = ({ planetSelected }) => {
-  const [showDatabase, setShowDatabase] = useState(false);
+const Database = ({ planetSelected, showDatabase, setShowDatabase }) => {
+  // const [showDatabase, setShowDatabase] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
 

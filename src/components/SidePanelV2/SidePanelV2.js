@@ -1,7 +1,8 @@
 import "./SidePanelV2.scss";
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import returnToSpace from "../../assets/emojione-v1_milky-way.svg";
+import { PiDatabaseBold } from "react-icons/pi";
 // import planetIcon from "../../assets/HighlightedPlanet.svg";
 // import starIcon from "../../assets/Star.svg";
 import planetdata from "../../components/Scene/ExoplanetHelper.js";
@@ -22,10 +23,24 @@ const defaultValue = {
   },
 };
 
-const SidePanel = ({ planet, planetSelected, selectedPlanet }) => {
+const SidePanel = ({
+  planet,
+  planetSelected,
+  selectedPlanet,
+  showDatabase,
+  setShowDatabase,
+}) => {
+  const [panel, setPanel] = useState(false);
+  const [toolTip, showToolTip] = useState(false);
   const { name, disposition, rightAscension, declination, distance, starData } =
     planet ? planet : defaultValue;
   const { stellarDistance, effectiveTemperature, log, radius } = starData;
+
+  useEffect(() => {
+    if (planet) {
+      setPanel(true);
+    }
+  }, [planet]);
 
   const [hovering, setHovering] = useState(false);
 
@@ -79,25 +94,41 @@ const SidePanel = ({ planet, planetSelected, selectedPlanet }) => {
 
   return (
     <>
-      <aside className={planet ? "side-panel open" : "side-panel"}>
+      <aside className={panel ? "side-panel open" : "side-panel"}>
         <p className="sys-name">NAME System</p>
 
         <section className="panel-title-container">
           <p className="panel-title"> {name}</p>
-          <div className="button-wrap">
-            <button
-              className="return"
-              onClick={handleReturnClick}
-              onMouseEnter={handleHover}
-              onMouseLeave={handleHoverLeave}
+          <div className="icons-wrap">
+            <div
+              className="database-button"
+              onClick={() => {
+                setPanel(false);
+                setShowDatabase(true);
+              }}
             >
-              <img
-                src={returnToSpace}
-                alt=" returnToSpace"
-                className="return-hover"
+              <PiDatabaseBold
+                size={30}
+                onMouseEnter={() => showToolTip(true)}
+                onMouseLeave={() => showToolTip(false)}
               />
-            </button>
-            {hovering && <p className="hover-text">Return to space </p>}
+              {toolTip && <div className="tooltip">Database</div>}
+            </div>
+            <div className="button-wrap">
+              <button
+                className="return"
+                onClick={handleReturnClick}
+                onMouseEnter={handleHover}
+                onMouseLeave={handleHoverLeave}
+              >
+                <img
+                  src={returnToSpace}
+                  alt=" returnToSpace"
+                  className="return-hover"
+                />
+              </button>
+              {hovering && <p className="hover-text">Return to space </p>}
+            </div>
           </div>
         </section>
 

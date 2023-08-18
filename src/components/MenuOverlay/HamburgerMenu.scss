@@ -22,7 +22,8 @@
   top: 3.5%;
   right: 4vmin;
   z-index: 99;
-  color: black;
+  // color: black;
+  color: rgb(201, 201, 201);
   background-color: transparent;
   border: 0;
   cursor: pointer;
@@ -31,7 +32,9 @@
 .menu-box {
   height: 100vh;
   margin-left: auto;
-  background-color: rgba(255, 255, 255, 0.9);
+  // background-color: rgba(255, 255, 255, 0.9);
+  background: rgba(30, 30, 30, 1);
+  color: rgb(201, 201, 201);
 }
 
 .menu-items {
@@ -42,13 +45,15 @@
 
 .menu-items a {
   margin-top: 25px;
-  color: black;
+  // color: black;
+  color: rgb(201, 201, 201);
   font-size: clamp(1.2rem, 1.2vw, 1.875rem);
 }
 
 .menu-items p {
   margin-top: 3vh;
-  color: black;
+  // color: black;
+  color: rgb(201, 201, 201);
   font-size: clamp(1.7rem, 1.8vw, 4rem);
 }
 

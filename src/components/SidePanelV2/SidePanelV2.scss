@@ -41,6 +41,28 @@
       text-underline-offset: 5px;
     }
 
+    .icons-wrap {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-items: space-between;
+    }
+
+    .database-button {
+      position: relative;
+      top: 5px;
+      cursor: pointer;
+      margin-right: 1rem;
+    }
+    .tooltip {
+      position: absolute;
+      top: 75%;
+      left: -25%;
+      border-radius: 5px;
+      font-size: 10px;
+      pointer-events: none;
+    }
+
     .button-wrap {
       display: flex;
       position: relative;
