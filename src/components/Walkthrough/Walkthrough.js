@@ -6,7 +6,7 @@ import Slide4 from "./Slide4";
 import Slide5 from "./Slide5";
 import { useMultiStepForm } from "./useMultiStepForm";
 import "./Walkthrough.scss";
-import ReturnToSpaceButton from "../shared/ReturnToSpaceButton/ReturnToSpaceButton";
+import { Link } from "react-router-dom";
 
 function Walkthrough() {
   const handleNextSlide = () => {
@@ -54,7 +54,9 @@ function Walkthrough() {
             <button className="walkthrough-button" onClick={previousSlide}>
               Previous
             </button>
-            <ReturnToSpaceButton />
+            <Link to="/" className="menu-link">
+              <button className="walkthrough-button">Finish</button>
+            </Link>
           </div>
         )}
 
