@@ -1,6 +1,6 @@
 import { React, useRef, useState, useEffect } from "react";
 import { extend, useThree, useFrame } from "@react-three/fiber";
-import * as THREE from 'three'
+import * as THREE from "three";
 import { Instances } from "@react-three/drei";
 import Planet from "./Planet";
 import Sun from "./Sun";
@@ -10,7 +10,6 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 extend({ TextGeometry });
 
-
 /*https://codesandbox.io/s/floating-instanced-shoes-h8o2d*/
 //Converting from celestial coordinates to cartesian coordinates
 //https://math.stackexchange.com/questions/2196866/how-to-calculate-spherical-coordinate-x-y-z-of-a-star-from-magnitude-declin
@@ -18,59 +17,87 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
+const Map = ({
+  planetSelected,
+  data,
+  controlsRef,
+  controlsActive,
+  setControlsActive,
+  destinationCameraPosition,
+  moveCameraTo,
+}) => {
   const numPlanets = data.length;
-  const camera = useThree((state)=>state.camera)
-  let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
+  const camera = useThree((state) => state.camera);
+  let originCameraLocation = new THREE.Vector3(
+    camera.position.x,
+    camera.position.y,
+    camera.position.z
+  );
 
   let cameraMovePosition = new THREE.Vector3();
-  let controls = controlsRef.current
+  let controls = controlsRef.current;
   let cameraTarget = new THREE.Vector3();
-  
-  useEffect(()=>{
-    cameraTarget.set(0,0,0)
-  }, [])
 
-  useEffect(()=>{
-    controls = controlsRef.current
-    console.log("Controls: ", controls)
-    controls.addEventListener('start', () => {
-      setControlsActive(true)
-    })
+  useEffect(() => {
+    cameraTarget.set(0, 0, 0);
+  }, []);
 
-    controls.addEventListener('end', () => {
-      setControlsActive(false)
-      destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
-    })
+  useEffect(() => {
+    controls = controlsRef.current;
+    // console.log("Controls: ", controls);
+    controls.addEventListener("start", () => {
+      setControlsActive(true);
+    });
 
-  }, [])
+    controls.addEventListener("end", () => {
+      setControlsActive(false);
+      destinationCameraPosition.set(
+        camera.position.x,
+        camera.position.y,
+        camera.position.z
+      );
+    });
+  }, []);
 
   useFrame((state, delta) => {
-    if (controlsActive){
-      originCameraLocation.set(camera.position.x, camera.position.y, camera.position.z)
-      cameraTarget.set(controls.target.x, controls.target.y, controls.target.z)
+    if (controlsActive) {
+      originCameraLocation.set(
+        camera.position.x,
+        camera.position.y,
+        camera.position.z
+      );
+      cameraTarget.set(controls.target.x, controls.target.y, controls.target.z);
     }
-    if (controls.target.x < 0.01 && controls.target.y < 0.01 && controls.target.z < 0.01 ){
-      controls.target.set(0,0,0)
+    if (
+      controls.target.x < 0.01 &&
+      controls.target.y < 0.01 &&
+      controls.target.z < 0.01
+    ) {
+      controls.target.set(0, 0, 0);
     }
-    if (cameraTarget.x !== controls.target.x && cameraTarget.y !== controls.target.y && cameraTarget.z !== controls.target.z){
-      console.log("Lerp to target, setTarget: ", cameraTarget, " Controls target: ", controls.target)
+    if (
+      cameraTarget.x !== controls.target.x &&
+      cameraTarget.y !== controls.target.y &&
+      cameraTarget.z !== controls.target.z
+    ) {
+      // console.log("Lerp to target, setTarget: ", cameraTarget, " Controls target: ", controls.target)
       controls.target.set(
-        THREE.MathUtils.lerp(controls.target.x, cameraTarget.x , .01),
-        THREE.MathUtils.lerp(controls.target.y, cameraTarget.y , .01),
-        THREE.MathUtils.lerp(controls.target.z, cameraTarget.z , .01)
-      )
+        THREE.MathUtils.lerp(controls.target.x, cameraTarget.x, 0.01),
+        THREE.MathUtils.lerp(controls.target.y, cameraTarget.y, 0.01),
+        THREE.MathUtils.lerp(controls.target.z, cameraTarget.z, 0.01)
+      );
     }
-    
-    if (state.camera.position !== originCameraLocation && !controlsActive){
-      moveCameraTo(state, 
-        originCameraLocation.x, 
-        originCameraLocation.y, 
+
+    if (state.camera.position !== originCameraLocation && !controlsActive) {
+      moveCameraTo(
+        state,
+        originCameraLocation.x,
+        originCameraLocation.y,
         originCameraLocation.z
-      )
-      state.camera.updateProjectionMatrix()
+      );
+      state.camera.updateProjectionMatrix();
     }
-})
+  });
 
   return (
     <>
@@ -78,16 +105,18 @@ const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsAct
       <Instances limit={numPlanets} range={1000}>
         <sphereGeometry args={[0.1, 10, 10]} />
         <meshLambertMaterial color="purple" />
-        {data.map((planet, i) => { return (
-          <Planet
-            key={i}
-            data={data}
-            texture={planet.texture}
-            numPlanets={numPlanets}
-            planetSelected={planetSelected}
-            {...planet}
-          />
-        )})}
+        {data.map((planet, i) => {
+          return (
+            <Planet
+              key={i}
+              data={data}
+              texture={planet.texture}
+              numPlanets={numPlanets}
+              planetSelected={planetSelected}
+              {...planet}
+            />
+          );
+        })}
       </Instances>
 
       <Instances limit={numPlanets} range={1000}>
@@ -99,6 +128,6 @@ const Map = ({ planetSelected, data, controlsRef, controlsActive, setControlsAct
       </Instances>
     </>
   );
-}
+};
 
 export default Map;

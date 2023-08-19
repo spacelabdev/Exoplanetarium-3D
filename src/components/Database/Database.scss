@@ -8,6 +8,7 @@
   left: 5px;
   z-index: 999;
   opacity: 1;
+  /* width */
 
   /* Database label logistics */
 
@@ -23,7 +24,7 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
   }
-  
+
   .database-icon:hover .tooltip {
     opacity: 1;
   }
@@ -38,37 +39,7 @@
 /* Transparency of the icon */
 
 .database-icon.transparent {
-  opacity: 0.0;
-}
-
-/* Each exoplanet item */
-
-.exoplanet-item {
-  display: flex; 
-  padding: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-  /* Photos for the exoplanets */
-
-  .photo {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-  }
-  
-  /* Data about each exoplanet */
-
-  .exoplanet-info {
-    h3 {
-      margin-bottom: 5px;
-      font-weight: normal;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
+  opacity: 0;
 }
 
 /* The actual database itself */
@@ -77,22 +48,19 @@
   position: fixed;
   top: 7%;
   bottom: 0;
-  left: -500px; 
+  left: -500px;
   padding: 20px;
-  background-color: #FAFAFA;
-  border: 3px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: rgba(30, 30, 30, 1);
   z-index: 998;
-  width: 500px;
+  width: 30vw;
   max-height: 92vh;
   overflow-y: auto;
   color: black;
-  transition: left 0.5s ease-in-out; 
-
+  transition: left 0.5s ease-in-out;
   /*  Moves to be shown when database is opened */
 
   &.open {
-    left: 0; 
+    left: 0;
   }
 
   /* Header of database */
@@ -105,7 +73,7 @@
     margin-top: 10px;
 
     h2 {
-      color: black;
+      color: rgb(201, 201, 201);
       font-weight: normal;
     }
   }
@@ -114,7 +82,7 @@
 
   .close-button {
     cursor: pointer;
-    border: black;
+    color: rgb(201, 201, 201);
     background-color: transparent;
     font-size: 30px;
     position: absolute;
@@ -130,10 +98,11 @@
     align-items: center;
     align-items: flex-start;
     width: 100%;
-    background-color: #FAFAFA;
+    background: rgb(45, 45, 45);
+    border-radius: 5px;
 
     /* Search box */
-  
+
     .search-box {
       position: relative;
       display: flex;
@@ -145,7 +114,7 @@
       padding: 5px;
 
       /* Search input */
-  
+
       .search-input {
         padding: 5px 10px;
         border: none;
@@ -153,9 +122,10 @@
         flex: 1;
         width: 100%;
         max-width: 500px;
-        background-color: #FAFAFA;
+        background-color: transparent;
+        color: rgb(201, 201, 201);
       }
-  
+
       /* Search icon (magnifying glass) */
 
       .search-icon {
@@ -164,7 +134,8 @@
         justify-content: center;
         width: 30px;
         height: 30px;
-        margin-right: 5px; 
+        margin-right: 5px;
+        color: rgb(201, 201, 201);
       }
     }
   }
@@ -175,30 +146,38 @@
     font-size: 14px;
     margin-top: 10px;
     text-align: left;
+    color: rgb(201, 201, 201);
   }
 
   /* Exoplanet shelves */
 
   .exoplanets {
-
     /* Border for the box around items */
-    border: 1px solid black; 
+    border: 1px solid black;
+    background: rgb(37, 37, 37);
     padding: 10px;
     margin-top: 10px;
-    
+
     /* Border for the boxes of items */
     .exoplanet-item {
+      display: flex;
       border: 1px solid black;
       padding: 10px;
-      margin-top: 5px;
+      margin-top: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: rgba(56, 56, 56, 1);
+      cursor: pointer;
 
-      h3 {
-        margin-bottom: 5px;
+      .photo {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
       }
 
       p {
         margin: 0;
+        color: rgb(201, 201, 201);
+        font-size: 20px;
       }
     }
   }
@@ -220,4 +199,26 @@
     max-height: 80vh;
     transform: none;
   }
+}
+
+.exoplanet-database::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+}
+
+/* Track */
+.exoplanet-database::-webkit-scrollbar-track {
+  background: rgba(20, 20, 20, 1);
+}
+
+/* Handle */
+.exoplanet-database::-webkit-scrollbar-thumb {
+  background: rgb(54, 54, 54);
+  height: 15px;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.exoplanet-database::-webkit-scrollbar-thumb:hover {
+  background: rgb(78, 78, 78);
 }

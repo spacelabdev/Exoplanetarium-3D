@@ -1,5 +1,5 @@
 .walkthrough-container {
-  background-image: url('../../assets/welcome-bg.png');
+  background-image: url("../../assets/welcome-bg.png");
   background-size: cover;
   background-position: center center;
   color: white;
@@ -48,7 +48,7 @@
   color: white;
   border: none;
   border-radius: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 5px 20px;
   margin-top: 30px;
   cursor: pointer;
@@ -74,6 +74,14 @@
     background-color: #7000ff;
     padding: 30px;
   }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
 }
 
 .buttons button {

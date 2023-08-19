@@ -1,5 +1,5 @@
 body {
-  background-image: url('../assets/welcome-bg.png');
+  background-image: url("../assets/welcome-bg.png");
   background-size: cover;
   background-position: center center;
   color: white;
@@ -11,12 +11,18 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
 
   a {
     display: block;
     text-decoration: none;
     color: white;
     padding: 10px 0;
+  }
+  .button-container {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
   }
 }
 

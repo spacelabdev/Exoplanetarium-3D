@@ -7,11 +7,14 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import BlueGiantImg from "../assets/textures/blueGasGiant.png";
 import RockyWorldImg from "../assets/textures/rocky.png";
 import TanGiantImg from "../assets/textures/tanGasGiant.png";
+import Database from "../components/Database/Database";
 
 import "./Visualize.scss";
 
-function Visualize() {
+function Visualize({ settings }) {
   const [selectedPlanet, setSelectedPlanet] = useState();
+  const [showDatabase, setShowDatabase] = useState(false);
+
   const planetSelected = (planet) => {
     // if planet
     // record camera position in some variable, galacticCameraPosition
@@ -53,19 +56,26 @@ function Visualize() {
   }, []);
 
   return (
-    <div>
+    <>
       <Scene
         planetSelected={planetSelected}
         selectedPlanet={selectedPlanet}
         planetdata={planetdata}
+        settings={settings}
       />
-
+      <Database
+        planetSelected={planetSelected}
+        showDatabase={showDatabase}
+        setShowDatabase={setShowDatabase}
+      />
       <SidePanelV2
         planet={selectedPlanet}
         planetSelected={planetSelected}
         selectedPlanet={selectedPlanet}
+        showDatabase={showDatabase}
+        setShowDatabase={setShowDatabase}
       />
-    </div>
+    </>
   );
 }
 
