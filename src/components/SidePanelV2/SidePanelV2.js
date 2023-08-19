@@ -39,6 +39,8 @@ const SidePanel = ({
   useEffect(() => {
     if (planet) {
       setPanel(true);
+    } else {
+      setPanel(false);
     }
   }, [planet]);
 

@@ -11,9 +11,10 @@ import Database from "../components/Database/Database";
 
 import "./Visualize.scss";
 
-function Visualize() {
+function Visualize({ settings }) {
   const [selectedPlanet, setSelectedPlanet] = useState();
   const [showDatabase, setShowDatabase] = useState(false);
+
   const planetSelected = (planet) => {
     // if planet
     // record camera position in some variable, galacticCameraPosition
@@ -55,11 +56,12 @@ function Visualize() {
   }, []);
 
   return (
-    <div>
+    <>
       <Scene
         planetSelected={planetSelected}
         selectedPlanet={selectedPlanet}
         planetdata={planetdata}
+        settings={settings}
       />
       <Database
         planetSelected={planetSelected}
@@ -73,7 +75,7 @@ function Visualize() {
         showDatabase={showDatabase}
         setShowDatabase={setShowDatabase}
       />
-    </div>
+    </>
   );
 }
 

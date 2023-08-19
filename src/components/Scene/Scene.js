@@ -6,16 +6,27 @@ import { Stars, Stats } from "@react-three/drei";
 import { OrbitControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
 import System from "./Scenecomponents/System";
+import { useSettings } from "../../hooks/useSettings";
 
-const Scene = ({ selectedPlanet: planet, planetSelected, planetdata }) => {
+const Scene = ({
+  settings,
+  selectedPlanet: planet,
+  planetSelected,
+  planetdata,
+}) => {
   const [selectedPlanet, setSelectedPlanet] = useState(planet);
+  // const { settings } = useSettings();
   let controlsRef = useRef();
   let [controlsActive, setControlsActive] = useState(false);
   let destinationCameraPosition = new THREE.Vector3();
 
-  useEffect(() => {
-    setSelectedPlanet(planet);
-  }, [planet]);
+  // useEffect(() => {
+  //   console.log("Settings", settings);
+  // }, [settings]);
+
+  // useEffect(() => {
+  //   setSelectedPlanet(planet);
+  // }, [planet]);
 
   const moveCameraTo = (context, x, y, z) => {
     context.camera.position.lerp(destinationCameraPosition.set(x, y, z), 0.01);
@@ -70,7 +81,7 @@ const Scene = ({ selectedPlanet: planet, planetSelected, planetdata }) => {
             moveCameraTo={moveCameraTo}
           />
         )}
-        {/*<Stats />*/}
+        {settings.stats ? <Stats showPanel={0} /> : null}
       </Canvas>
     </div>
   );
