@@ -14,7 +14,7 @@ import "./Visualize.scss";
 
 function Visualize() {
   const [selectedPlanet, setSelectedPlanet] = useState();
-  const planetSelected = (planet) => {
+  // const planetSelected = (planet) => {
     // if planet
     // record camera position in some variable, galacticCameraPosition
     // Set star position based on planet.position.x - orbital radius
@@ -24,8 +24,8 @@ function Visualize() {
     // else if !selectedPlanet && galacticCameraPosition
     // lerp camera.position back to galacticCameraPosition
     // no need for an else, you should do nothing and nothing is naturally done at this point
-    setSelectedPlanet(planet);
-  };
+  //   setSelectedPlanet(() => planet);
+  // };
 
   // look into Suspense built-in component for async delay on texture load
 
@@ -48,7 +48,7 @@ function Visualize() {
   return (
     <div>
       <CanvasWrapper 
-        planetSelected={planetSelected} 
+        planetSelected={setSelectedPlanet} 
         selectedPlanet={selectedPlanet} 
         planetdata={planetdata} />
       <SidePanel planet={selectedPlanet} />

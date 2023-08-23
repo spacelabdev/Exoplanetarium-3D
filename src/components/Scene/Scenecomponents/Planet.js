@@ -32,9 +32,9 @@ function Planet({ data, numPlanets, planetSelected, texture, ...planet }) {
           onClick={() => {
             planetSelected({...planet, texture: texture})
           }}
-          onPointerMissed={() => planetSelected(null)}>
+          onPointerMissed={() => planetSelected(undefined)}>
           <sphereGeometry args={[0.1, 30, 30]} />
-          <meshBasicMaterial 
+          <meshStandardMaterial 
             map={texture}
             vertexColors={false}
             color="white"

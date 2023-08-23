@@ -36,7 +36,7 @@ function PlanetName({ id, object, temp = new THREE.Object3D(), ...props }) {
   return (
     <group {...props}>
       <Instance ref={ref}>
-        <mesh onClick={(e) => console.log("click")}>
+        <mesh>
           <textGeometry
             args={[props.name, { font, size: 0.06, height: 0.001 }]}
           />

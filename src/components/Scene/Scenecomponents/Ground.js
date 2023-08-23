@@ -18,31 +18,11 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-const Ground = ({ planetSelected, data, controlsRef, moveCameraTo, destinationCameraPosition  }) => {
-  const numPlanets = data.length;
-//   const camera = useThree((state)=>state.camera)
-//   const cameraAnchor = new THREE.Vector3(0, 0, 0)
-  
+const Ground = ({ moveCameraTo }) => {
 
-//   let controls = controlsRef.current
-//   let cameraTarget = new THREE.Vector3();
-  
-//   useEffect(()=>{
-//     destinationCameraPosition.set(cameraAnchor)
-//   }, [])
-
-//   useFrame((state, delta) => {
-    
-//     if (state.camera.position !== cameraAnchor){
-//         // console.log("camera position not anchor")
-//       moveCameraTo(state, 
-//         0, 
-//         0, 
-//         0
-//       )
-//       state.camera.updateProjectionMatrix()
-//     }
-// })
+    useEffect(()=>{
+        moveCameraTo(0,0,0)
+    }, [])
 
   return (
     <>

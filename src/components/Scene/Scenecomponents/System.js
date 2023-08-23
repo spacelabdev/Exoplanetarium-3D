@@ -131,14 +131,14 @@ const System = ({ data, planetSelected, planetRef, showStar, starPosition, contr
 
   return (
     <>
-      <mesh ref={planetRef} data={data} onPointerMissed={() => planetSelected(null)}>
+      <mesh ref={planetRef} data={data} onPointerMissed={() => planetSelected(undefined)}>
         <sphereGeometry args={[0.1, 30, 30]} />
         <meshBasicMaterial color="white" map={data.texture} />
       </mesh>
       <textGeometry args={[data.name, { font, size: 0.06, height: 0.001 }]} />
       <meshLambertMaterial color={"white"} />
-      {showStar
-        ? <Sun position={[...starPosition]} />
+      {!planetSelected
+        ? <Sun position={starPosition} />
         : null
       }
       
