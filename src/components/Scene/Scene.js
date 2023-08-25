@@ -18,8 +18,6 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
   let [currentView, setCurrentView] = useState('map')
   let [desiredCameraPosition, setDesiredCameraPosition] = useState(new THREE.Vector3())
   const [camera, setCamera] = useState(useThree((state)=>state.camera))
-  // let originCameraLocation = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z)
-  // let [controls, setControls] = useState(controlsRef.current)
   let [cameraTarget, setCameraTarget] = useState(new THREE.Vector3())
   let planetRef = useRef();
   const [showStar, setShowStar] = useState(false)
