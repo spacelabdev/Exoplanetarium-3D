@@ -49,6 +49,7 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
       controlsRef.current.reset()
       console.log("camera postiion after orbitControls reset: ", camera.position)
     } else {
+      firstPersonControlsRef.current.dragToLook = true
       console.log("camera position @ flyControls: ", camera.position)
     }
     setCameraControlType((control) => control === 'orbit' ? 'fly' : 'orbit')
