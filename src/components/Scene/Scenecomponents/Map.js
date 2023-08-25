@@ -18,16 +18,19 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-const Map = ({data, selectedPlanet, planetSelected, starPosition, moveTargetTo, moveCameraTo }) => {
+const Map = ({data, selectedPlanet, planetSelected, starPosition, moveTargetTo, moveCameraTo, swapPerspective }) => {
   const numPlanets = data.length;
 
   return (
     <>
-      <Sun position={[0, 0, 0]} onClick={() => moveTargetTo(0, 0, 0)} />
-      {selectedPlanet
+      <Sun 
+        position={[0, 0, 0]} 
+        leftClickFunction={() => {return moveTargetTo(0, 0, 0)}} 
+        rightClickFunction={swapPerspective}/>
+      {/* {selectedPlanet
         ? <Sun position={[starPosition[0], starPosition[1], starPosition[2]]} />
         : null
-      }
+      } */}
       <Instances limit={numPlanets} range={1000}>
         <sphereGeometry args={[0.001, 3, 2]} />
         <meshLambertMaterial 
