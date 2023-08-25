@@ -1,61 +1,70 @@
+/* The actual database icon itself (database) */
 .database-icon {
-  width: 40px;
-  height: 30px;
+  width: 30px;
+  height: 40px;
   cursor: pointer;
   position: fixed;
   top: 50px;
   left: 5px;
   z-index: 999;
   opacity: 1;
+  /* width */
+
+  /* Database label logistics */
+
+  .tooltip {
+    position: absolute;
+    top: 100%;
+    left: 120%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .database-icon:hover .tooltip {
+    opacity: 1;
+  }
 }
+
+/* Makes icon unclickable when open */
+
+.unclickable {
+  pointer-events: none;
+}
+
+/* Transparency of the icon */
 
 .database-icon.transparent {
-  opacity: 0.0;
+  opacity: 0;
 }
 
-.exoplanet-item {
-  display: flex; /* Use flexbox to align items */
-  border: 1px solid black;
-  padding: 10px;
-  margin-top: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-  .photo {
-    width: 60px;
-    height: 60px;
-    margin-right: 10px;
-  }
-
-  .exoplanet-info {
-    h3 {
-      margin-bottom: 5px;
-      font-weight: normal;
-    }
-
-    p {
-      margin: 0;
-    }
-  }
-}
+/* The actual database itself */
 
 .exoplanet-database {
   position: fixed;
   top: 7%;
-  left: -400px; /* Initial position outside the left edge of the screen */
+  bottom: 0;
+  left: -600px;
   padding: 20px;
-  background-color: #FAFAFA;
-  border: 3px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: rgba(30, 30, 30, 1);
   z-index: 998;
-  width: 400px;
-  max-height: 60vh;
-  overflow-y: auto;
+  width: 30vw;
+  max-height: 92vh;
+  overflow-y: hidden;
   color: black;
-  transition: left 0.3s ease; 
+  transition: left 0.5s ease-in-out;
+  /*  Moves to be shown when database is opened */
 
   &.open {
-    left: 0; 
+    left: 0;
+    overflow-y: auto;
   }
+
+  /* Header of database */
 
   .header {
     display: flex;
@@ -65,14 +74,16 @@
     margin-top: 10px;
 
     h2 {
-      color: black;
+      color: rgb(201, 201, 201);
       font-weight: normal;
     }
   }
 
+  /* Close button icon (X) */
+
   .close-button {
     cursor: pointer;
-    border: black;
+    color: rgb(201, 201, 201);
     background-color: transparent;
     font-size: 30px;
     position: absolute;
@@ -80,88 +91,99 @@
     right: 10px;
   }
 
+  /* Search bar */
+
   .search-bar {
     margin-top: 10px;
     display: flex;
     align-items: center;
     align-items: flex-start;
-    background-color: #FAFAFA;
-  
+    width: 100%;
+    background: rgb(45, 45, 45);
+    border-radius: 5px;
+
+    /* Search box */
+
     .search-box {
       position: relative;
       display: flex;
       align-items: center;
       border: 1px solid black;
       border-radius: 5px;
+      width: 100%;
+      max-width: 500px;
       padding: 5px;
-  
+
+      /* Search input */
+
       .search-input {
         padding: 5px 10px;
         border: none;
         outline: none;
         flex: 1;
-        width: 300px;
-        background-color: #FAFAFA;
+        width: 100%;
+        max-width: 500px;
+        background-color: transparent;
+        color: rgb(201, 201, 201);
       }
-  
+
+      /* Search icon (magnifying glass) */
+
       .search-icon {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 30px;
         height: 30px;
-        margin-right: 5px; /* Add margin to separate the icon from the input */
+        margin-right: 5px;
+        color: rgb(201, 201, 201);
       }
     }
   }
+
+  /* Displays x to x of x results */
 
   .result-count-left {
     font-size: 14px;
     margin-top: 10px;
-    text-align: left; /* Align the text to the left */
+    text-align: left;
+    color: rgb(201, 201, 201);
   }
 
-  .exoplanets {
+  /* Exoplanet shelves */
 
-    border: 1px solid black; /* Add a border around the exoplanets */
+  .exoplanets {
+    /* Border for the box around items */
+    border: 1px solid black;
+    background: rgb(37, 37, 37);
     padding: 10px;
     margin-top: 10px;
-    
+
+    /* Border for the boxes of items */
     .exoplanet-item {
+      display: flex;
       border: 1px solid black;
       padding: 10px;
-      margin-top: 5px;
+      margin-top: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      background-color: rgba(56, 56, 56, 1);
+      cursor: pointer;
 
-      h3 {
-        margin-bottom: 5px;
+      .photo {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
       }
 
       p {
         margin: 0;
+        color: rgb(201, 201, 201);
+        font-size: 20px;
       }
     }
   }
 
-  .tooltip {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #333;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
-  
-  .database-icon:hover .tooltip {
-    opacity: 1;
-  }
-
+  /* Search input box */
   .search-input {
     padding: 5px 10px;
     border: 1px solid black;
@@ -170,10 +192,34 @@
     max-width: 300px;
   }
 
+  /* Screen fitting */
+
   @media (max-width: 768px) {
     top: 5%;
     left: 10%;
     max-height: 80vh;
     transform: none;
   }
+}
+
+.exoplanet-database::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+}
+
+/* Track */
+.exoplanet-database::-webkit-scrollbar-track {
+  background: rgba(20, 20, 20, 1);
+}
+
+/* Handle */
+.exoplanet-database::-webkit-scrollbar-thumb {
+  background: rgb(54, 54, 54);
+  height: 15px;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.exoplanet-database::-webkit-scrollbar-thumb:hover {
+  background: rgb(78, 78, 78);
 }

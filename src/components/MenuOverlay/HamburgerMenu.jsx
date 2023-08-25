@@ -5,37 +5,68 @@ import { slide as Menu } from "react-burger-menu";
 import "./HamburgerMenu.scss";
 
 function MenuOverlay() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-    return (
-        <section className="MenuOverlay">
-            <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
-                <IoMenuSharp className="menu-icon"></IoMenuSharp>
-            </button>
+  return (
+    <section className="MenuOverlay">
+      <button className="menu-button" onClick={() => setIsOpen(!isOpen)}>
+        <IoMenuSharp className="menu-icon"></IoMenuSharp>
+      </button>
 
-            <Menu
-                right
-                isOpen={isOpen}
-                onStateChange={({ isOpen }) => setIsOpen(isOpen)}
+      <Menu
+        right
+        isOpen={isOpen}
+        onStateChange={({ isOpen }) => setIsOpen(isOpen)}
+      >
+        <nav className="menu-box">
+          <nav className="menu-items">
+            <p>Menu</p>
+            <Link
+              to="/welcome"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
             >
-                <nav className="menu-box">
-                    <nav className="menu-items">
-                        <p>Menu</p>
-                        <Link to="/welcome" style={{ textDecoration: "none" }}> Welcome</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Tutorial</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Settings</Link>
-                        <Link to="/" style={{ textDecoration: "none" }}> Contact Us</Link>
-                    </nav>
-                </nav>
+              {" "}
+              Welcome
+            </Link>
+            <Link
+              to="/walkthrough"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
+              {" "}
+              Tutorial
+            </Link>
+            <Link
+              to="/settings"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
+              {" "}
+              Settings
+            </Link>
+            <Link
+              to="/contact"
+              className="menu-link"
+              onClick={() => setIsOpen(false)}
+            >
+              {" "}
+              Contact Us
+            </Link>
+          </nav>
+        </nav>
 
-                {isOpen && (
-                    <button className="menu-close-button" onClick={() => setIsOpen(false)}>
-                        <IoCloseSharp className="menu-icon"></IoCloseSharp>
-                    </button>
-                )}
-            </Menu>
-        </section>
-    );
+        {isOpen && (
+          <button
+            className="menu-close-button"
+            onClick={() => setIsOpen(false)}
+          >
+            <IoCloseSharp className="menu-icon"></IoCloseSharp>
+          </button>
+        )}
+      </Menu>
+    </section>
+  );
 }
 
 export default MenuOverlay;

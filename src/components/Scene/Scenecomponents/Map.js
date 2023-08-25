@@ -1,6 +1,6 @@
 import { React, useRef, useState, useEffect } from "react";
 import { extend, useThree, useFrame } from "@react-three/fiber";
-import * as THREE from 'three'
+import * as THREE from "three";
 import { Instances } from "@react-three/drei";
 import Planet from "./Planet";
 import Sun from "./Sun";
@@ -9,7 +9,6 @@ import helvetiker from "three/examples/fonts/helvetiker_regular.typeface.json";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry";
 extend({ TextGeometry });
-
 
 /*https://codesandbox.io/s/floating-instanced-shoes-h8o2d*/
 //Converting from celestial coordinates to cartesian coordinates
@@ -59,6 +58,6 @@ const Map = ({data, selectedPlanet, planetSelected, starPosition, moveTargetTo, 
       </Instances>
     </>
   );
-}
+};
 
 export default Map;

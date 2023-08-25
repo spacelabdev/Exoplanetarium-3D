@@ -1,0 +1,44 @@
+.settings-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  .title {
+    margin-bottom: 1rem;
+  }
+  .settings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: auto;
+    padding: 2rem 3rem 5rem 3rem;
+    background-color: black;
+    border: #7000ff 2px solid;
+    border-radius: 5px;
+    position: relative;
+  }
+  .stats-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 40%;
+    font-size: 24px;
+    .stats-button {
+      padding: 0.5rem 1rem;
+      color: white;
+      font-size: 20px;
+      background-color: rgb(54, 54, 54);
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 1rem;
+    }
+    .active {
+      background-color: rgb(165, 164, 164);
+    }
+  }
+}

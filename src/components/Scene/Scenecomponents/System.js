@@ -15,13 +15,14 @@ extend({ TextGeometry });
 
 const font = new FontLoader().parse(helvetiker);
 
-// data={planetdata} 
-//               planetSelected={planetSelected} 
-//               cameraPosition={cameraPosition} 
-//               setCameraPosition={setCameraPosition} 
-//               controlsRef={controlsRef} 
-//               controlsActive={controlsActive} 
+// data={planetdata}
+//               planetSelected={planetSelected}
+//               cameraPosition={cameraPosition}
+//               setCameraPosition={setCameraPosition}
+//               controlsRef={controlsRef}
+//               controlsActive={controlsActive}
 //               setControlsActive={setControlsActive}
+
 
 const System = ({ data, planetSelected, planetRef, showStar, starPosition, controlsRef, controlsActive, setControlsActive, destinationCameraPosition, moveCameraTo }) => {
   // let ref = useRef();
@@ -49,35 +50,35 @@ const System = ({ data, planetSelected, planetRef, showStar, starPosition, contr
   // }, []);
 
   // useEffect(()=>{
-    // controls = controlsRef.current
-    // console.log("Controls: ", controls)
-    // controls.addEventListener('start', () => {
-    //   setControlsActive(true)
-    // })
+  // controls = controlsRef.current
+  // console.log("Controls: ", controls)
+  // controls.addEventListener('start', () => {
+  //   setControlsActive(true)
+  // })
 
-    // controls.addEventListener('end', () => {
-    //   setControlsActive(false)
-    //   destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
-    // })
+  // controls.addEventListener('end', () => {
+  //   setControlsActive(false)
+  //   destinationCameraPosition.set(camera.position.x, camera.position.y, camera.position.z)
+  // })
 
-    // controls.addEventListener('wheel', () => {
-    //   setControlsActive(true)
-    //   destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
-    // })
+  // controls.addEventListener('wheel', () => {
+  //   setControlsActive(true)
+  //   destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
+  // })
 
-    // return () => {
-    //   controls.removeEventListener('start', () => {
-    //     setControlsActive(true)
-    //   })
-    //   controls.removeEventListener('end', () => {
-    //     setControlsActive(false)
-    //     destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
-    //   })
-    //   controls.removeEventListener('start', () => {
-    //     setControlsActive(true)
-    //     destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
-    //   })
-    // }
+  // return () => {
+  //   controls.removeEventListener('start', () => {
+  //     setControlsActive(true)
+  //   })
+  //   controls.removeEventListener('end', () => {
+  //     setControlsActive(false)
+  //     destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
+  //   })
+  //   controls.removeEventListener('start', () => {
+  //     setControlsActive(true)
+  //     destinationCameraPosition.set(cameraPosition.x, cameraPosition.y, cameraPosition.z)
+  //   })
+  // }
   // }, [controlsRef.current])
 
   // useEffect(()=>{

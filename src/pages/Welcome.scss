@@ -1,5 +1,5 @@
 body {
-  background-image: url('../assets/welcome-bg.png');
+  background-image: url("../assets/welcome-bg.png");
   background-size: cover;
   background-position: center center;
   color: white;
@@ -11,12 +11,18 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
 
   a {
     display: block;
     text-decoration: none;
     color: white;
     padding: 10px 0;
+  }
+  .button-container {
+    position: absolute;
+    bottom: 0;
+    right: 1rem;
   }
 }
 
@@ -29,6 +35,11 @@ body {
   border-radius: 5px;
   width: 700px;
   background-color: black;
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
 }
 
 .app-title {
@@ -49,9 +60,17 @@ body {
 }
 
 .left-rectangle {
-  background-image:
-    radial-gradient(closest-corner, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
-    linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)),
+  background-image: radial-gradient(
+      closest-corner,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.3)
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.3),
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
     linear-gradient(to top right, #7000ff, #ad6eff);
   width: 100px;
   height: 80px;
@@ -61,9 +80,17 @@ body {
 }
 
 .right-rectangle {
-  background-image:
-    radial-gradient(closest-corner, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
-    linear-gradient(to bottom right, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3)),
+  background-image: radial-gradient(
+      closest-corner,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.3)
+    ),
+    linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0.3),
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.3)
+    ),
     linear-gradient(to bottom left, #7000ff, #ad6eff);
   width: 100px;
   height: 80px;

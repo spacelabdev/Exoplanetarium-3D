@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import "./Scene.scss";
 import { Canvas, useThree, useFrame } from "@react-three/fiber";
-import * as THREE from 'three'
+import * as THREE from "three";
 import { Stars, Stats } from "@react-three/drei";
 import { OrbitControls, FlyControls, FirstPersonControls } from "@react-three/drei";
 import Map from "./Scenecomponents/Map";
@@ -9,7 +9,7 @@ import System from "./Scenecomponents/System";
 import Ground from "./Scenecomponents/Ground";
 
 
-const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
+const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
   let orbitControlsRef = useRef()
   let firstPersonControlsRef = useRef()
   let controlsRef = useRef();
@@ -226,9 +226,9 @@ const Scene = ({selectedPlanet, planetSelected, planetdata}) => {
         moveTargetTo={moveTargetTo}
         moveCameraTo={moveCameraTo}
         swapPerspective={swapPerspective}  />
-      {/*<Stats />*/}
+      {settings.stats ? <Stats showPanel={0} /> : null}
     </>
   );
-}
+};
 
 export default Scene;
