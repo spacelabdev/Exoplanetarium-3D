@@ -51,6 +51,7 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
     } else {
       firstPersonControlsRef.current.dragToLook = true
       console.log("camera position @ flyControls: ", camera.position)
+      camera.up.set( 0, 1, 0)
     }
     setCameraControlType((control) => control === 'orbit' ? 'fly' : 'orbit')
     console.log("camera position post state change: ", camera.position)

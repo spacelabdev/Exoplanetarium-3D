@@ -52,10 +52,12 @@ function Visualize({ settings }) {
         settings={settings}/>
       <Database
         planetSelected={setSelectedPlanet}
+        planetdata={planetdata}
         showDatabase={showDatabase}
         setShowDatabase={setShowDatabase}
       />
       <SidePanelV2
+        planetdata={planetdata}
         planet={selectedPlanet}
         planetSelected={setSelectedPlanet}
         selectedPlanet={selectedPlanet}

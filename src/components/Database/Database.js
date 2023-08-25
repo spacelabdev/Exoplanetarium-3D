@@ -8,11 +8,9 @@ import { PiDatabaseBold } from "react-icons/pi";
 import placeholderPhoto from "../../assets/textures/tanGasGiant.png";
 //Import corresponding scss
 import "./Database.scss";
-//Import array from ExoplanetHelper
-import planetdata from "../Scene/ExoplanetHelper";
 
 //Set everything to defaults
-const Database = ({ planetSelected, showDatabase, setShowDatabase }) => {
+const Database = ({ planetSelected, planetdata, showDatabase, setShowDatabase }) => {
   // const [showDatabase, setShowDatabase] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showTooltip, setShowTooltip] = useState(false);
@@ -75,7 +73,7 @@ const Database = ({ planetSelected, showDatabase, setShowDatabase }) => {
               key={planet.name}
               onClick={() => {
                 setShowDatabase(false);
-                planetSelected(planet);
+                planetSelected({...planet});
               }}
             >
               <img

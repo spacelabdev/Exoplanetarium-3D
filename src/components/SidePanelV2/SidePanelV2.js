@@ -5,7 +5,6 @@ import returnToSpace from "../../assets/emojione-v1_milky-way.svg";
 import { PiDatabaseBold } from "react-icons/pi";
 // import planetIcon from "../../assets/HighlightedPlanet.svg";
 // import starIcon from "../../assets/Star.svg";
-import planetdata from "../../components/Scene/ExoplanetHelper.js";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -24,6 +23,7 @@ const defaultValue = {
 };
 
 const SidePanel = ({
+  planetdata,
   planet,
   planetSelected,
   selectedPlanet,
@@ -206,7 +206,7 @@ const SidePanel = ({
                 <div
                   key={planetItem.name}
                   className="planet-item"
-                  onClick={() => planetSelected(planetItem)}
+                  onClick={() => planetSelected({...planetItem})}
                 >
                   <p className="planet-item-name">{planetItem.name}</p>
                   <img
