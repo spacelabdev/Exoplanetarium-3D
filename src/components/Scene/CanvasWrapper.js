@@ -12,7 +12,8 @@ const CanvasWrapper = ({selectedPlanet, planetSelected, planetdata}) => {
                 <Scene 
                     selectedPlanet={selectedPlanet}
                     planetSelected={planetSelected}
-                    planetdata={planetdata} />
+                    planetdata={planetdata}
+                    settings={settings} />
             </Canvas>
         </div>
     )
