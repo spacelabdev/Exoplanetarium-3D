@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/Exoplanetarium-3D/static/css/main.927ff17d.css",
+    "main.js": "/Exoplanetarium-3D/static/js/main.f60f142c.js",
+    "static/js/787.195e0cab.chunk.js": "/Exoplanetarium-3D/static/js/787.195e0cab.chunk.js",
+    "static/media/rocky.png": "/Exoplanetarium-3D/static/media/rocky.8494fdd3ab3a68cb1f4a.png",
+    "static/media/welcome-bg.png": "/Exoplanetarium-3D/static/media/welcome-bg.342a02e3ce9f6ba4dc4f.png",
+    "static/media/blueGasGiant.png": "/Exoplanetarium-3D/static/media/blueGasGiant.69cfaafb66e885871257.png",
+    "static/media/sun.jpg": "/Exoplanetarium-3D/static/media/sun.4b569137334e61081651.jpg",
+    "static/media/earth.jpg": "/Exoplanetarium-3D/static/media/earth.981cc3e3660e809249a3.jpg",
+    "static/media/TOI-1009.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1009.01.48f40f54d8d6f2bc4cc8.jpg",
+    "static/media/TOI-1000.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1000.01.f0bf865426ca1368afc9.jpg",
+    "static/media/TOI-1006.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1006.01.126432d920442273e084.jpg",
+    "static/media/TOI-1008.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1008.01.65aaeee737f3c6609bdc.jpg",
+    "static/media/TOI-1007.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1007.01.60b30c3250cc88eac75d.jpg",
+    "static/media/TOI-1004.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1004.01.672265a1105645ff0ae2.jpg",
+    "static/media/TOI-1003.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1003.01.7dfb5d762a7c43d32443.jpg",
+    "static/media/TOI-10001.01.jpg": "/Exoplanetarium-3D/static/media/TOI-10001.01.13a6c3f507bb241e5543.jpg",
+    "static/media/TOI-1002.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1002.01.33a74a622f052d2a4348.jpg",
+    "static/media/TOI-1005.01.jpg": "/Exoplanetarium-3D/static/media/TOI-1005.01.16231418591dbb6dda0a.jpg",
+    "static/media/planet-group.png": "/Exoplanetarium-3D/static/media/planet-group.a1c8e8e345f1e131791f.png",
+    "static/media/tanGasGiant.png": "/Exoplanetarium-3D/static/media/tanGasGiant.5de4b1c6d50db19a0164.png",
+    "static/media/planet-icon.png": "/Exoplanetarium-3D/static/media/planet-icon.e70e9e4f24cf534d28e7.png",
+    "static/media/revicons.eot": "/Exoplanetarium-3D/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/Exoplanetarium-3D/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/Exoplanetarium-3D/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/emojione-v1_milky-way.svg": "/Exoplanetarium-3D/static/media/emojione-v1_milky-way.bee2bd3eee529cc47a41d797dd692900.svg",
+    "index.html": "/Exoplanetarium-3D/index.html",
+    "main.927ff17d.css.map": "/Exoplanetarium-3D/static/css/main.927ff17d.css.map",
+    "main.f60f142c.js.map": "/Exoplanetarium-3D/static/js/main.f60f142c.js.map",
+    "787.195e0cab.chunk.js.map": "/Exoplanetarium-3D/static/js/787.195e0cab.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.927ff17d.css",
+    "static/js/main.f60f142c.js"
+  ]
+}
