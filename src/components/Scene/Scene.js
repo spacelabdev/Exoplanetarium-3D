@@ -27,6 +27,8 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
   const [autoPositionActive, setAutoPositionActive] = useState(true)
   const [cameraStartPosition, setCameraStartPosition] = useState(new THREE.Vector3())
   const [cameraGroundPosition, setCameraGroundPosition] = useState(new THREE.Vector3())
+  const [cameraGroundPositionUp, setCameraGroundPositionUp] = useState(new THREE.Vector3())
+  const [earthRadius, setEarthRadius] = useState(.10001)
 
   // Only set desired Camera location/position/vector
   const moveCameraTo = (x, y, z) => {
@@ -40,23 +42,33 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
     cameraTarget.set(x, y, z)
   }
 
-  const swapPerspective = () => {
+  const swapPerspective = (event) => {
+    event.stopPropagation()
+    setControlsActive(()=> false)
     console.log("Swapping perspective")
     let swappingFrom = cameraControlType
+    console.log("Swapping from : ", swappingFrom)
     if (swappingFrom === 'orbit'){
       console.log("camera postiion @ orbitControls: ", camera.position)
+      cameraStartPosition.set(camera.position.x, camera.position.y, camera.position.z)
+      // camera.up.lerpVectors(cameraTarget, cameraGroundPosition, 1)
+      moveCameraTo(cameraGroundPosition.x, cameraGroundPosition.y, cameraGroundPosition.z)
+      moveTargetTo(cameraGroundPosition.x + .0001, cameraGroundPosition.y, cameraGroundPosition.z)
+      
       orbitControlsRef.current.saveState()
       controlsRef.current.reset()
       console.log("camera postiion after orbitControls reset: ", camera.position)
     } else {
-      firstPersonControlsRef.current.dragToLook = true
+      // firstPersonControlsRef.current.dragToLook = true
       console.log("camera position @ flyControls: ", camera.position)
+      moveCameraTo(cameraStartPosition.x, cameraStartPosition.y, cameraStartPosition.z)
+      moveTargetTo(0, 0, 0)
       camera.up.set( 0, 1, 0)
     }
     setCameraControlType((control) => control === 'orbit' ? 'fly' : 'orbit')
     console.log("camera position post state change: ", camera.position)
-    controlsRef.current = swappingFrom === 'orbit' ? firstPersonControlsRef.current : orbitControlsRef.current
-    console.log("camera position post swap: ", camera.position)
+    // controlsRef.current = swappingFrom === 'orbit' ? firstPersonControlsRef.current : orbitControlsRef.current
+    // console.log("camera position post swap: ", camera.position)
   }
 
   const handlePlanetSelection = () => {
@@ -84,20 +96,51 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
       setShowStar(true)
 }
 
+const LatLongTo3D = (lat, long, radius) => {
+  let phi   = (90-lat)*(Math.PI/180);
+  let theta = (long+180)*(Math.PI/180);
+
+  let x = -(radius * Math.sin(phi)*Math.cos(theta));
+  let z = (radius * Math.sin(phi)*Math.sin(theta));
+  let y = (radius * Math.cos(phi));
+  cameraGroundPositionUp.set(-(Math.sin(phi)*Math.cos(theta)), Math.sin(phi)*Math.sin(theta), Math.cos(phi))
+  return {x,y,z};
+
+}
+
+const getUserLocation = () => {
+  let geolocation = navigator.geolocation
+  if (geolocation){
+    geolocation.getCurrentPosition((result) => {
+      let lat = result.coords.latitude
+      let lng = result.coords.longitude
+      let {x, y, z} = LatLongTo3D(lat, lng, earthRadius)
+      cameraGroundPosition.set( x, y, z)
+    }, (error) => {
+      alert("Something went wrong. You must allow location data to use some features of this app.")
+    })
+  }
+}
+
   // Onload camera target
   useEffect(()=>{
     window.addEventListener('contextmenu', (e)=>{
       e.preventDefault()
     })
+    if (navigator.geolocation){
+      getUserLocation()
+    } else {
+      alert("You must allow location data to use some features of this app.")
+      cameraGroundPosition.set(0, earthRadius, 0)
+    }
     cameraStartPosition.set(camera.position.x, camera.position.y, camera.position.z)
-    cameraGroundPosition.set(0, .101, 0)
-    camera.near = 0.0001
+    camera.near = 0.00001
     cameraTarget.set(0,0,0)
     setAutoPositionActive(() => true)
     moveCameraTo(camera.position.x, camera.position.y, camera.position.z)
     controlsRef.current = orbitControlsRef.current
     console.log("Controls: ", controlsRef.current)
-    orbitControlsRef.current.addEventListener('start', () => {
+    orbitControlsRef.current.addEventListener('start', (event) => {
       setControlsActive(() => true)
     })
     orbitControlsRef.current.addEventListener('end', () => {
@@ -105,13 +148,13 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
     })
   }, [])
 
-  useEffect(()=>{
-    if (cameraControlType === "orbit"){
-      moveCameraTo(cameraStartPosition.x, cameraStartPosition.y, cameraStartPosition.z)
-    } else {
-      moveCameraTo(cameraGroundPosition.x, cameraGroundPosition.y, cameraGroundPosition.z)
-    }
-  }, [controlsRef.current])
+  // useEffect(()=>{
+  //   if (cameraControlType === "orbit"){
+  //     moveCameraTo(cameraStartPosition.x, cameraStartPosition.y, cameraStartPosition.z)
+  //   } else {
+  //     moveCameraTo(cameraGroundPosition.x, cameraGroundPosition.y, cameraGroundPosition.z)
+  //   }
+  // }, [controlsRef.current])
 
   // define/update reference to selected planet on change
   useEffect(()=>{
@@ -154,16 +197,14 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
     } 
     
     // Orbit Controls active
-    if (cameraControlType === 'orbit'){
+    // if (cameraControlType === 'orbit'){
       // Handles updating camera home location and target on manual move
       if (controlsActive && controlsRef.current.target){
         setAutoPositionActive(() => false)
         moveCameraTo(state.camera.position.x, state.camera.position.y, state.camera.position.z)
         moveTargetTo(controlsRef.current.target.x, controlsRef.current.target.y, controlsRef.current.target.z)
-        cameraStartPosition.set(state.camera.position.x, state.camera.position.y, state.camera.position.z)
+        // cameraStartPosition.set(state.camera.position.x, state.camera.position.y, state.camera.position.z)
       }
-
-      
 
       // if camera target/lookAt location !== cameraTarget, update camera target/lookAt location
       if (controlsRef.current.target.x !== cameraTarget.x || controlsRef.current.target.y !== cameraTarget.y || controlsRef.current.target.z !== cameraTarget.z){
@@ -182,9 +223,9 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
         }
       }
       orbitControlsRef.current.update()
-    } else {
-      camera.getWorldDirection(orbitControlsRef.current.target)
-    } 
+    // } else {
+    //   camera.getWorldDirection(orbitControlsRef.current.target)
+    // } 
 
 
     
@@ -197,19 +238,19 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
       <hemisphereLight />
       <OrbitControls 
         ref={orbitControlsRef}
-        enabled={!!(cameraControlType === 'orbit')} />
+         />
       {/* <FirstPersonControls
         ref={firstPersonControlsRef}
         movementSpeed={0}
         lookSpeed={.5}
         enabled={!!(cameraControlType !== 'orbit')} /> */}
-      <FlyControls
+      {/* <FlyControls
         ref={firstPersonControlsRef}
         movementSpeed={0}
         rollSpeed={.5}
         enabled={!!(cameraControlType !== 'orbit')}
         dragToLook={true} 
-        up={new THREE.Vector3()}/>
+        up={cameraGroundPositionUp}/> */}
       <Stars
         radius={100}
         depth={50}
