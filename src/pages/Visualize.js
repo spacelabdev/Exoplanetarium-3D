@@ -1,4 +1,5 @@
-import Scene from "../components/Scene/Scene";
+
+import CanvasWrapper from "../components/Scene/CanvasWrapper";
 import SidePanelV2 from "../components/SidePanelV2/SidePanelV2";
 import { React, useState, useEffect, useRef } from "react";
 import planetdata from "../components/Scene/ExoplanetHelper";
@@ -14,19 +15,6 @@ import "./Visualize.scss";
 function Visualize({ settings }) {
   const [selectedPlanet, setSelectedPlanet] = useState();
   const [showDatabase, setShowDatabase] = useState(false);
-
-  const planetSelected = (planet) => {
-    // if planet
-    // record camera position in some variable, galacticCameraPosition
-    // Set star position based on planet.position.x - orbital radius
-    // may need another variable/piece of state for System -> Sun.position values & might want to look into random application of different color star textures (or just randomly applying a red or blue default color, if it changes the existing sun texture)
-    // lerp camera.position to x midpoint between planet and star, neutral y position, z position 1.25x midpoint distance (?)
-    // camera.lookAt x midpoint
-    // else if !selectedPlanet && galacticCameraPosition
-    // lerp camera.position back to galacticCameraPosition
-    // no need for an else, you should do nothing and nothing is naturally done at this point
-    setSelectedPlanet(planet);
-  };
 
   // look into Suspense built-in component for async delay on texture load
 
@@ -56,26 +44,26 @@ function Visualize({ settings }) {
   }, []);
 
   return (
-    <>
-      <Scene
-        planetSelected={planetSelected}
-        selectedPlanet={selectedPlanet}
+    <div>
+      <CanvasWrapper 
+        planetSelected={setSelectedPlanet} 
+        selectedPlanet={selectedPlanet} 
         planetdata={planetdata}
-        settings={settings}
-      />
+        settings={settings}/>
       <Database
-        planetSelected={planetSelected}
+        planetSelected={setSelectedPlanet}
         showDatabase={showDatabase}
         setShowDatabase={setShowDatabase}
       />
       <SidePanelV2
         planet={selectedPlanet}
-        planetSelected={planetSelected}
+        planetSelected={setSelectedPlanet}
         selectedPlanet={selectedPlanet}
         showDatabase={showDatabase}
         setShowDatabase={setShowDatabase}
       />
-    </>
+    </div>
+
   );
 }
 
