@@ -41,12 +41,12 @@ const Scene = ({settings, selectedPlanet, planetSelected, planetdata}) => {
   }
 
   const swapPerspective = (event) => {
-    event.stopPropagation()
     setControlsActive(()=> false)
     console.log("Swapping perspective")
     let swappingFrom = cameraControlType
     console.log("Swapping from : ", swappingFrom)
     if (swappingFrom === 'orbit'){
+      event.stopPropagation()
       console.log("camera postiion @ orbitControls: ", camera.position)
       cameraStartPosition.set(camera.position.x, camera.position.y, camera.position.z)
       // camera.up.lerpVectors(cameraTarget, cameraGroundPosition, 1)
@@ -132,7 +132,7 @@ const getUserLocation = () => {
       cameraGroundPosition.set(0, earthRadius, 0)
     }
     cameraStartPosition.set(camera.position.x, camera.position.y, camera.position.z)
-    camera.near = 0.00001
+    camera.near = 0.00005
     cameraTarget.set(0,0,0)
     setAutoPositionActive(() => true)
     moveCameraTo(camera.position.x, camera.position.y, camera.position.z)
